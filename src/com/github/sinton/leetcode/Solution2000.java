@@ -1,0 +1,784 @@
+package com.github.sinton.leetcode;
+
+import java.util.*;
+
+/**
+ * @author Yan
+ */
+public class Solution2000 {
+    /**
+     * 1046. Last Stone Weight
+     * 最后一块石头的重量
+     * @param stones
+     * @return
+     */
+    public int lastStoneWeight(int[] stones) {
+        int len = stones.length;
+        if (len == 0) {
+            return 0;
+        }
+        if (len == 1) {
+            return stones[0];
+        }
+        Arrays.sort(stones);
+        int y = stones[len - 1];
+        int x = stones[len - 2];
+        int[] subStones = new int[0];
+        if (x == y) {
+            subStones = new int[len - 2];
+            if (subStones.length > 0) {
+                System.arraycopy(stones, 0, subStones, 0, len - 2);
+            }
+        }
+        if (x < y) {
+            subStones = new int[len - 1];
+            stones[len - 2] = y - x;
+            System.arraycopy(stones, 0, subStones, 0, len - 1);
+        }
+        return lastStoneWeight(subStones);
+    }
+
+    /**
+     * 1108. Defanging an IP Address
+     * IP 地址无效化
+     * @param address
+     * @return
+     */
+    public String defangIPaddr(String address) {
+        // return address.replace(".", "[.]");
+        String interval = "[.]";
+        StringBuilder result = new StringBuilder();
+        for (int i = 0, len = address.length(); i < len; i++) {
+            if (address.charAt(i) == '.') {
+                result.append(interval);
+            } else {
+                result.append(address.charAt(i));
+            }
+        }
+        return result.toString();
+    }
+
+    /**
+     * 1232. Check If It Is a Straight Line
+     * 缀点成线
+     * @param coordinates
+     * @return
+     */
+    public boolean checkStraightLine(int[][] coordinates) {
+        boolean offset = true;
+        int xCount = 0;
+        int yCount = 0;
+        for (int[] coordinate : coordinates) {
+            if (coordinate[0] == 0 && coordinate[1] == 0) {
+                offset = false;
+                xCount++;
+                yCount++;
+            } else {
+                if (coordinate[0] == 0) {
+                    xCount++;
+                }
+                if (coordinate[1] == 0) {
+                    yCount++;
+                }
+            }
+        }
+        if (!offset && xCount > 0) {
+            return xCount == coordinates.length;
+        }
+        if (!offset && yCount > 0) {
+            return yCount == coordinates.length;
+        }
+        int x1 = coordinates[0][0];
+        int y1 = coordinates[0][1];
+        int x2 = coordinates[1][0];
+        int y2 = coordinates[1][1];
+        int xn;
+        int yn;
+        for(int i = 2, pair = coordinates.length; i < pair; i++) {
+            xn = coordinates[i][0];
+            yn = coordinates[i][1];
+            if (offset) {
+                if (1.0 * (y2 - y1) / (x2 - x1) != 1.0 * (yn - y1) / (xn - x1)) {
+                    return false;
+                }
+            } else {
+                if (1.0 * y2 / x2 != 1.0 * yn/ xn) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 1281. Subtract the Product and Sum of Digits of an Integer
+     * 整数的各位积和之差
+     * @param n
+     * @return
+     */
+    public int subtractProductAndSum(int n) {
+        int sum = 0;
+        int multiply = 1;
+        while (n > 0) {
+            sum = sum + n % 10;
+            multiply = multiply * (n % 10);
+            n /= 10;
+        }
+        return multiply - sum;
+    }
+
+    /**
+     * 1290. Convert Binary Number in a Linked List to Integer
+     * 二进制链表转整数
+     * @param head
+     * @return
+     */
+    public int getDecimalValue(ListNode head) {
+        int result = 0;
+        while (head != null) {
+            result = result * 2 + head.val;
+            head = head.next;
+        }
+        return result;
+    }
+
+    /**
+     * 1309. Decrypt String from Alphabet to Integer Mapping
+     * 解码字母到整数映射
+     * @param s
+     * @return
+     */
+    public String freqAlphabets(String s) {
+        if ("#".equals(s)) {
+            return "";
+        }
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0, len = s.length(); i < len; i++) {
+            if (s.charAt(i) == '#') {
+                char transChar = (char) ((stack.pop() - '0' + 10 * (stack.pop() - '0'))  - 1 + 'a');
+                stack.push(transChar);
+            } else {
+                stack.push(s.charAt(i));
+            }
+        }
+        StringBuilder answer = new StringBuilder();
+        while(!stack.isEmpty()) {
+            if ('1' <= stack.peek() && stack.peek() <= '9') {
+                answer.insert(0, (char)(stack.pop() - '1' + 'a'));
+            } else {
+                answer.insert(0, stack.pop());
+            }
+        }
+        return answer.toString();
+    }
+
+    /**
+     * 1339. Maximum Product of Splitted Binary Tree
+     * 分裂二叉树的最大乘积
+     * @param root
+     * @return
+     */
+    public int maxProduct(TreeNode root) {
+        int result = Integer.MIN_VALUE;
+        int sum = getTreeNodeSum(root);
+        int leftSum;
+        int rightSum;
+        int multiply;
+        if (root.left != null) {
+            leftSum = getTreeNodeSum(root.left);
+            multiply = (int) (((leftSum % (Math.pow(10, 9) + 7)) *
+                               (sum - leftSum) % (Math.pow(10, 9) + 7)) %
+                              (Math.pow(10, 9) + 7));
+            result = Math.max(result, multiply);
+        }
+        if (root.right != null) {
+            rightSum = getTreeNodeSum(root.right);
+            multiply = (int) (((rightSum % (Math.pow(10, 9) + 7)) *
+                               (sum - rightSum) % (Math.pow(10, 9) + 7)) %
+                              (Math.pow(10, 9) + 7));
+            result = Math.max(result, multiply);
+        }
+        return result;
+    }
+
+    /**
+     * 1339. Maximum Product of Splitted Binary Tree
+     * 分裂二叉树的最大乘积
+     * @param root
+     * @return
+     */
+    public int getTreeNodeSum(TreeNode root) {
+        int sum = root.val;
+        if (root.left != null) {
+            sum += getTreeNodeSum(root.left);
+        }
+        if (root.right != null) {
+            sum += getTreeNodeSum(root.right);
+        }
+        return sum;
+    }
+
+    /**
+     * 1356. Sort Integers by The Number of 1 Bits
+     * 根据数字二进制下 1 的数目排序
+     * @param arr
+     * @return
+     */
+    public int[] sortByBits(int[] arr) {
+        int len = arr.length;
+        int[] bits = new int[len];
+        for(int i = 0; i < len; i++) {
+            bits[i] = bitCount(arr[i]);
+        }
+        for(int i = 0; i < len; i++) {
+            for(int j = i + 1; j < len; j++) {
+                if (bits[i] > bits[j]) {
+                    bits[i] ^= bits[j];
+                    bits[j] ^= bits[i];
+                    bits[i] ^= bits[j];
+                    arr[i] ^= arr[j];
+                    arr[j] ^= arr[i];
+                    arr[i] ^= arr[j];
+                } else if (bits[i] == bits[j] && arr[i] > arr[j]) {
+                    bits[i] ^= bits[j];
+                    bits[j] ^= bits[i];
+                    bits[i] ^= bits[j];
+                    arr[i] ^= arr[j];
+                    arr[j] ^= arr[i];
+                    arr[i] ^= arr[j];
+                }
+            }
+        }
+        return arr;
+    }
+
+    /**
+     * 1356. Sort Integers by The Number of 1 Bits
+     * 计算二进制1个个数
+     * @param num
+     * @return
+     */
+    public int bitCount(int num) {
+        int count = 0;
+        while(num > 0) {
+            if ((num & 1) == 1) {
+                count++;
+            }
+            num >>= 1;
+        }
+        return count;
+    }
+
+    /**
+     * 1470. Shuffle the Array
+     * 重新排列数组
+     * @param nums
+     * @param n
+     * @return
+     */
+    public int[] shuffle(int[] nums, int n) {
+        int[] result = new int[nums.length];
+        for (int i = 0; i < n; i++) {
+            result[2 * i] = nums[i];
+            result[2 * i + 1] = nums[n + i];
+        }
+        return result;
+    }
+
+    /**
+     * 1480. Running Sum of 1d Array
+     * 一维数组的动态和
+     * @param nums
+     * @return
+     */
+    public int[] runningSum(int[] nums) {
+        int[] result = new int[nums.length];
+        int sum = 0;
+        for (int i = 0, len = nums.length; i < len; i++) {
+            sum += nums[i];
+            result[i] = sum;
+        }
+        return result;
+    }
+
+    /**
+     * 1491. Average Salary Excluding the Minimum and Maximum Salary
+     * 去掉最低工资和最高工资后的工资平均值
+     * @param salary
+     * @return
+     */
+    public double average(int[] salary) {
+        int sum = 0;
+        Arrays.sort(salary);
+        for (int i = 1, len = salary.length; i < len - 1; i++) {
+            sum += salary[i];
+        }
+        return 1.0 * sum / (salary.length - 2);
+    }
+
+    /**
+     * 1502. Can Make Arithmetic Progression From Sequence
+     * 判断能否形成等差数列
+     * @param arr
+     * @return
+     */
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        Arrays.sort(arr);
+        int a1 = arr[0];
+        int d = arr[1] - arr[0];
+        for(int i = 1, len = arr.length; i < len; i++) {
+            if (arr[i] != a1 + i * d) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 1512. Number of Good Pairs
+     * 好数对的数目
+     * @param nums
+     * @return
+     */
+    public int numIdenticalPairs(int[] nums) {
+        int count = 0;
+        for (int i = 0, len = nums.length; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (nums[i] == nums[j]) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
+     * 1523. Count Odd Numbers in an Interval Range
+     * 在区间范围内统计奇数数目
+     * @param low
+     * @param high
+     * @return
+     */
+    public int countOdds(int low, int high) {
+        if (low % 2 == 0 && high % 2 == 0) {
+            return (high - low) / 2;
+        }
+        return (high - low) / 2 + 1;
+    }
+
+    /**
+     * 1572. Matrix Diagonal Sum
+     * 矩阵对角线元素的和
+     * @param mat
+     * @return
+     */
+    public int diagonalSum(int[][] mat) {
+        int sum = 0;
+        int index = 0;
+        int duplicateValue = 0;
+        int len = mat.length;
+        for (int[] element : mat) {
+            sum += element[index];
+            sum += element[len - 1 - index];
+            if (len - 1 - index == index) {
+                duplicateValue = element[index];
+            }
+            index++;
+        }
+        return sum - duplicateValue;
+    }
+
+    /**
+     * 1588. Sum of All Odd Length Subarrays
+     * 所有奇数长度子数组的和
+     * @param arr
+     * @return
+     */
+    public int sumOddLengthSubarrays(int[] arr) {
+        int sum = 0;
+        int len = arr.length;
+        int dynamicLen = 1;
+        if (len == 0) {
+            return sum;
+        }
+        while (dynamicLen <= len) {
+            for (int i = 0; i <= len - dynamicLen; i++) {
+                int[] subArr = new int[dynamicLen];
+                System.arraycopy(arr, i, subArr, 0, dynamicLen);
+                for (int item : subArr) {
+                    sum += item;
+                }
+            }
+            dynamicLen += 2;
+        }
+        return sum;
+    }
+
+    /**
+     * 1672. Richest Customer Wealth
+     * 最富有客户的资产总量
+     * @param accounts
+     * @return
+     */
+    public int maximumWealth(int[][] accounts) {
+        int max = 0;
+        for (int[] account : accounts) {
+            int sum = 0;
+            for (int proSummary : account) {
+                sum += proSummary;
+            }
+            if (sum > max) {
+                max = sum;
+            }
+        }
+        return max;
+    }
+
+    /**
+     * 1678. Goal Parser Interpretation
+     * 设计 Goal 解析器
+     * @param command
+     * @return
+     */
+    public String interpret(String command) {
+        // 字符串替换
+        // return command.replace("()", "o").replace("(al)", "al");
+        // 栈方式实现
+        Stack<String> stack = new Stack<>();
+        StringBuilder builder = new StringBuilder();
+        StringBuilder tmp;
+        for(int i = 0, len = command.length(); i < len; i++) {
+            if (command.charAt(i) == ')') {
+                tmp = new StringBuilder();
+                while(!stack.isEmpty() && !"(".equals(stack.peek())) {
+                    tmp.insert(0, stack.pop());
+                }
+                tmp.insert(0, stack.pop());
+                tmp.append(command.charAt(i));
+                if ("()".equals(tmp.toString())) {
+                    stack.push("o");
+                }
+                if ("(al)".equals(tmp.toString())) {
+                    stack.push("al");
+                }
+            } else {
+                stack.push(String.valueOf(command.charAt(i)));
+            }
+        }
+        while(!stack.isEmpty()) {
+            builder.insert(0, stack.pop());
+        }
+        return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        Solution2000 Solution2000 = new Solution2000();
+        String[] testCase = {"G()(al)", "G()()()()(al)", "(al)G(al)()()G"};
+        for (String caseItem : testCase) {
+            System.out.println(Solution2000.interpret(caseItem));
+        }
+    }
+
+    /**
+     * 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+     * 十-二进制数的最少数目
+     * @param n
+     * @return
+     */
+    public int minPartitions(String n) {
+        int max = n.charAt(0) - '0';
+        for (int i = 0; i < n.length(); i++) {
+            max = Math.max(n.charAt(i) - '0', max);
+        }
+        return max;
+    }
+
+    /**
+     * 1768. Merge Strings Alternately
+     * 交替合并字符串
+     * @param word1
+     * @param word2
+     * @return
+     */
+    public String mergeAlternately(String word1, String word2) {
+        StringBuilder answer = new StringBuilder();
+        int length = Math.max(word1.length(), word2.length());
+        for(int i = 0; i < length; i++) {
+            if(i < word1.length()) {
+                answer.append(word1.charAt(i));
+            }
+            if(i < word2.length()) {
+                answer.append(word2.charAt(i));
+            }
+        }
+        return answer.toString();
+    }
+
+    /**
+     * 1779. Find Nearest Point That Has the Same X or Y Coordinate
+     * 找到最近的有相同 X 或 Y 坐标的点
+     * @param x
+     * @param y
+     * @param points
+     * @return
+     */
+    public int nearestValidPoint(int x, int y, int[][] points) {
+        int nearestDistance = Integer.MAX_VALUE;
+        int index = -1;
+        for (int i = 0, len = points.length; i < len; i++) {
+            if (points[i][0] == x || points[i][1] == y) {
+                if (Math.abs(x - points[i][0]) + Math.abs(y - points[i][1]) < nearestDistance) {
+                    nearestDistance = Math.min(nearestDistance, Math.abs(x - points[i][0]) + Math.abs(y - points[i][1]));
+                    index = i;
+                }
+            }
+        }
+        return index;
+    }
+
+    /**
+     * 1790. Check if One String Swap Can Make Strings Equal
+     * 仅执行一次字符串交换能否使两个字符串相等
+     * @param s1
+     * @param s2
+     * @return
+     */
+    public boolean areAlmostEqual(String s1, String s2) {
+        if (s1.equals(s2)) {
+            return true;
+        } else {
+            if (s1.length() == s2.length()) {
+                Character s1Left  = null;
+                Character s1Right = null;
+                Character s2Left  = null;
+                Character s2Right = null;
+                for(int i = 0, len = s1.length(); i < len; i++) {
+                    if(s1.charAt(i) != s2.charAt(i)) {
+                        if (s1Left == null && s2Left == null) {
+                            s1Left = s1.charAt(i);
+                            s2Left = s2.charAt(i);
+                        } else {
+                            if (s1Right == null && s2Right == null) {
+                                s1Right = s1.charAt(i);
+                                s2Right = s2.charAt(i);
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                if (s1Left.equals(s2Right) && s2Left.equals(s1Right)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+    }
+
+    /**
+     * 1822. Sign of the Product of an Array
+     * 数组元素积的符号
+     * @param nums
+     * @return
+     */
+    public int arraySign(int[] nums) {
+        int negativeCount = 0;
+        for (int num : nums) {
+            if (num == 0) {
+                return 0;
+            } else if (num < 0) {
+                negativeCount++;
+            }
+        }
+        if (negativeCount == 0) {
+            return 1;
+        } else {
+            return (negativeCount + 2) % 2 == 0 ? 1 : -1;
+        }
+    }
+
+    /**
+     * 1920. Build Array from Permutation
+     * 基于排列构建数组
+     * @param nums
+     * @return
+     */
+    public int[] buildArray(int[] nums) {
+        int[] result = new int[nums.length];
+        for (int i = 0, len = nums.length; i < len; i++) {
+            result[i] = nums[nums[i]];
+        }
+        return result;
+    }
+
+    /**
+     * 1929. Concatenation of Array
+     * 数组串联
+     * @param nums
+     * @return
+     */
+    public int[] getConcatenation(int[] nums) {
+        int[] result = new int[nums.length * 2];
+        for(int i = 0, length = nums.length; i < length; i++) {
+            result[i] = nums[i];
+            result[i + length] = nums[i];
+        }
+        return result;
+    }
+
+    /**
+     * 2011. Final Value of Variable After Performing Operations
+     * 执行操作后的变量值
+     * @param operations
+     * @return
+     */
+    public int finalValueAfterOperations(String[] operations) {
+        int result = 0;
+        for (String operation : operations) {
+            switch (operation) {
+                case "++X":
+                case "X++":
+                    result = result + 1;
+                    break;
+                case "--X":
+                case "X--":
+                    result = result - 1;
+                    break;
+                default:
+                    break;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 2114. Maximum Number of Words Found in Sentences
+     * 句子中的最多单词数
+     * @param sentences
+     * @return
+     */
+    public int mostWordsFound(String[] sentences) {
+        int max = 0;
+        for (String sentence : sentences) {
+            /*
+            解法一
+            int count = sentence.split(" ").length;
+            if (count> max) {
+                max = count;
+            }
+            */
+            int count = 0;
+            for (char word : sentence.toCharArray()) {
+                if (word == ' ') {
+                    count++;
+                }
+            }
+            if (count + 1 > max) {
+                max = count + 1;
+            }
+        }
+        return max;
+    }
+
+    /**
+     * 2160. Minimum Sum of Four Digit Number After Splitting Digits
+     * 拆分数位后四位数字的最小和
+     * @param num
+     * @return
+     */
+    public int minimumSum(int num) {
+        int sum = 0;
+        int numLength = (int) Math.floor(Math.log10(num) + 1);
+        int[] nums = new int[numLength];
+        while (numLength > 0) {
+            nums[numLength - 1] = num % 10;
+            num /= 10;
+            numLength--;
+        }
+        Arrays.sort(nums);
+        sum = sum + nums[0] * 10 + nums[2];
+        sum = sum + nums[1] * 10 + nums[3];
+        return sum;
+    }
+
+    /**
+     * 2181. Merge Nodes in Between Zeros
+     * 合并零之间的节点
+     * @param head
+     * @return
+     */
+    public ListNode mergeNodes(ListNode head) {
+        ListNode curr = null;
+        ListNode result = null;
+        int sum = 0;
+        while (head != null) {
+            if (head.val == 0) {
+                if (sum > 0) {
+                    if (result != null) {
+                        curr.next = new ListNode(sum);
+                        curr = curr.next;
+                    } else {
+                        result =  new ListNode(sum);
+                        curr = result;
+                    }
+                }
+                sum = 0;
+            } else {
+                sum += head.val;
+            }
+            head = head.next;
+        }
+        return result;
+    }
+
+    /**
+     * 2396. Strictly Palindromic Number
+     * 严格回文的数字
+     * @param n
+     * @return
+     */
+    public boolean isStrictlyPalindromic(int n) {
+        StringBuilder result = new StringBuilder();
+        int current;
+        for (int i = 2; i <= n - 2; i++) {
+            current = n;
+            while (current != 0) {
+                result.append(current % i);
+                current = current / i;
+            }
+            if (!result.toString().equals(result.reverse().toString())) {
+                return false;
+            } else {
+                System.out.println(result);
+                result = new StringBuilder();
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 2413. Smallest Even Multiple
+     * 最小偶倍数
+     * @param n
+     * @return
+     */
+    public int smallestEvenMultiple(int n) {
+        return n % 2 == 0 ? n : n * 2;
+    }
+
+    /**
+     * 2469. Convert the Temperature
+     * 温度转换
+     * @param celsius
+     * @return
+     */
+    public double[] convertTemperature(double celsius) {
+        double[] result = new double[2];
+        result[0] = celsius + 273.15;
+        result[1] = celsius * 1.80 + 32.00;
+        return result;
+    }
+}
