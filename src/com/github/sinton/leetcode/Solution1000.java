@@ -1848,4 +1848,25 @@ public class Solution1000 {
         Arrays.sort(nums);
         return nums;
     }
+
+    /**
+     * 1431. Kids With the Greatest Number of Candies
+     * 有最多糖果的孩子
+     * @param candies
+     * @param extraCandies
+     * @return
+     */
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        List<Boolean> answer = new ArrayList<>();
+        int max = candies[0];
+        for (int candy : candies) {
+            if (candy > max) {
+                max = candy;
+            }
+        }
+        for(int i = 0; i < candies.length; i++) {
+            answer.add(candies[i] + extraCandies >= max);
+        }
+        return answer;
+    }
 }

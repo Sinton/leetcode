@@ -1103,6 +1103,32 @@ public class LeetCodeTest {
     }
 
     @Test
+    public void leftRigthDifference() {
+        int[][] testCase = {
+            {10,4,8,3},
+            {1}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution2000.leftRigthDifference(caseItem)));
+        }
+    }
+
+    @Test
+    public void kidsWithCandies() {
+        int[][][] testCase = {
+            {
+                {2,3,5,1,3}, {3}
+            },
+            {
+                {4,2,1,1,2}, {1}
+            }
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution1000.kidsWithCandies(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    @Test
     public void searchMatrix() {
         int[][][][] testCase = {
             {
