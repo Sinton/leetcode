@@ -1850,6 +1850,68 @@ public class Solution1000 {
     }
 
     /**
+     * 1365. How Many Numbers Are Smaller Than the Current Number
+     * 有多少小于当前数字的数字
+     * @param nums
+     * @return
+     */
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] bucket = new int[100];
+        int[] answer = new int[nums.length];
+        for (int num : nums) {
+            bucket[num]++;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i]; j++) {
+                answer[i] += bucket[j];
+            }
+        }
+        return answer;
+    }
+
+    /**
+     * 1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree
+     * 找出克隆二叉树中的相同节点
+     * @param original
+     * @param cloned
+     * @param target
+     * @return
+     */
+    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+        if (cloned.val == target.val) {
+            return cloned;
+        }
+        // TODO
+        if (cloned.left != null) {
+        }
+        if (cloned.right != null) {
+
+        }
+        return null;
+    }
+
+    /**
+     * 1389. Create Target Array in the Given Order
+     * 按既定顺序创建目标数组
+     * @param nums
+     * @param index
+     * @return
+     */
+    public int[] createTargetArray(int[] nums, int[] index) {
+        // 数组位移操作
+        int[] answer = new int[nums.length];
+        for (int i = 0; i < index.length; i++) {
+            for (int j = nums.length - 1; j >= index[i]; j--) {
+                if (j + 1 < nums.length) {
+                    answer[j + 1] = answer[j];
+                }
+            }
+            answer[index[i]] = nums[i];
+        }
+        return answer;
+    }
+
+    /**
      * 1431. Kids With the Greatest Number of Candies
      * 有最多糖果的孩子
      * @param candies
@@ -1864,8 +1926,8 @@ public class Solution1000 {
                 max = candy;
             }
         }
-        for(int i = 0; i < candies.length; i++) {
-            answer.add(candies[i] + extraCandies >= max);
+        for (int candy : candies) {
+            answer.add(candy + extraCandies >= max);
         }
         return answer;
     }

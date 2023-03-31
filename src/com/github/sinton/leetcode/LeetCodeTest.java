@@ -1113,6 +1113,48 @@ public class LeetCodeTest {
         }
     }
 
+    /**
+     * 1365. How Many Numbers Are Smaller Than the Current Number
+     * 有多少小于当前数字的数字
+     */
+    @Test
+    public void smallerNumbersThanCurrent() {
+        int[][] testCase = {
+                {8, 1, 2, 2, 3},
+                {6, 5, 4, 8},
+                {7, 7, 7, 7}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1000.smallerNumbersThanCurrent(caseItem)));
+        }
+    }
+
+    /**
+     * 1389. Create Target Array in the Given Order
+     * 按既定顺序创建目标数组
+     */
+    @Test
+    public void createTargetArray() {
+        int[][][] testCase = {
+            {
+                {0, 1, 2, 3, 4}, {0, 1, 2, 2, 1}
+            },
+            {
+                {1, 2, 3, 4, 0}, {0, 1, 2, 3, 0}
+            },
+            {
+                {1}, {0}
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1000.createTargetArray(caseItem[0], caseItem[1])));
+        }
+    }
+
+    /**
+     * 1431. Kids With the Greatest Number of Candies
+     * 有最多糖果的孩子
+     */
     @Test
     public void kidsWithCandies() {
         int[][][] testCase = {
