@@ -161,14 +161,6 @@ public class Solution2000 {
         return builder.toString();
     }
 
-    public static void main(String[] args) {
-        Solution2000 Solution2000 = new Solution2000();
-        String[] testCase = {"G()(al)", "G()()()()(al)", "(al)G(al)()()G"};
-        for (String caseItem : testCase) {
-            System.out.println(Solution2000.interpret(caseItem));
-        }
-    }
-
     /**
      * 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
      * 十-二进制数的最少数目
@@ -181,6 +173,22 @@ public class Solution2000 {
             max = Math.max(n.charAt(i) - '0', max);
         }
         return max;
+    }
+
+    /**
+     * 1720. Decode XORed Array
+     * 解码异或后的数组
+     * @param encoded
+     * @param first
+     * @return
+     */
+    public int[] decode(int[] encoded, int first) {
+        int[] answer = new int[encoded.length + 1];
+        answer[0] = first;
+        for (int i = 0; i < encoded.length; i++) {
+            answer[i + 1] = answer[i] ^ encoded[i];
+        }
+        return answer;
     }
 
     /**
