@@ -972,36 +972,61 @@ public class LeetCodeTest {
         }
     }
 
+    /**
+     * 938. Range Sum of BST
+     * 二叉搜索树的范围和
+     */
     @Test
     public void solutionRangeSumBST() {
         Integer[][][] testCase = {
-                {
-                        {10, 5, 15, 3, 7, null, 18},
-                        {7},
-                        {15}
-                },
-                {
-                        {10, 5, 15, 3, 7, 13, 18, 1, null, 6},
-                        {6},
-                        {10}
-                }
+            {
+                {10, 5, 15, 3, 7, null, 18},
+                {7},
+                {15}
+            },
+            {
+                {10, 5, 15, 3, 7, 13, 18, 1, null, 6},
+                {6},
+                {10}
+            }
         };
         for (Integer[][] caseItem : testCase) {
             System.out.println(solution1000.rangeSumBST(Helper.buildTreeNode(caseItem[0], 0), caseItem[1][0], caseItem[2][0]));;
         }
     }
 
-
+    /**
+     * 1046. Last Stone Weight
+     * 最后一块石头的重量
+     */
     @Test
-    public void solutionGetDecimalValue() {
+    public void lastStoneWeight() {
         int[][] testCase = {
-                {1, 0, 1}
+                {2, 2},
+                {2, 7, 4, 1, 8, 1},
+                {2, 9, 3, 2}
         };
         for (int[] caseItem : testCase) {
-            System.out.println(solution1500.getDecimalValue(Helper.buildListNode(caseItem)));
+            System.out.println(solution1500.lastStoneWeight(caseItem));
         }
     }
 
+    /**
+     * 1108. Defanging an IP Address
+     * IP 地址无效化
+     */
+    @Test
+    public void defangIPaddr() {
+        String[] testCase = {"1.1.1.1", "255.100.50.0"};
+        for (String caseItem : testCase) {
+            System.out.println(solution1500.defangIPaddr(caseItem));
+        }
+    }
+
+    /**
+     * 1232. Check If It Is a Straight Line
+     * 缀点成线
+     */
     @Test
     public void checkStraightLine() {
         int[][][] testCase = {
@@ -1024,6 +1049,37 @@ public class LeetCodeTest {
     }
 
     /**
+     * 1290. Convert Binary Number in a Linked List to Integer
+     * 二进制链表转整数
+     */
+    @Test
+    public void solutionGetDecimalValue() {
+        int[][] testCase = {
+            {1, 0, 1}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1500.getDecimalValue(Helper.buildListNode(caseItem)));
+        }
+    }
+
+    /**
+     * 1309. Decrypt String from Alphabet to Integer Mapping
+     * 解码字母到整数映射
+     */
+    @Test
+    public void freqAlphabets() {
+        String[] testCase = {
+            "1",
+            "#",
+            "10#11#12",
+            "1326#"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution1500.freqAlphabets(caseItem));
+        }
+    }
+
+    /**
      * 1313. Decompress Run-Length Encoded List
      * 解压缩编码列表
      */
@@ -1040,6 +1096,21 @@ public class LeetCodeTest {
     }
 
     /**
+     * 1339. Maximum Product of Splitted Binary Tree
+     * 分裂二叉树的最大乘积
+     */
+    @Test
+    public void maxProduct() {
+        Integer[][] testCase = {
+//            {1, 2, 3, 4, 5, 6},
+            {1, null, 2, 3, 4, null, null, 5, 6}
+        };
+        for (Integer[] caseItem : testCase) {
+            System.out.println(solution1500.maxProduct(Helper.buildTreeNode(caseItem, 0)));
+        }
+    }
+
+    /**
      * 1342. Number of Steps to Reduce a Number to Zero
      * 将数字变成 0 的操作次数
      */
@@ -1048,6 +1119,25 @@ public class LeetCodeTest {
         int[] testCase = {14, 8, 123};
         for (int caseItem : testCase) {
             System.out.println(solution1500.numberOfSteps(caseItem));
+        }
+    }
+
+    /**
+     * 1356. Sort Integers by The Number of 1 Bits
+     * 根据数字二进制下 1 的数目排序
+     */
+    @Test
+    public void sortByBits() {
+        int[][] testCase = {
+            {0},
+            {1, 0},
+            {0, 1, 2, 3, 4, 5, 6, 7, 8},
+            {1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1},
+            {2, 9, 3, 2},
+            {2, 9, 3, 3, 2}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1500.sortByBits(caseItem)));
         }
     }
 
@@ -1108,99 +1198,52 @@ public class LeetCodeTest {
         }
     }
 
-    @Test
-    public void freqAlphabets() {
-        String[] testCase = {
-                "1",
-                "#",
-                "10#11#12",
-                "1326#"
-        };
-        for (String caseItem : testCase) {
-            System.out.println(solution1500.freqAlphabets(caseItem));
-        }
-    }
-
-    @Test
-    public void lastStoneWeight() {
-        int[][] testCase = {
-                {2, 2},
-                {2, 7, 4, 1, 8, 1},
-                {2, 9, 3, 2}
-        };
-        for (int[] caseItem : testCase) {
-            System.out.println(solution1500.lastStoneWeight(caseItem));
-        }
-    }
-
-    @Test
-    public void sortByBits() {
-        int[][] testCase = {
-                {0},
-                {1, 0},
-                {0, 1, 2, 3, 4, 5, 6, 7, 8},
-                {1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1},
-                {2, 9, 3, 2},
-                {2, 9, 3, 3, 2}
-        };
-        for (int[] caseItem : testCase) {
-            System.out.println(Arrays.toString(solution1500.sortByBits(caseItem)));
-        }
-    }
-
-    @Test
-    public void average() {
-        int[][] testCase = {
-                {4000, 3000, 1000, 2000},
-                {1000, 2000, 3000},
-                {6000, 5000, 4000, 3000, 2000, 1000},
-                {8000, 9000, 2000, 3000, 6000, 1000}
-        };
-        for (int[] caseItem : testCase) {
-            System.out.println(solution1500.average(caseItem));
-        }
-    }
-
+    /**
+     * 1470. Shuffle the Array
+     * 重新排列数组
+     */
     @Test
     public void shuffle() {
         int[][] testCase = {
-                {2, 5, 1, 3, 4, 7},
-                {1, 2, 3, 4, 4, 3, 2, 1},
-                {1, 1, 2, 2}
+            {2, 5, 1, 3, 4, 7},
+            {1, 2, 3, 4, 4, 3, 2, 1},
+            {1, 1, 2, 2}
         };
         for (int[] caseItem : testCase) {
             System.out.println(Arrays.toString(solution1500.shuffle(caseItem, caseItem.length / 2)));
         }
     }
 
+    /**
+     * 1480. Running Sum of 1d Array
+     * 一维数组的动态和
+     */
     @Test
     public void runningSum() {
         int[][] testCase = {
-                {1, 2, 3, 4},
-                {1, 1, 1, 1, 1},
-                {3, 1, 2, 10, 1}
+            {1, 2, 3, 4},
+            {1, 1, 1, 1, 1},
+            {3, 1, 2, 10, 1}
         };
         for (int[] caseItem : testCase) {
             System.out.println(Arrays.toString(solution1500.runningSum(caseItem)));
         }
     }
 
+    /**
+     * 1491. Average Salary Excluding the Minimum and Maximum Salary
+     * 去掉最低工资和最高工资后的工资平均值
+     */
     @Test
-    public void defangIPaddr() {
-        String[] testCase = {"1.1.1.1", "255.100.50.0"};
-        for (String caseItem : testCase) {
-            System.out.println(solution1500.defangIPaddr(caseItem));
-        }
-    }
-
-    @Test
-    public void maxProduct() {
-        Integer[][] testCase = {
-//            {1, 2, 3, 4, 5, 6},
-                {1, null, 2, 3, 4, null, null, 5, 6}
+    public void average() {
+        int[][] testCase = {
+            {4000, 3000, 1000, 2000},
+            {1000, 2000, 3000},
+            {6000, 5000, 4000, 3000, 2000, 1000},
+            {8000, 9000, 2000, 3000, 6000, 1000}
         };
-        for (Integer[] caseItem : testCase) {
-            System.out.println(solution1500.maxProduct(Helper.buildTreeNode(caseItem, 0)));
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1500.average(caseItem));
         }
     }
 
