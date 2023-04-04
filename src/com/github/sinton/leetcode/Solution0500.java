@@ -881,6 +881,7 @@ public class Solution0500 {
 
     /**
      * 215. Kth Largest Element in an Array
+     * 数组中的第K个最大元素
      * @param nums
      * @param k
      * @return
@@ -979,7 +980,7 @@ public class Solution0500 {
 
     /**
      * 242. Valid Anagram
-     *
+     * 有效的字母异位词
      * @param s
      * @param t
      * @return
