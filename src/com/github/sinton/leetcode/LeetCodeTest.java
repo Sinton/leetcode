@@ -1255,6 +1255,22 @@ public class LeetCodeTest {
     }
 
     /**
+     * 1221. Split a String in Balanced Strings
+     * 分割平衡字符串
+     */
+    @Test
+    public void balancedStringSplit() {
+        String[] testCase = {
+            "RLRRLLRLRL",
+            "RLRRRLLRLL",
+            "LLLLRRRR"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution1500.balancedStringSplit(caseItem));
+        }
+    }
+
+    /**
      * 1232. Check If It Is a Straight Line
      * 缀点成线
      */

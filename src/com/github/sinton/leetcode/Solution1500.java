@@ -62,6 +62,34 @@ public class Solution1500 {
     }
 
     /**
+     * 1221. Split a String in Balanced Strings
+     * 分割平衡字符串
+     * @param s
+     * @return
+     */
+    public int balancedStringSplit(String s) {
+        int answer = 0;
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0, len = s.length(); i < len; i++) {
+            if (!stack.empty() && stack.peek() == 'R' && s.charAt(i) == 'L') {
+                stack.pop();
+                if (stack.empty()) {
+                    answer++;
+                }
+            }
+            else if (!stack.empty() && stack.peek() == 'L' && s.charAt(i) == 'R') {
+                stack.pop();
+                if (stack.empty()) {
+                    answer++;
+                }
+            } else {
+                stack.push(s.charAt(i));
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1232. Check If It Is a Straight Line
      * 缀点成线
      * @param coordinates
