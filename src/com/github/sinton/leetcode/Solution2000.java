@@ -57,6 +57,21 @@ public class Solution2000 {
     }
 
     /**
+     * 1528. Shuffle String
+     * 重新排列字符串
+     * @param s
+     * @param indices
+     * @return
+     */
+    public String restoreString(String s, int[] indices) {
+        char[] content = new char[indices.length];
+        for (int i = 0, len = indices.length; i < len; i++) {
+            content[indices[i]] = s.charAt(i);
+        }
+        return String.valueOf(content);
+    }
+
+    /**
      * 1572. Matrix Diagonal Sum
      * 矩阵对角线元素的和
      * @param mat

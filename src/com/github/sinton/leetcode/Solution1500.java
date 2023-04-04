@@ -176,6 +176,26 @@ public class Solution1500 {
     }
 
     /**
+     * 1313. Decompress Run-Length Encoded List
+     * 解压缩编码列表
+     * @param nums
+     * @return
+     */
+    public int[] decompressRLElist(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0, len = nums.length; i < len; i = i + 2) {
+            for (int j = 0; j < nums[i]; j++) {
+                result.add(nums[i + 1]);
+            }
+        }
+        int[] answer = new int[result.size()];
+        for (int i = 0, len = result.size(); i < len; i++) {
+            answer[i] = result.get(i);
+        }
+        return answer;
+    }
+
+    /**
      * 1339. Maximum Product of Splitted Binary Tree
      * 分裂二叉树的最大乘积
      * @param root
@@ -219,6 +239,31 @@ public class Solution1500 {
             sum += getTreeNodeSum(root.right);
         }
         return sum;
+    }
+
+    /**
+     * 1342. Number of Steps to Reduce a Number to Zero
+     * 将数字变成 0 的操作次数
+     * @param num
+     * @return
+     */
+    public int numberOfSteps(int num) {
+        if (num == 0) {
+            return num;
+        }
+        if (num == 1) {
+            return num;
+        }
+        int step = 0;
+        if (num % 2 == 0) {
+            step++;
+            return step + numberOfSteps(num / 2);
+        }
+        if (num % 2 == 1) {
+            step++;
+            return step + numberOfSteps(num - 1);
+        }
+        return num;
     }
 
     /**

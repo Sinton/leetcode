@@ -1024,43 +1024,30 @@ public class LeetCodeTest {
     }
 
     /**
-     * 1431. Kids With the Greatest Number of Candies
-     * 有最多糖果的孩子
+     * 1313. Decompress Run-Length Encoded List
+     * 解压缩编码列表
      */
     @Test
-    public void kidsWithCandies() {
-        int[][][] testCase = {
-                {
-                        {2,3,5,1,3}, {3}
-                },
-                {
-                        {4,2,1,1,2}, {1}
-                }
+    public void decompressRLElist() {
+        int[][] testCase = {
+            {1, 2, 3, 4},
+            {1, 1, 2, 3},
+            {55, 11, 70, 26, 62, 64},
         };
-        for (int[][] caseItem : testCase) {
-            System.out.println(solution1500.kidsWithCandies(caseItem[0], caseItem[1][0]));
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1500.decompressRLElist(caseItem)));
         }
     }
 
     /**
-     * 1389. Create Target Array in the Given Order
-     * 按既定顺序创建目标数组
+     * 1342. Number of Steps to Reduce a Number to Zero
+     * 将数字变成 0 的操作次数
      */
     @Test
-    public void createTargetArray() {
-        int[][][] testCase = {
-                {
-                        {0, 1, 2, 3, 4}, {0, 1, 2, 2, 1}
-                },
-                {
-                        {1, 2, 3, 4, 0}, {0, 1, 2, 3, 0}
-                },
-                {
-                        {1}, {0}
-                },
-        };
-        for (int[][] caseItem : testCase) {
-            System.out.println(Arrays.toString(solution1500.createTargetArray(caseItem[0], caseItem[1])));
+    public void numberOfSteps() {
+        int[] testCase = {14, 8, 123};
+        for (int caseItem : testCase) {
+            System.out.println(solution1500.numberOfSteps(caseItem));
         }
     }
 
@@ -1071,12 +1058,53 @@ public class LeetCodeTest {
     @Test
     public void smallerNumbersThanCurrent() {
         int[][] testCase = {
-                {8, 1, 2, 2, 3},
-                {6, 5, 4, 8},
-                {7, 7, 7, 7}
+            {8, 1, 2, 2, 3},
+            {6, 5, 4, 8},
+            {7, 7, 7, 7}
         };
         for (int[] caseItem : testCase) {
             System.out.println(Arrays.toString(solution1500.smallerNumbersThanCurrent(caseItem)));
+        }
+    }
+
+    /**
+     * 1389. Create Target Array in the Given Order
+     * 按既定顺序创建目标数组
+     */
+    @Test
+    public void createTargetArray() {
+        int[][][] testCase = {
+            {
+                {0, 1, 2, 3, 4}, {0, 1, 2, 2, 1}
+            },
+            {
+                {1, 2, 3, 4, 0}, {0, 1, 2, 3, 0}
+            },
+            {
+                {1}, {0}
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1500.createTargetArray(caseItem[0], caseItem[1])));
+        }
+    }
+
+    /**
+     * 1431. Kids With the Greatest Number of Candies
+     * 有最多糖果的孩子
+     */
+    @Test
+    public void kidsWithCandies() {
+        int[][][] testCase = {
+            {
+                {2,3,5,1,3}, {3}
+            },
+            {
+                {4,2,1,1,2}, {1}
+            }
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution1500.kidsWithCandies(caseItem[0], caseItem[1][0]));
         }
     }
 
@@ -1173,6 +1201,26 @@ public class LeetCodeTest {
         };
         for (Integer[] caseItem : testCase) {
             System.out.println(solution1500.maxProduct(Helper.buildTreeNode(caseItem, 0)));
+        }
+    }
+
+    /**
+     * 1528. Shuffle String
+     * 重新排列字符串
+     */
+    @Test
+    public void restoreString() {
+        String[][] testCase = {
+            {"codeleet", "4,5,6,7,0,2,1,3"},
+            {"abc", "0,1,2"},
+        };
+        for (String[] caseItem : testCase) {
+            String[] result = caseItem[1].split(",");
+            int[] indices = new int[result.length];
+            for (int i = 0, len = indices.length; i < len; i++) {
+                indices[i] = caseItem[1].split(",")[i].charAt(0) - '0';
+            }
+            System.out.println(solution2000.restoreString(caseItem[0], indices));
         }
     }
 
