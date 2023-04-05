@@ -891,7 +891,7 @@ public class LeetCodeTest {
      * 删除排序链表中的重复元素
      */
     @Test
-    public void deleteDuplicates() {
+    public void deleteDuplicates83() {
         int[][] testCase = {
             {},
             {0, 0, 0, 0, 0},
@@ -900,7 +900,7 @@ public class LeetCodeTest {
             {1, 1, 2, 3, 3}
         };
         for (int[] caseItem : testCase) {
-            Helper.listNodeFormatOutput(solution0500.deleteDuplicates(Helper.buildListNode(caseItem)));
+            Helper.listNodeFormatOutput(solution0500.deleteDuplicates83(Helper.buildListNode(caseItem)));
         }
     }
 

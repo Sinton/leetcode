@@ -1,5 +1,6 @@
 package com.github.sinton.leetcode;
 
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -76,6 +77,35 @@ public class Solution0500 {
             }
         }
         return result;
+    }
+
+    /**
+     * 2. Add Two Numbers
+     * 两数相加
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode sum = new ListNode(0);
+        ListNode current = sum;
+        while (l1 != null || l2 != null) {
+            int result = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0) + carry;
+            carry = result / 10;
+            current.next = new ListNode(result % 10);
+            current = current.next;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+        }
+        if (carry > 0) {
+            current.next = new ListNode(carry);
+        }
+        return sum.next;
     }
 
     /**
@@ -353,12 +383,46 @@ public class Solution0500 {
     }
 
     /**
+     * TODO
+     * <p>
+     * 只能AC链表第一个元素和其后继元素不相同的情况
+     * 对与表头以及其后继元素相同的情况伪造一个表头值
+     * 但是如果测试用例中表头值刚好与伪造的相同时则会WA
+     * </p>
+     */
+    public ListNode deleteDuplicates82(ListNode head) {
+        ListNode newHead = new ListNode(Integer.MIN_VALUE);
+        newHead.next = head;
+        ListNode curr = newHead;
+        ListNode prev = curr;
+        ListNode next = curr.next;
+        ListNode tmp = curr;
+        while (next != null) {
+            while (tmp.val == next.val) {
+                next = next.next;
+                curr = prev;
+                if (next == null) {
+                    break;
+                }
+            }
+            tmp = next;
+            curr.next = tmp;
+            prev = curr;
+            curr = curr.next;
+            if (next != null) {
+                next = next.next;
+            }
+        }
+        return newHead.next;
+    }
+
+    /**
      * 83. Remove Duplicates from Sorted List
      * 删除排序链表中的重复元素
      * @param head
      * @return
      */
-    public ListNode deleteDuplicates(ListNode head) {
+    public ListNode deleteDuplicates83(ListNode head) {
         if(head == null) {
             return head;
         }
@@ -604,6 +668,18 @@ public class Solution0500 {
     }
 
     /**
+     * 136. Single Number
+     * 只出现一次的数字
+     */
+    public int singleNumber(int[] nums) {
+        int result = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            result ^= nums[i];
+        }
+        return result;
+    }
+
+    /**
      * 141. Linked List Cycle
      * 环形链表
      * @param head
@@ -641,6 +717,26 @@ public class Solution0500 {
             curr = curr.next;
         }
         return curr;
+    }
+
+    /**
+     * TODO
+     * 143. Reorder List
+     * 重排链表
+     */
+    public void reorderList(ListNode head) {
+        if (head != null && head.next != null && head.next.next != null) {
+            ListNode curr = head;
+            ListNode second = head.next;
+            while (curr.next.next != null) {
+                curr = curr.next;
+            }
+            ListNode last = curr;
+            curr = curr.next;
+            head.next = curr;
+            curr.next = second;
+            last.next = null;
+        }
     }
 
     /**
@@ -958,6 +1054,24 @@ public class Solution0500 {
     }
 
     /**
+     * 231. Power of Two
+     * 2 的幂
+     * @param n
+     * @return
+     */
+    public boolean isPowerOfTwo(int n) {
+        int count = 0;
+        char[] binary = Integer.toBinaryString(n).toCharArray();
+        System.out.println(binary);
+        for (int i = 0; i < binary.length; i++) {
+            if (binary[i] == '1') {
+                count++;
+            }
+        }
+        return count == 1 && n > 0;
+    }
+
+    /**
      * 235. Lowest Common Ancestor of a Binary Search Tree
      * 二叉搜索树的最近公共祖先
      * @param root
@@ -1136,6 +1250,18 @@ public class Solution0500 {
             result[i] = union.get(i);
         }
         return result;
+    }
+
+    /**
+     * TODO
+     * <p>用大数数据结构模拟，虽然AC但不是本意解法</p>
+     * 371. Sum of Two Integers
+     * 两整数之和
+     */
+    public int getSum(int a, int b) {
+        BigInteger numberA = BigInteger.valueOf(Long.parseLong(String.valueOf(a)));
+        BigInteger numberB = BigInteger.valueOf(Long.parseLong(String.valueOf(b)));
+        return Integer.parseInt(numberA.add(numberB).toString());
     }
 
     /**
@@ -1321,6 +1447,123 @@ public class Solution0500 {
             }
         }
         return longest;
+    }
+
+    /**
+     * 412. Fizz Buzz
+     * Fizz Buzz
+     * @param n
+     * @return
+     */
+    public List<String> fizzBuzz(int n) {
+        List<String> fizzbuzzList = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                fizzbuzzList.add("FizzBuzz");
+            } else if (i % 5 == 0) {
+                fizzbuzzList.add("Buzz");
+            } else if (i % 3 == 0) {
+                fizzbuzzList.add("Fizz");
+            } else {
+                fizzbuzzList.add(String.valueOf(i));
+            }
+        }
+        return fizzbuzzList;
+    }
+
+    /**
+     * 442. Find All Duplicates in an Array
+     * 数组中重复的数据
+     * @param nums
+     * @return
+     */
+    public List<Integer> findDuplicates(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+        int[] flag = new int[nums.length + 1];
+        for (int num : nums) {
+            flag[num] += 1;
+        }
+        for (int i = 1; i < flag.length; i++) {
+            if (flag[i] > 1) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 448. Find All Numbers Disappeared in an Array
+     * 找到所有数组中消失的数字
+     * @param nums
+     * @return
+     */
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+        int[] flag = new int[nums.length + 1];
+        for (int num : nums) {
+            flag[num] += 1;
+        }
+        for (int i = 1; i < flag.length; i++) {
+            if (flag[i] == 0) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 461. Hamming Distance
+     * 汉明距离
+     * @param x
+     * @param y
+     * @return
+     */
+    public int hammingDistance(int x, int y) {
+        int count = 0;
+        char[] result = Integer.toBinaryString(x ^ y).toCharArray();
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] == '1') {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * 476. Number Complement
+     * 数字的补数
+     * @param num
+     * @return
+     */
+    public int findComplement(int num) {
+        int bit = (int)(Math.log((double) num) / Math.log((double) 2)) + 1;
+        StringBuilder agent = new StringBuilder("0");
+        for (int i = 0; i < bit; i++) {
+            agent.append(1);
+        }
+        return Integer.parseInt(agent.toString(), 2) ^ num;
+    }
+
+    /**
+     * 485. Max Consecutive Ones
+     * 最大连续 1 的个数
+     * @param nums
+     * @return
+     */
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int count = 0;
+        int max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                count++;
+            } else {
+                if (count > max) {
+                    max = count;
+                }
+                count = 0;
+            }
+        }
+        return max > count ? max : count;
     }
 
     /**

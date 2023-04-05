@@ -7,6 +7,22 @@ import java.util.*;
  */
 public class Solution1000 {
     /**
+     * 507. Perfect Number
+     * 完美数
+     * @param num
+     * @return
+     */
+    public boolean checkPerfectNumber(int num) {
+        int sum = 1;
+        for (int i = 2; i <= (int) Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                sum += i + num / i;
+            }
+        }
+        return sum == num && num != 1;
+    }
+
+    /**
      * 509. Fibonacci Number
      * 斐波那契数
      * @param n
@@ -65,6 +81,42 @@ public class Solution1000 {
             }
         }
         return result;
+    }
+
+    /**
+     * TODO Memory Limit Exceeded
+     * 598. Range Addition II
+     * 范围求和 II
+     * @param m
+     * @param n
+     * @param ops
+     * @return
+     */
+    public int maxCount(int m, int n, int[][] ops) {
+        int[][] matrix = new int[m][n];
+        for (int i = 0; i < ops.length; i++) {
+            int min = Math.min(ops[i][0], ops[i][1]);
+            for (int k = 0; k < min; k++) {
+                for (int l = 0; l < min; l++) {
+                    matrix[k][l] += 1;
+                }
+            }
+        }
+        int max = matrix[0][0];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                max = Math.max(max, matrix[i][j]);
+            }
+        }
+        int count = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (max == matrix[i][j]) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     /**
@@ -220,6 +272,25 @@ public class Solution1000 {
     }
 
     /**
+     * 709. To Lower Case
+     * 转换成小写字母
+     * @param str
+     * @return
+     */
+    public String toLowerCase(String str) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < str.toCharArray().length; i++) {
+            if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
+                result.append((char) (str.charAt(i) + 32));
+            }
+            else {
+                result.append(str.charAt(i));
+            }
+        }
+        return result.toString();
+    }
+
+    /**
      *
      * @param n
      * @return
@@ -270,6 +341,31 @@ public class Solution1000 {
     }
 
     /**
+     * 728. Self Dividing Numbers
+     * 自除数
+     * @param left
+     * @param right
+     * @return
+     */
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = left; i <= right; i++) {
+            boolean isDividing = true;
+            for (int j = 0, len = (int) Math.log10(i); j <= len; j++) {
+                int curr = i / (int) Math.pow(10, len - j) % 10;
+                if (curr == 0 || i % curr != 0) {
+                    isDividing = false;
+                    break;
+                }
+            }
+            if (isDividing) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
+    /**
      * 746. Min Cost Climbing Stairs
      * 使用最小花费爬楼梯
      * @param cost
@@ -292,6 +388,139 @@ public class Solution1000 {
     }
 
     /**
+     * TODO
+     * 766. Toeplitz Matrix
+     * 托普利茨矩阵
+     * @param matrix
+     * @return
+     */
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        boolean isToeplize = false;
+        for (int i = 0; i < matrix[0].length; i++) {
+
+        }
+        return false;
+    }
+
+    /**
+     * 771. Jewels and Stones
+     * 宝石与石头
+     * @param J
+     * @param S
+     * @return
+     */
+    public int numJewelsInStones(String J, String S) {
+        int count = 0;
+        for (int i = 0; i < J.toCharArray().length; i++) {
+            for (int j = 0; j < S.toCharArray().length; j++) {
+                if (J.charAt(i) == S.charAt(j)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
+     * 804. Unique Morse Code Words
+     * 唯一摩尔斯密码词
+     * @param words
+     * @return
+     */
+    private int uniqueMorseRepresentations(String[] words) {
+        String[] morseCode = {
+            ".-", "-...", "-.-.", "-..", ".", "..-.",
+            "--.", "....", "..", ".---", "-.-", ".-..",
+            "--", "-.", "---", ".--.", "--.-", ".-.",
+            "...", "-", "..-", "...-", ".--", "-..-",
+            "-.--", "--.."
+        };
+        ArrayList<String> morseWords = new ArrayList<>();
+        for (String word : words) {
+            StringBuilder item = new StringBuilder();
+            for (int j = 0, wordLength = word.length(); j < wordLength; j++) {
+                item.append(morseCode[word.charAt(j) - 97]);
+            }
+            if (!morseWords.contains(item.toString())) {
+                morseWords.add(item.toString());
+            }
+        }
+        return morseWords.size();
+    }
+
+    /**
+     * 806. Number of Lines To Write String
+     * 写字符串需要的行数
+     * @param widths
+     * @param S
+     * @return
+     */
+    public int[] numberOfLines(int[] widths, String S) {
+        int width = 0;
+        int line = 1;
+        for (char letter : S.toCharArray()) {
+            if (width + widths[letter - 'a'] > 100) {
+                line += 1;
+                width = widths[letter - 'a'];
+            } else {
+                width += widths[letter - 'a'];
+            }
+        }
+        return new int[]{line, width};
+    }
+
+    /**
+     * TODO
+     * 811. Subdomain Visit Count
+     * 子域名访问计数
+     * @param cpdomains
+     * @return
+     */
+    public List<String> subdomainVisits(String[] cpdomains) {
+        for (String cpdomain : cpdomains) {
+            System.out.println(cpdomain);
+
+        }
+        return null;
+    }
+
+    /**
+     * TODO
+     * 821. Shortest Distance to a Character
+     * 字符的最短距离
+     * @param S
+     * @param C
+     * @return
+     */
+    public int[] shortestToChar(String S, char C) {
+        int[] result = new int[S.length()];
+        for (int i = 0; i < S.length(); i++) {
+            result[i] = S.charAt(i) - C;
+        }
+        return result;
+    }
+
+    /**
+     * 832. Flipping an Image
+     * 翻转图像
+     * @param A
+     * @return
+     */
+    public int[][] flipAndInvertImage(int[][] A) {
+        for (int[] item : A) {
+            for (int i = 0; i < item.length / 2; i++) {
+                item[i] ^= item[item.length - 1 - i];
+                item[item.length - 1 - i] ^= item[i];
+                item[i] ^= item[item.length - 1 - i];
+            }
+            for (int i = 0; i < item.length; i++) {
+                item[i] = item[i] ^ 1;
+            }
+        }
+        return A;
+    }
+
+    /**
      * 844. Backspace String Compare
      * 比较含退格的字符串
      * @param s
@@ -301,7 +530,7 @@ public class Solution1000 {
     public boolean backspaceCompare(String s, String t) {
         StringBuilder left = new StringBuilder();
         StringBuilder right = new StringBuilder();
-        for(int i = 0, len = s.length(); i < len; i++) {
+        for (int i = 0, len = s.length(); i < len; i++) {
             if (s.charAt(i) == '#') {
                 if (left.length() > 0) {
                     left.deleteCharAt(left.length() - 1);
@@ -310,7 +539,7 @@ public class Solution1000 {
                 left.append(s.charAt(i));
             }
         }
-        for(int i = 0, len = t.length(); i < len; i++) {
+        for (int i = 0, len = t.length(); i < len; i++) {
             if (t.charAt(i) == '#') {
                 if (right.length() > 0) {
                     right.deleteCharAt(right.length() - 1);
@@ -323,6 +552,39 @@ public class Solution1000 {
     }
 
     /**
+     * 852. Peak Index in a Mountain Array
+     * 山脉数组的峰顶索引
+     * @param A
+     * @return
+     */
+    public int peakIndexInMountainArray(int[] A) {
+        int index = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] > A[index]) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    /**
+     * 867. Transpose Matrix
+     * 转置矩阵
+     * @param A
+     * @return
+     */
+    public int[][] transpose(int[][] A) {
+        int[][] result = new int[A[0].length][A.length];
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < A[i].length; j++) {
+                result[j][i] = A[i][j];
+            }
+        }
+        return result;
+    }
+
+    /**
+     * TODO
      * 872. Leaf-Similar Trees
      * 叶子相似的树
      * @param root1
@@ -377,6 +639,40 @@ public class Solution1000 {
             middle--;
         }
         return head;
+    }
+
+    /**
+     * 905. Sort Array By Parity
+     * 按奇偶排序数组
+     * @param A
+     * @return
+     */
+    public int[] sortArrayByParity(int[] A) {
+        int[] result = new int[A.length];
+        int  index = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] % 2 == 0) {
+                result[index++] = A[i];
+            }
+        }
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] % 2 == 1) {
+                result[index++] = A[i];
+            }
+        }
+        return result;
+    }
+
+    /**
+     * TODO
+     * 908. Smallest Range I
+     * 最小差值 I
+     * @param A
+     * @param K
+     * @return
+     */
+    public int smallestRangeI(int[] A, int K) {
+        return 0;
     }
 
     /**
