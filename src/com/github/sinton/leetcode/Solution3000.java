@@ -5,6 +5,24 @@ package com.github.sinton.leetcode;
  */
 public class Solution3000 {
     /**
+     * 2520. Count the Digits That Divide a Number
+     * 统计能整除数字的位数
+     * @param num
+     * @return
+     */
+    public int countDigits(int num) {
+        int count = 0;
+        int digit = num;
+        while (digit > 0) {
+            if (num % (digit % 10) == 0) {
+                count++;
+            }
+            digit /= 10;
+        }
+        return count;
+    }
+
+    /**
      * 2535. Difference Between Element Sum and Digit Sum of an Array
      * 数组元素和与数字和的绝对差
      * @param nums

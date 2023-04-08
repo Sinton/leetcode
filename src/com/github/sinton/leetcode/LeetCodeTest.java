@@ -1867,17 +1867,14 @@ public class LeetCodeTest {
     }
 
     /**
-     * 2574. Left and Right Sum Differences
-     * 左右元素和的差值
+     * 2520. Count the Digits That Divide a Number
+     * 统计能整除数字的位数
      */
     @Test
-    public void leftRigthDifference() {
-        int[][] testCase = {
-            {10,4,8,3},
-            {1}
-        };
-        for (int[] caseItem : testCase) {
-            System.out.println(Arrays.toString(solution3000.leftRigthDifference(caseItem)));
+    public void countDigits() {
+        int[] testCase = {1, 2, 3, 7, 121, 1248};
+        for (int caseItem : testCase) {
+            System.out.println(solution3000.countDigits(caseItem));
         }
     }
 
@@ -1896,6 +1893,21 @@ public class LeetCodeTest {
         };
         for (int[] caseItem : testCase) {
             System.out.println(solution3000.differenceOfSum(caseItem));
+        }
+    }
+
+    /**
+     * 2574. Left and Right Sum Differences
+     * 左右元素和的差值
+     */
+    @Test
+    public void leftRigthDifference() {
+        int[][] testCase = {
+            {10,4,8,3},
+            {1}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution3000.leftRigthDifference(caseItem)));
         }
     }
 }
