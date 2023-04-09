@@ -461,6 +461,27 @@ public class Solution1500 {
     }
 
     /**
+     * 1486. XOR Operation in an Array
+     * 数组异或操作
+     * @param n
+     * @param start
+     * @return
+     */
+    public int xorOperation(int n, int start) {
+        int answer = -1;
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = start + 2 * i;
+            if (answer == -1) {
+                answer = start;
+            } else {
+                answer = answer ^ nums[i];
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * 去掉最低工资和最高工资后的工资平均值
      * @param salary

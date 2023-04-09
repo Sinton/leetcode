@@ -1478,6 +1478,23 @@ public class LeetCodeTest {
     }
 
     /**
+     * 1486. XOR Operation in an Array
+     * 数组异或操作
+     */
+    @Test
+    public void xorOperation() {
+        int[][] testCase = {
+            {5, 0},
+            {4, 3},
+            {1, 7},
+            {10, 5}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1500.xorOperation(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * 去掉最低工资和最高工资后的工资平均值
      */
