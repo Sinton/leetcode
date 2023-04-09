@@ -257,6 +257,24 @@ public class LeetCodeTest {
     }
 
     /**
+     * 83. Remove Duplicates from Sorted List
+     * 删除排序链表中的重复元素
+     */
+    @Test
+    public void deleteDuplicates83() {
+        int[][] testCase = {
+            {},
+            {0, 0, 0, 0, 0},
+            {-1, 0, 0, 0, 0, 3, 3},
+            {1, 1, 2},
+            {1, 1, 2, 3, 3}
+        };
+        for (int[] caseItem : testCase) {
+            Helper.listNodeFormatOutput(solution0500.deleteDuplicates83(Helper.buildListNode(caseItem)));
+        }
+    }
+
+    /**
      * 88. Merge Sorted Array
      * 合并两个有序数组
      */
@@ -357,6 +375,30 @@ public class LeetCodeTest {
         root3.right.right = new TreeNode(4);
         root3.right.right.right = new TreeNode(1);
         System.out.println(solution0500.isValidBST(root3));
+    }
+
+    /**
+     * 104. Maximum Depth of Binary Tree
+     * 二叉树的最大深度
+     */
+    @Test
+    public void maxDepth() {
+        Integer[][] testCase = {
+//            {1, 2, 3, 4, 5, 6},
+            {1, null, 2, 3, 4, null, null, 5, 6}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = new TreeNode(15);
+            TreeNode root1 = new TreeNode(7);
+            TreeNode root2 = new TreeNode(20);
+            root2.left = root;
+            root2.right = root1;
+            TreeNode root3 = new TreeNode(9);
+            TreeNode root4 = new TreeNode(3);
+            root4.left = root3;
+            root4.right = root2;
+            System.out.println(solution0500.maxDepth(root4));
+        }
     }
 
     /**
@@ -693,6 +735,23 @@ public class LeetCodeTest {
         System.out.println(answer);
     }
 
+
+    /**
+     * 242. Valid Anagram
+     * 有效的字母异位词
+     */
+    @Test
+    public void isAnagram() {
+        String[][] testCase = {
+            {"dgqztusjuu", "dqugjzutsu"},
+            {"anagram", "nagaram"},
+            {"rat", "car"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution0500.isAnagram(caseItem[0], caseItem[1]));
+        }
+    }
+
     /**
      * 283. Move Zeroes
      * 移动零
@@ -760,6 +819,22 @@ public class LeetCodeTest {
         };
         for (int[][] caseItem : testCase) {
             System.out.println(Arrays.toString(solution0500.intersect(caseItem[0], caseItem[1])));
+        }
+    }
+
+    /**
+     * 383. Ransom Note
+     * 赎金信
+     */
+    @Test
+    public void canConstruct() {
+        String[][] testCase = {
+            {"a", "b"},
+            {"aa", "ab"},
+            {"aa", "aab"}
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution0500.canConstruct(caseItem[0], caseItem[1]));
         }
     }
 
@@ -883,80 +958,6 @@ public class LeetCodeTest {
         };
         for (int[][] caseItem : testCase) {
             System.out.println(Arrays.toString(solution0500.nextGreaterElement(caseItem[0], caseItem[1])));
-        }
-    }
-
-    /**
-     * 83. Remove Duplicates from Sorted List
-     * 删除排序链表中的重复元素
-     */
-    @Test
-    public void deleteDuplicates83() {
-        int[][] testCase = {
-            {},
-            {0, 0, 0, 0, 0},
-            {-1, 0, 0, 0, 0, 3, 3},
-            {1, 1, 2},
-            {1, 1, 2, 3, 3}
-        };
-        for (int[] caseItem : testCase) {
-            Helper.listNodeFormatOutput(solution0500.deleteDuplicates83(Helper.buildListNode(caseItem)));
-        }
-    }
-
-    /**
-     * 104. Maximum Depth of Binary Tree
-     * 二叉树的最大深度
-     */
-    @Test
-    public void maxDepth() {
-        Integer[][] testCase = {
-//            {1, 2, 3, 4, 5, 6},
-            {1, null, 2, 3, 4, null, null, 5, 6}
-        };
-        for (Integer[] caseItem : testCase) {
-            TreeNode root = new TreeNode(15);
-            TreeNode root1 = new TreeNode(7);
-            TreeNode root2 = new TreeNode(20);
-            root2.left = root;
-            root2.right = root1;
-            TreeNode root3 = new TreeNode(9);
-            TreeNode root4 = new TreeNode(3);
-            root4.left = root3;
-            root4.right = root2;
-            System.out.println(solution0500.maxDepth(root4));
-        }
-    }
-
-    /**
-     * 383. Ransom Note
-     * 赎金信
-     */
-    @Test
-    public void canConstruct() {
-        String[][] testCase = {
-            {"a", "b"},
-            {"aa", "ab"},
-            {"aa", "aab"}
-        };
-        for (String[] caseItem : testCase) {
-            System.out.println(solution0500.canConstruct(caseItem[0], caseItem[1]));
-        }
-    }
-
-    /**
-     * 242. Valid Anagram
-     * 有效的字母异位词
-     */
-    @Test
-    public void isAnagram() {
-        String[][] testCase = {
-            {"dgqztusjuu", "dqugjzutsu"},
-            {"anagram", "nagaram"},
-            {"rat", "car"},
-        };
-        for (String[] caseItem : testCase) {
-            System.out.println(solution0500.isAnagram(caseItem[0], caseItem[1]));
         }
     }
 
