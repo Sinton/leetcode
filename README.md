@@ -18,6 +18,6 @@
 
 ### Solution Test Case
 
-- [LeetCodeTest.java](https://github.com/Sinton/leetcode/blob/master/src/com/github/sinton/leetcode/SolutionTest.java "SolutionTest.java") (test case major)
+- [SolutionTest.java](https://github.com/Sinton/leetcode/blob/master/src/com/github/sinton/leetcode/SolutionTest.java "SolutionTest.java") (test case major)
   
 - [Helper.java](https://github.com/Sinton/leetcode/blob/master/src/com/github/sinton/leetcode/Helper.java "Helper.java") (auxiliary generation of test cases util class)
