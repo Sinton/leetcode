@@ -1,8 +1,6 @@
 package com.github.sinton.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Yan
@@ -134,6 +132,33 @@ public class Solution2500 {
         }
 
         return answer;
+    }
+
+    /**
+     * 2325. Decode the Message
+     * 密消息
+     * @param key
+     * @param message
+     * @return
+     */
+    public String decodeMessage(String key, String message) {
+        StringBuilder answer = new StringBuilder();
+        Map<Character, Character> dict = new HashMap<>(16);
+        int index = 0;
+        for (int i = 0, len = key.length(); i < len; i++) {
+            if (!dict.containsKey(key.charAt(i)) && key.charAt(i) != ' ') {
+                dict.put(key.charAt(i), (char) (index + 'a'));
+                index++;
+            }
+        }
+        for (int i = 0, len = message.length(); i < len; i++) {
+            if ('a' <= message.charAt(i) && message.charAt(i) <= 'z') {
+                answer.append(dict.get(message.charAt(i)));
+            } else {
+                answer.append(message.charAt(i));
+            }
+        }
+        return answer.toString();
     }
 
     /**

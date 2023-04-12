@@ -1923,6 +1923,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2325. Decode the Message
+     * 密消息
+     */
+    @Test
+    public void decodeMessage() {
+        String[][] testCase = {
+            {"the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv"},
+            {"eljuxhpwnyrdgtqkviszcfmabo", "zwx hnfx lqantp mnoeius ycgk vcnjrdb"}
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2500.decodeMessage(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 2396. Strictly Palindromic Number
      * 严格回文的数字
      */
