@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * @author Yan
  */
-public class LeetCodeTest {
+public class SolutionTest {
     Solution0500 solution0500 = new Solution0500();
     Solution1000 solution1000 = new Solution1000();
     Solution1500 solution1500 = new Solution1500();
@@ -735,7 +735,6 @@ public class LeetCodeTest {
         System.out.println(answer);
     }
 
-
     /**
      * 242. Valid Anagram
      * 有效的字母异位词
@@ -962,6 +961,167 @@ public class LeetCodeTest {
     }
 
     /**
+     * 566. Reshape the Matrix
+     * 重塑矩阵
+     */
+    @Test
+    public void solutionMatrixReshape() {
+        int[][][][] testCase = {
+            {
+                {{1}, {2}, {3}, {4}},
+                {{2, 2}}
+            },
+            {
+                {{1, 2}, {3, 4}},
+                {{1, 4}}
+            },
+            {
+                {{1, 2}, {3, 4}},
+                {{2, 4}}
+            }
+        };
+        for (int[][][] caseItem : testCase) {
+            int[][] result = solution1000.matrixReshape(caseItem[0], caseItem[1][0][0], caseItem[1][0][1]);
+            for (int[] item : result) {
+                System.out.println(Arrays.toString(item));
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * 653. Two Sum IV - Input is a BST
+     * 两数之和 IV - 输入二叉搜索树
+     */
+    @Test
+    public void findTarget() {
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(3);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(4);
+        root.right = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+        System.out.println(solution1000.findTarget(root, 28));
+    }
+
+    /**
+     * 692. Top K Frequent Words
+     * 前K个高频单词
+     */
+    @Test
+    public void topKFrequent() {
+        String[][][] testCase = {
+            {
+                {"a", "aa", "aaa"},
+                {"1"}
+            },
+            {
+                {"i", "love", "leetcode", "i", "love", "coding"},
+                {"2"}
+            },
+            {
+                {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"},
+                {"4"}
+            }
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution1000.topKFrequent(caseItem[0], Integer.parseInt(caseItem[1][0])));
+        }
+    }
+
+    /**
+     * 700. Search in a Binary Search Tree
+     * 二叉搜索树中的搜索
+     */
+    @Test
+    public void searchBST() {
+        TreeNode root = new TreeNode(18);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(22);
+        root.right.right = new TreeNode(63);
+        root.right.right.right = new TreeNode(84);
+        root = solution1000.searchBST(root, 63);
+        System.out.println(root);
+    }
+
+    /**
+     * 701. Insert into a Binary Search Tree
+     * 二叉搜索树中的插入操作
+     */
+    @Test
+    public void insertIntoBST() {
+//        TreeNode root = new TreeNode(4);
+//        root.left = new TreeNode(2);
+//        root.left.left = new TreeNode(1);
+//        root.left.right = new TreeNode(3);
+//        root.right = new TreeNode(7);
+//        root = solution1000.insertIntoBST(root, 5);
+//        System.out.println(root);
+        TreeNode root1 = new TreeNode(40);
+        root1.left = new TreeNode(20);
+        root1.left.left = new TreeNode(10);
+        root1.left.right = new TreeNode(30);
+        root1.right = new TreeNode(60);
+        root1.right.left = new TreeNode(50);
+        root1.right.right = new TreeNode(70);
+        root1 = solution1000.insertIntoBST(root1, 25);
+        System.out.println(root1);
+    }
+
+    /**
+     * 704. Binary Search
+     * 二分查找
+     */
+    @Test
+    public void search() {
+        int[][][] testCase = {
+//            {
+//                {2, 5},
+//                {2}
+//            },
+//            {
+//                {5},
+//                {5}
+//            },
+//            {
+//                {-1, 0, 3, 5, 9, 12},
+//                {9}
+//            },
+//            {
+//                {-1, 0, 3, 5, 9, 12},
+//                {2}
+//            },
+            {
+                {5, 1},
+                {1}
+            },
+            {
+                {5, 1},
+                {2}
+            }
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution1000.search(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
+     * 724. Find Pivot Index
+     * 寻找数组的中心下标
+     */
+    @Test
+    public void solutionPivotIndex() {
+        int[][] testCase = {
+            {1, 7, 3, 6, 5, 6},
+            {1, 2, 3},
+            {2, 1, -1}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1000.pivotIndex(caseItem));
+        }
+    }
+
+    /**
      * 746. Min Cost Climbing Stairs
      * 使用最小花费爬楼梯
      */
@@ -976,6 +1136,43 @@ public class LeetCodeTest {
         }
     }
 
+    /**
+     * 844. Backspace String Compare
+     * 比较含退格的字符串
+     */
+    @Test
+    public void backspaceCompare() {
+        String[][] testCase = {
+            {"a##c", "#a#c"},
+            {"ab#c", "ad#c"},
+            {"ab##", "c#d#"},
+            {"a#c", "b"}
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution1000.backspaceCompare(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
+     * 876. Middle of the Linked List
+     * 链表的中间结点
+     */
+    @Test
+    public void solutionMiddleNode() {
+        int[][] testCase = {
+            {1, 2, 3, 4, 5},
+            {1, 2, 3, 4, 5, 6}
+        };
+        for (int[] caseItem : testCase) {
+            ListNode head = Helper.buildListNode(caseItem);
+            Helper.listNodeFormatOutput(solution1000.middleNode(head));
+        }
+    }
+
+    /**
+     * 931. Minimum Falling Path Sum
+     * 下降路径最小和
+     */
     @Test
     public void minFallingPathSum() {
         int[][][] testCase = {
@@ -994,6 +1191,33 @@ public class LeetCodeTest {
         }
     }
 
+    /**
+     * 938. Range Sum of BST
+     * 二叉搜索树的范围和
+     */
+    @Test
+    public void solutionRangeSumBST() {
+        Integer[][][] testCase = {
+            {
+                {10, 5, 15, 3, 7, null, 18},
+                {7},
+                {15}
+            },
+            {
+                {10, 5, 15, 3, 7, 13, 18, 1, null, 6},
+                {6},
+                {10}
+            }
+        };
+        for (Integer[][] caseItem : testCase) {
+            System.out.println(solution1000.rangeSumBST(Helper.buildTreeNode(caseItem[0], 0), caseItem[1][0], caseItem[2][0]));;
+        }
+    }
+
+    /**
+     * 953. Verifying an Alien Dictionary
+     * 验证外星语词典
+     */
     @Test
     public void isAlienSorted() {
         String[][][] testCase = {
@@ -1024,140 +1248,6 @@ public class LeetCodeTest {
     }
 
     @Test
-    public void search() {
-        int[][][] testCase = {
-//            {
-//                {2, 5},
-//                {2}
-//            },
-//            {
-//                {5},
-//                {5}
-//            },
-//            {
-//                {-1, 0, 3, 5, 9, 12},
-//                {9}
-//            },
-//            {
-//                {-1, 0, 3, 5, 9, 12},
-//                {2}
-//            },
-                {
-                    {5, 1},
-                    {1}
-                },
-                {
-                    {5, 1},
-                    {2}
-                }
-        };
-        for (int[][] caseItem : testCase) {
-            System.out.println(solution1000.search(caseItem[0], caseItem[1][0]));
-        }
-    }
-
-    @Test
-    public void solutionMatrixReshape() {
-        int[][][][] testCase = {
-            {
-                {{1}, {2}, {3}, {4}},
-                {{2, 2}}
-            },
-            {
-                {{1, 2}, {3, 4}},
-                {{1, 4}}
-            },
-            {
-                {{1, 2}, {3, 4}},
-                {{2, 4}}
-            }
-        };
-        for (int[][][] caseItem : testCase) {
-            int[][] result = solution1000.matrixReshape(caseItem[0], caseItem[1][0][0], caseItem[1][0][1]);
-            for (int[] item : result) {
-                System.out.println(Arrays.toString(item));
-            }
-            System.out.println();
-        }
-    }
-
-    @Test
-    public void insertIntoBST() {
-//        TreeNode root = new TreeNode(4);
-//        root.left = new TreeNode(2);
-//        root.left.left = new TreeNode(1);
-//        root.left.right = new TreeNode(3);
-//        root.right = new TreeNode(7);
-//        root = solution1000.insertIntoBST(root, 5);
-//        System.out.println(root);
-        TreeNode root1 = new TreeNode(40);
-        root1.left = new TreeNode(20);
-        root1.left.left = new TreeNode(10);
-        root1.left.right = new TreeNode(30);
-        root1.right = new TreeNode(60);
-        root1.right.left = new TreeNode(50);
-        root1.right.right = new TreeNode(70);
-        root1 = solution1000.insertIntoBST(root1, 25);
-        System.out.println(root1);
-    }
-
-    @Test
-    public void findTarget() {
-        TreeNode root = new TreeNode(5);
-        root.left = new TreeNode(3);
-        root.left.left = new TreeNode(2);
-        root.left.right = new TreeNode(4);
-        root.right = new TreeNode(6);
-        root.right.right = new TreeNode(7);
-        System.out.println(solution1000.findTarget(root, 28));
-    }
-
-    @Test
-    public void searchBST() {
-        TreeNode root = new TreeNode(18);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(22);
-        root.right.right = new TreeNode(63);
-        root.right.right.right = new TreeNode(84);
-        root = solution1000.searchBST(root, 63);
-        System.out.println(root);
-    }
-
-    @Test
-    public void backspaceCompare() {
-        String[][] testCase = {
-            {"a##c", "#a#c"},
-            {"ab#c", "ad#c"},
-            {"ab##", "c#d#"},
-            {"a#c", "b"}
-        };
-        for (String[] caseItem : testCase) {
-            System.out.println(solution1000.backspaceCompare(caseItem[0], caseItem[1]));
-        }
-    }
-
-    @Test
-    public void topKFrequent() {
-        String[][][] testCase = {
-            {
-                {"a", "aa", "aaa"},
-                {"1"}
-            },
-            {
-                {"i", "love", "leetcode", "i", "love", "coding"},
-                {"2"}
-            },
-            {
-                {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"},
-                {"4"}
-            }
-        };
-        for (String[][] caseItem : testCase) {
-            System.out.println(solution1000.topKFrequent(caseItem[0], Integer.parseInt(caseItem[1][0])));
-        }
-    }
-
-    @Test
     public void numTilings() {
         int[] testCase = {1, 2, 3, 4, 5, 7, 9, 30};
         for (int caseItem : testCase) {
@@ -1165,6 +1255,10 @@ public class LeetCodeTest {
         }
     }
 
+    /**
+     * 976. Largest Perimeter Triangle
+     * 三角形的最大周长
+     */
     @Test
     public void solutionLargestPerimeter() {
         int[][] testCase = {
@@ -1177,53 +1271,6 @@ public class LeetCodeTest {
         };
         for (int[] caseItem : testCase) {
             System.out.println(solution1000.largestPerimeter(caseItem));
-        }
-    }
-
-    @Test
-    public void solutionPivotIndex() {
-        int[][] testCase = {
-            {1, 7, 3, 6, 5, 6},
-            {1, 2, 3},
-            {2, 1, -1}
-        };
-        for (int[] caseItem : testCase) {
-            System.out.println(solution1000.pivotIndex(caseItem));
-        }
-    }
-
-    @Test
-    public void solutionMiddleNode() {
-        int[][] testCase = {
-            {1, 2, 3, 4, 5},
-            {1, 2, 3, 4, 5, 6}
-        };
-        for (int[] caseItem : testCase) {
-            ListNode head = Helper.buildListNode(caseItem);
-            Helper.listNodeFormatOutput(solution1000.middleNode(head));
-        }
-    }
-
-    /**
-     * 938. Range Sum of BST
-     * 二叉搜索树的范围和
-     */
-    @Test
-    public void solutionRangeSumBST() {
-        Integer[][][] testCase = {
-            {
-                {10, 5, 15, 3, 7, null, 18},
-                {7},
-                {15}
-            },
-            {
-                {10, 5, 15, 3, 7, 13, 18, 1, null, 6},
-                {6},
-                {10}
-            }
-        };
-        for (Integer[][] caseItem : testCase) {
-            System.out.println(solution1000.rangeSumBST(Helper.buildTreeNode(caseItem[0], 0), caseItem[1][0], caseItem[2][0]));;
         }
     }
 

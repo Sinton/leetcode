@@ -730,6 +730,7 @@ public class Solution1000 {
 
     /**
      * 953. Verifying an Alien Dictionary
+     * 验证外星语词典
      * @param words
      * @param order
      * @return
