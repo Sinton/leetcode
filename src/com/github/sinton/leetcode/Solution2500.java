@@ -1,6 +1,8 @@
 package com.github.sinton.leetcode;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Yan
@@ -113,6 +115,28 @@ public class Solution2500 {
     }
 
     /**
+     * 2194. Cells in a Range on an Excel Sheet
+     * Excel 表中某个范围内的单元格
+     * @param s
+     * @return
+     */
+    public List<String> cellsInRange(String s) {
+        List<String> answer = new ArrayList<>();
+        int startCol = s.charAt(0) - 'A';
+        int startRow = s.charAt(1) - '0';
+        int endCol   = s.charAt(3) - 'A';
+        int endRow   = s.charAt(4) - '0';
+
+        for (int colNum = startCol; colNum <= endCol; colNum++) {
+            for (int rowNum = startRow; rowNum <= endRow; rowNum++) {
+                answer.add(String.format("%c%d", (char)(colNum + 'A'), rowNum));
+            }
+        }
+
+        return answer;
+    }
+
+    /**
      * 2396. Strictly Palindromic Number
      * 严格回文的数字
      * @param n
@@ -145,6 +169,26 @@ public class Solution2500 {
      */
     public int smallestEvenMultiple(int n) {
         return n % 2 == 0 ? n : n * 2;
+    }
+
+    /**
+     * TODO
+     * 2439. Minimize Maximum of Array
+     * 最小化数组中的最大值
+     * @param nums
+     * @return.
+     */
+    public int minimizeArrayValue(int[] nums) {
+        int average = 0;
+        int maxSum = 0;
+        for (int i = 0, len = nums.length; i < len; i++) {
+            if (nums[i] > nums[i + 1]) {
+                average = nums[i];
+            } else {
+                average = (nums[i] + nums[i + 1]) / 2;
+            }
+        }
+        return average;
     }
 
     /**

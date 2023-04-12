@@ -1849,7 +1849,7 @@ public class LeetCodeTest {
      * 合并零之间的节点
      */
     @Test
-    public void solutionMergeNodes() {
+    public void mergeNodes() {
         int[][] testCase = {
             {0, 3, 1, 0, 4, 5, 2, 0},
             {0, 1, 0, 3, 0, 2, 2, 0}
@@ -1857,6 +1857,21 @@ public class LeetCodeTest {
         for (int[] caseItem : testCase) {
             ListNode head = Helper.buildListNode(caseItem);
             Helper.listNodeFormatOutput(solution2500.mergeNodes(head));
+        }
+    }
+
+    /**
+     * 2194. Cells in a Range on an Excel Sheet
+     * Excel 表中某个范围内的单元格
+     */
+    @Test
+    public void cellsInRange() {
+        String[] testCase = {
+            "K1:L2",
+            "A1:F1"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2500.cellsInRange(caseItem));
         }
     }
 
