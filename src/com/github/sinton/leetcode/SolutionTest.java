@@ -2,7 +2,9 @@ package com.github.sinton.leetcode;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Yan
@@ -1766,6 +1768,40 @@ public class SolutionTest {
         };
         for (String[] caseItem : testCase) {
             System.out.println(solution2000.mergeAlternately(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
+     * 1773. Count Items Matching a Rule
+     * 统计匹配检索规则的物品数量
+     */
+    @Test
+    public void countMatches() {
+        String[][][][] testCase = {
+            {
+                {
+                    {"phone", "blue", "pixel"}, {"computer", "silver", "lenovo"}, {"phone", "gold", "iphone"}
+                },
+                {
+                    {"color"}, {"silver"}
+                }
+            },
+            {
+                {
+                    {"phone", "blue", "pixel"}, {"computer", "silver", "phone"}, {"phone", "gold", "iphone"}
+                },
+                {
+                    {"type"}, {"phone"}
+                }
+            }
+        };
+        List<List<String>> items;
+        for (String[][][] caseItem : testCase) {
+            items = new ArrayList<>();
+            for (String[] content : caseItem[0]) {
+                items.add(Arrays.asList(content));
+            }
+            System.out.println(solution2000.countMatches(items, caseItem[1][0][0], caseItem[1][1][0]));
         }
     }
 

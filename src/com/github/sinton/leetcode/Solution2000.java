@@ -228,6 +228,40 @@ public class Solution2000 {
     }
 
     /**
+     * 1773. Count Items Matching a Rule
+     * 统计匹配检索规则的物品数量
+     * @param items
+     * @param ruleKey
+     * @param ruleValue
+     * @return
+     */
+    public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        int count = 0;
+        for (List<String> item : items) {
+            switch (ruleKey) {
+                case "type":
+                    if (item.get(0).equals(ruleValue)) {
+                        count++;
+                    }
+                    break;
+                case "color":
+                    if (item.get(1).equals(ruleValue)) {
+                        count++;
+                    }
+                    break;
+                case "name":
+                    if (item.get(2).equals(ruleValue)) {
+                        count++;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return count;
+    }
+
+    /**
      * 1779. Find Nearest Point That Has the Same X or Y Coordinate
      * 找到最近的有相同 X 或 Y 坐标的点
      * @param x
