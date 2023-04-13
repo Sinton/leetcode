@@ -135,6 +135,24 @@ public class Solution2500 {
     }
 
     /**
+     * 2236. Root Equals Sum of Children
+     * 判断根结点是否等于子结点之和
+     * @param root
+     * @return
+     */
+    public boolean checkTree(TreeNode root) {
+        if (root != null) {
+            if (root.left != null && root.right != null) {
+                return (root.val == root.left.val + root.right.val) && checkTree(root.left) && checkTree(root.right);
+            } else {
+                return root.left == null && root.right == null;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    /**
      * 2325. Decode the Message
      * 密消息
      * @param key

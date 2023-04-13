@@ -1961,6 +1961,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2236. Root Equals Sum of Children
+     * 判断根结点是否等于子结点之和
+     */
+    @Test
+    public void checkTree() {
+        Integer[][] testCase = {
+            {10, 4, 6},
+            {5, 3, 1}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution2500.checkTree(root));
+        }
+    }
+
+    /**
      * 2325. Decode the Message
      * 密消息
      */
