@@ -160,7 +160,7 @@ public class SolutionTest {
      * 最大子数组和
      */
     @Test
-    public void solutionMaxSubArray() {
+    public void maxSubArray() {
         int[][] testCase = {
             {-2, 1, -3, 4, -1, 2, 1, -5, 4},
             {5, 4, -1, 7, 8},
@@ -624,7 +624,7 @@ public class SolutionTest {
      * 构字符串
      */
     @Test
-    public void solutionIsIsomorphic() {
+    public void isIsomorphic() {
         String[][] testCase = {
             {"egg", "add"},
             {"foo", "bar"},
@@ -676,7 +676,7 @@ public class SolutionTest {
      * 存在重复元素
      */
     @Test
-    public void solutionContainsDuplicate() {
+    public void containsDuplicate() {
         int[][] testCase = {
             {1, 2, 3, 1},
             {1, 2, 3, 4},
@@ -875,7 +875,7 @@ public class SolutionTest {
      * 判断子序列
      */
     @Test
-    public void solutionIsSubsequence() {
+    public void isSubsequence() {
         String[][] testCase = {
             {"abc", "ahbgdc"},
             {"axc", "ahbgdc"},
@@ -967,7 +967,7 @@ public class SolutionTest {
      * 重塑矩阵
      */
     @Test
-    public void solutionMatrixReshape() {
+    public void matrixReshape() {
         int[][][][] testCase = {
             {
                 {{1}, {2}, {3}, {4}},
@@ -1112,7 +1112,7 @@ public class SolutionTest {
      * 寻找数组的中心下标
      */
     @Test
-    public void solutionPivotIndex() {
+    public void pivotIndex() {
         int[][] testCase = {
             {1, 7, 3, 6, 5, 6},
             {1, 2, 3},
@@ -1160,7 +1160,7 @@ public class SolutionTest {
      * 链表的中间结点
      */
     @Test
-    public void solutionMiddleNode() {
+    public void middleNode() {
         int[][] testCase = {
             {1, 2, 3, 4, 5},
             {1, 2, 3, 4, 5, 6}
@@ -1198,7 +1198,7 @@ public class SolutionTest {
      * 二叉搜索树的范围和
      */
     @Test
-    public void solutionRangeSumBST() {
+    public void rangeSumBST() {
         Integer[][][] testCase = {
             {
                 {10, 5, 15, 3, 7, null, 18},
@@ -1212,7 +1212,7 @@ public class SolutionTest {
             }
         };
         for (Integer[][] caseItem : testCase) {
-            System.out.println(solution1000.rangeSumBST(Helper.buildTreeNode(caseItem[0], 0), caseItem[1][0], caseItem[2][0]));;
+            System.out.println(solution1000.rangeSumBST(Helper.buildTreeNode(caseItem[0]), caseItem[1][0], caseItem[2][0]));;
         }
     }
 
@@ -1262,7 +1262,7 @@ public class SolutionTest {
      * 三角形的最大周长
      */
     @Test
-    public void solutionLargestPerimeter() {
+    public void largestPerimeter() {
         int[][] testCase = {
             {1, 2, 1},
             {1, 2, 1, 10},
@@ -1350,7 +1350,7 @@ public class SolutionTest {
      * 二进制链表转整数
      */
     @Test
-    public void solutionGetDecimalValue() {
+    public void getDecimalValue() {
         int[][] testCase = {
             {1, 0, 1}
         };
@@ -1393,17 +1393,18 @@ public class SolutionTest {
     }
 
     /**
+     * TODO
      * 1339. Maximum Product of Splitted Binary Tree
      * 分裂二叉树的最大乘积
      */
     @Test
     public void maxProduct() {
         Integer[][] testCase = {
-//            {1, 2, 3, 4, 5, 6},
+            {1, 2, 3, 4, 5, 6},
             {1, null, 2, 3, 4, null, null, 5, 6}
         };
         for (Integer[] caseItem : testCase) {
-            System.out.println(solution1500.maxProduct(Helper.buildTreeNode(caseItem, 0)));
+            System.out.println(solution1500.maxProduct(Helper.buildTreeNode(caseItem)));
         }
     }
 
@@ -1641,7 +1642,7 @@ public class SolutionTest {
      * 矩阵对角线元素的和
      */
     @Test
-    public void solutionDiagonalSum() {
+    public void diagonalSum() {
         int[][][] testCase = {
             {
                 {1, 2, 3},
@@ -1668,7 +1669,7 @@ public class SolutionTest {
      * 所有奇数长度子数组的和
      */
     @Test
-    public void solutionSumOddLengthSubarrays() {
+    public void sumOddLengthSubarrays() {
         int[][] testCase = {
             {1, 4, 2, 5, 3},
             {1, 2},
@@ -1809,7 +1810,8 @@ public class SolutionTest {
      * 1779. Find Nearest Point That Has the Same X or Y Coordinate
      * 找到最近的有相同 X 或 Y 坐标的点
      */
-    public void solutionNearestValidPoint() {
+    @Test
+    public void nearestValidPoint() {
         int[][][][] testCase = {
             {
                 {{3}},
