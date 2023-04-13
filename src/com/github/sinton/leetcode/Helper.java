@@ -80,37 +80,30 @@ public class Helper {
      * @param testCase
      * @return
      */
-    public static TreeNode buildTreeNode(Integer[] testCase, int index) {
-        TreeNode rootTreeNode = null;
-        TreeNode currTreeNode = null;
+    public static TreeNode buildTreeNode(Integer[] testCase) {
+        int index = 0;
+        int len = testCase.length;
+        TreeNode rootTreeNode = new TreeNode(testCase[index]);
         Queue<TreeNode> queue = new LinkedList<>();
-        for (int i = 0, len = testCase.length; i < len; i++) {
-            if (rootTreeNode == null) {
-                rootTreeNode = new TreeNode(testCase[i]);
-                currTreeNode = rootTreeNode;
+        queue.add(rootTreeNode);
+        while(index < len) {
+            TreeNode currTreeNode = queue.poll();
+            if (currTreeNode == null) {
+                continue;
             }
-            if (i + 1 < len) {
-                currTreeNode.left = testCase[i + 1] == null ? null : new TreeNode(testCase[i + 1]);
+            index++;
+            if (index < len) {
+                TreeNode left = testCase[index] == null ? null : new TreeNode(testCase[index]);
+                queue.add(left);
+                currTreeNode.left = left;
             }
-            if (i + 2 < len) {
-                currTreeNode.right = testCase[i + 2] == null ? null : new TreeNode(testCase[i + 2]);
-            }
-            if (testCase[i] != null) {
-                queue.add(currTreeNode);
-                if (i + 1 < len && testCase[i + 1] != null) {
-                    TreeNode left = new TreeNode(testCase[i + 1]);
-                    queue.add(left);
-                    currTreeNode.left = left;
-                }
-                if (i + 2 < len && testCase[i + 2] != null) {
-                    TreeNode right = new TreeNode(testCase[i + 2]);
-                    queue.add(right);
-                    currTreeNode.right = right;
-                }
+            index++;
+            if (index < len) {
+                TreeNode right = testCase[index] == null ? null : new TreeNode(testCase[index]);
+                queue.add(right);
+                currTreeNode.right = right;
             }
         }
-        rootTreeNode.left = buildTreeNode(testCase, 2 * index + 1);
-        rootTreeNode.right = buildTreeNode(testCase, 2 * index + 2);
         return rootTreeNode;
     }
 }
