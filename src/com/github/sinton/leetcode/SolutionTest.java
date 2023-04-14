@@ -1851,6 +1851,21 @@ public class SolutionTest {
     }
 
     /**
+     * 1791. Find Center of Star Graph
+     * 找出星型图的中心节点
+     */
+    @Test
+    public void findCenter() {
+        int[][][] testCase = {
+            {{1, 2}, {2, 3}, {4, 2}},
+            {{1, 2}, {5, 1}, {1, 3}, {1, 4}}
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2000.findCenter(caseItem));
+        }
+    }
+
+    /**
      * 1822. Sign of the Product of an Array
      * 数组元素积的符号
      */
@@ -1863,6 +1878,21 @@ public class SolutionTest {
         };
         for (int[] caseItem : testCase) {
             System.out.println(solution2000.arraySign(caseItem));
+        }
+    }
+
+    /**
+     * 1832. Check if the Sentence Is Pangram
+     * 判断句子是否为全字母句
+     */
+    @Test
+    public void checkIfPangram() {
+        String[] testCase = {
+            "thequickbrownfoxjumpsoverthelazydog",
+            "leetcode"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2000.checkIfPangram(caseItem));
         }
     }
 

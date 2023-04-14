@@ -326,6 +326,26 @@ public class Solution2000 {
     }
 
     /**
+     * 1791. Find Center of Star Graph
+     * 找出星型图的中心节点
+     * @param edges
+     * @return
+     */
+    public int findCenter(int[][] edges) {
+        int u = edges[0][0];
+        int v = edges[0][1];
+        int answer = u;
+        for (int[] edge : edges) {
+            if (edge[0] == u || edge[1] == u) {
+                answer =  u;
+            } else if (edge[0] == v || edge[1] == v) {
+                answer = v;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1822. Sign of the Product of an Array
      * 数组元素积的符号
      * @param nums
@@ -345,6 +365,22 @@ public class Solution2000 {
         } else {
             return (negativeCount + 2) % 2 == 0 ? 1 : -1;
         }
+    }
+
+    /**
+     * 1832. Check if the Sentence Is Pangram
+     * 判断句子是否为全字母句
+     * @param sentence
+     * @return
+     */
+    public boolean checkIfPangram(String sentence) {
+        int count = 0;
+        for (int i = 0; i < 26; i++) {
+            if (sentence.contains(String.valueOf((char)('a' + i)))) {
+                count++;
+            }
+        }
+        return count == 26;
     }
 
     /**
