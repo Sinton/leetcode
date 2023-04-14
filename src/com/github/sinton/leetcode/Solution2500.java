@@ -180,6 +180,27 @@ public class Solution2500 {
     }
 
     /**
+     * 2367. Number of Arithmetic Triplets
+     * 算术三元组的数目
+     * @param nums
+     * @param diff
+     * @return
+     */
+    public int arithmeticTriplets(int[] nums, int diff) {
+        int answer = 0;
+        List<Integer> list = new ArrayList<>();
+        for (int num : nums) {
+            list.add(num);
+        }
+        for (int num : nums) {
+            if (list.contains(num + diff) && list.contains(num + diff + diff)) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2396. Strictly Palindromic Number
      * 严格回文的数字
      * @param n

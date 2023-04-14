@@ -348,6 +348,23 @@ public class Solution2000 {
     }
 
     /**
+     * 1859. Sorting the Sentence
+     * 将句子排序
+     * @param s
+     * @return
+     */
+    public String sortSentence(String s) {
+        String[] words = s.split(" ");
+        String[] answerWords = new String[words.length];
+        int index;
+        for (String word : words) {
+            index = word.charAt(word.length() - 1) - '0';
+            answerWords[index - 1] = word.substring(0, word.length() - 1);
+        }
+        return String.join(" ", answerWords);
+    }
+
+    /**
      * 1920. Build Array from Permutation
      * 基于排列构建数组
      * @param nums

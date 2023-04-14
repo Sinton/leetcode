@@ -1867,6 +1867,23 @@ public class SolutionTest {
     }
 
     /**
+     * 1859. Sorting the Sentence
+     * 将句子排序
+     * @param s
+     * @return
+     */
+    @Test
+    public void sortSentence() {
+        String[] testCase = {
+            "is2 sentence4 This1 a3",
+            "Myself2 Me1 I4 and3"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2000.sortSentence(caseItem));
+        }
+    }
+
+    /**
      * 1920. Build Array from Permutation
      * 基于排列构建数组
      */
@@ -1971,8 +1988,7 @@ public class SolutionTest {
             {5, 3, 1}
         };
         for (Integer[] caseItem : testCase) {
-            TreeNode root = Helper.buildTreeNode(caseItem);
-            System.out.println(solution2500.checkTree(root));
+            System.out.println(solution2500.checkTree(Helper.buildTreeNode(caseItem)));
         }
     }
 
@@ -1988,6 +2004,28 @@ public class SolutionTest {
         };
         for (String[] caseItem : testCase) {
             System.out.println(solution2500.decodeMessage(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
+     * 2367. Number of Arithmetic Triplets
+     * 算术三元组的数目
+     */
+    @Test
+    public void arithmeticTriplets() {
+        int[][][] testCase = {
+            {
+                {0, 1, 4, 6, 7, 10}, {3}
+            },
+            {
+                {4, 5, 6, 7, 8, 9}, {2}
+            },
+            {
+                {4, 5, 6, 7, 8, 9}, {3}
+            }
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.arithmeticTriplets(caseItem[0], caseItem[1][0]));
         }
     }
 
