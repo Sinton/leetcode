@@ -365,6 +365,27 @@ public class Solution2000 {
     }
 
     /**
+     * 1816. Truncate Sentence
+     * 截断句子
+     * @param s
+     * @param k
+     * @return
+     */
+    public String truncateSentence(String s, int k) {
+        StringBuilder answer = new StringBuilder();
+        int count = 1;
+        for (int i = 0, len = s.length(); i < len; i++) {
+            if (s.charAt(i) == ' ') {
+                if (count++ == k) {
+                    break;
+                }
+            }
+            answer.append(s.charAt(i));
+        }
+        return answer.toString();
+    }
+
+    /**
      * 1822. Sign of the Product of an Array
      * 数组元素积的符号
      * @param nums

@@ -201,6 +201,33 @@ public class Solution2500 {
     }
 
     /**
+     * 2373. Largest Local Values in a Matrix
+     * 矩阵中的局部最大值
+     * @param grid
+     * @return
+     */
+    public int[][] largestLocal(int[][] grid) {
+        int[][] answer = new int[grid.length - 2][grid.length - 2];
+        int maxValue;
+        for (int row = 1, rowLen = grid.length - 1; row < rowLen; row++) {
+            for (int col = 1, colLen = grid.length - 1; col < colLen; col++) {
+                maxValue = Integer.MIN_VALUE;
+                maxValue = Math.max(maxValue, grid[row][col]);
+                maxValue = Math.max(maxValue, grid[row - 1][col]);
+                maxValue = Math.max(maxValue, grid[row + 1][col]);
+                maxValue = Math.max(maxValue, grid[row][col - 1]);
+                maxValue = Math.max(maxValue, grid[row][col + 1]);
+                maxValue = Math.max(maxValue, grid[row - 1][col - 1]);
+                maxValue = Math.max(maxValue, grid[row - 1][col + 1]);
+                maxValue = Math.max(maxValue, grid[row + 1][col - 1]);
+                maxValue = Math.max(maxValue, grid[row + 1][col + 1]);
+                answer[row - 1][col - 1] = maxValue;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2396. Strictly Palindromic Number
      * 严格回文的数字
      * @param n

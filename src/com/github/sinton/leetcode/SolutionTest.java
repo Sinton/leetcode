@@ -1914,6 +1914,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1816. Truncate Sentence
+     * 截断句子
+     */
+    @Test
+    public void truncateSentence() {
+        String[][] testCase = {
+            {"Hello how are you Contestant", "4"},
+            {"What is the solution to this problem", "4"},
+            {"chopper is not a tanuki", "5"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2000.truncateSentence(caseItem[0], Integer.parseInt(caseItem[1])));
+        }
+    }
+
+    /**
      * 1822. Sign of the Product of an Array
      * 数组元素积的符号
      */
@@ -2104,6 +2120,21 @@ public class SolutionTest {
         };
         for (int[][] caseItem : testCase) {
             System.out.println(solution2500.arithmeticTriplets(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
+     * 2373. Largest Local Values in a Matrix
+     * 矩阵中的局部最大值
+     */
+    @Test
+    public void largestLocal() {
+        int[][][] testCase = {
+            {{9, 9, 8, 1}, {5, 6, 2, 6}, {8, 2, 6, 4}, {6, 2, 2, 2}},
+            {{1,1,1,1,1},{1,1,1,1,1},{1,1,2,1,1},{1,1,1,1,1},{1,1,1,1,1}}
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(Arrays.deepToString(solution2500.largestLocal(caseItem)));
         }
     }
 
