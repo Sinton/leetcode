@@ -1456,6 +1456,32 @@ public class SolutionTest {
     }
 
     /**
+     * TODO
+     * 1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree
+     * 找出克隆二叉树中的相同节点
+     */
+    @Test
+    public void getTargetCopy() {
+        Integer[][][] testCase = {
+            {
+                {7, 4, 3, null, null, 6, 19}, {3}
+            },
+            {
+                {7}, {7}
+            },
+            {
+                {8, null, 6, null, 5, null, 4, null, 3, null, 2, null, 1}, {4}
+            }
+        };
+        for (Integer[][] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem[0]);
+            TreeNode clone = Helper.buildTreeNode(caseItem[0]);
+            TreeNode target = Helper.buildTreeNode(caseItem[1]);
+            System.out.println(solution1500.getTargetCopy(root, clone, target).val);
+        }
+    }
+
+    /**
      * 1389. Create Target Array in the Given Order
      * 按既定顺序创建目标数组
      */
@@ -1691,6 +1717,28 @@ public class SolutionTest {
         System.out.println(parkingSystem.addCar(2));
         System.out.println(parkingSystem.addCar(3));
         System.out.println(parkingSystem.addCar(1));
+    }
+
+    /**
+     * 1662. Check If Two String Arrays are Equivalent
+     * 检查两个字符串数组是否相等
+     */
+    @Test
+    public void arrayStringsAreEqual() {
+        String[][][] testCase = {
+            {
+                {"ab", "c"}, {"a", "bc"},
+            },
+            {
+                {"a", "cb"}, {"ab", "c"},
+            },
+            {
+                {"abc", "d", "defg"}, {"abcddefg"},
+            }
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution2000.arrayStringsAreEqual(caseItem[0], caseItem[1]));
+        }
     }
 
     /**

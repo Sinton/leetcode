@@ -120,6 +120,25 @@ public class Solution2000 {
     }
 
     /**
+     * 1662. Check If Two String Arrays are Equivalent
+     * 检查两个字符串数组是否相等
+     * @param word1
+     * @param word2
+     * @return
+     */
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        StringBuilder left = new StringBuilder();
+        StringBuilder right = new StringBuilder();
+        for (String word : word1) {
+            left.append(word);
+        }
+        for (String word : word2) {
+            right.append(word);
+        }
+        return left.toString().contentEquals(right);
+    }
+
+    /**
      * 1672. Richest Customer Wealth
      * 最富有客户的资产总量
      * @param accounts
