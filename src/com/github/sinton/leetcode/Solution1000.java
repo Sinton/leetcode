@@ -84,7 +84,6 @@ public class Solution1000 {
     }
 
     /**
-     * TODO Memory Limit Exceeded
      * 598. Range Addition II
      * 范围求和 II
      * @param m
@@ -93,30 +92,18 @@ public class Solution1000 {
      * @return
      */
     public int maxCount(int m, int n, int[][] ops) {
-        int[][] matrix = new int[m][n];
-        for (int i = 0; i < ops.length; i++) {
-            int min = Math.min(ops[i][0], ops[i][1]);
-            for (int k = 0; k < min; k++) {
-                for (int l = 0; l < min; l++) {
-                    matrix[k][l] += 1;
-                }
-            }
+        int count = m * n;
+        int widthMin = Integer.MAX_VALUE;
+        int heightMin = Integer.MAX_VALUE;
+        for (int[] op : ops) {
+            widthMin = Math.min(widthMin, op[0]);
+            heightMin = Math.min(heightMin, op[1]);
         }
-        int max = matrix[0][0];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                max = Math.max(max, matrix[i][j]);
-            }
+        if (widthMin != Integer.MAX_VALUE && heightMin != Integer.MAX_VALUE) {
+            return widthMin * heightMin;
+        } else {
+            return count;
         }
-        int count = 0;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (max == matrix[i][j]) {
-                    count++;
-                }
-            }
-        }
-        return count;
     }
 
     /**

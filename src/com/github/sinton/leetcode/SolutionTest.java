@@ -992,6 +992,31 @@ public class SolutionTest {
     }
 
     /**
+     * 598. Range Addition II
+     * 范围求和 II
+     */
+    @Test
+    public void maxCount() {
+        int[][][][] testCase = {
+            {
+                {{3}, {3}},
+                {{2, 2}, {3, 3}}
+            },
+            {
+                {{3}, {3}},
+                {{2,2},{3,3},{3,3},{3,3},{2,2},{3,3},{3,3},{3,3},{2,2},{3,3},{3,3},{3,3}}
+            },
+            {
+                {{3}, {3}},
+                {}
+            }
+        };
+        for (int[][][] caseItem : testCase) {
+            System.out.println(solution1000.maxCount(caseItem[0][0][0], caseItem[0][1][0], caseItem[1]));
+        }
+    }
+
+    /**
      * 653. Two Sum IV - Input is a BST
      * 两数之和 IV - 输入二叉搜索树
      */
