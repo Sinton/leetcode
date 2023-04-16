@@ -224,6 +224,7 @@ public class Solution1500 {
     }
 
     /**
+     * TODO
      * 1339. Maximum Product of Splitted Binary Tree
      * 分裂二叉树的最大乘积
      * @param root
@@ -374,16 +375,23 @@ public class Solution1500 {
      * @return
      */
     public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
-        if (cloned.val == target.val) {
-            return cloned;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(cloned);
+        TreeNode curr = cloned;
+        while(!stack.isEmpty()) {
+            curr = stack.pop();
+            if (curr.val == target.val) {
+                return curr;
+            } else {
+                if (curr.left != null) {
+                    stack.push(curr.left);
+                }
+                if (curr.right != null) {
+                    stack.push(curr.right);
+                }
+            }
         }
-        // TODO
-        if (cloned.left != null) {
-        }
-        if (cloned.right != null) {
-
-        }
-        return null;
+        return curr;
     }
 
     /**
