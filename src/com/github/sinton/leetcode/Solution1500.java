@@ -1,9 +1,6 @@
 package com.github.sinton.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author Yan
@@ -171,6 +168,35 @@ public class Solution1500 {
             head = head.next;
         }
         return result;
+    }
+
+    /**
+     * 1302. Deepest Leaves Sum
+     * 层数最深叶子节点的和
+     * @param root
+     * @return
+     */
+    public int deepestLeavesSum(TreeNode root) {
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+        int sum = 0;
+        while (!queue.isEmpty()) {
+            sum = 0;
+            TreeNode currNode;
+            for (int i = 0, length = queue.size(); i < length; i++) {
+                currNode = queue.poll();
+                if (currNode != null) {
+                    sum += currNode.val;
+                    if (currNode.left != null) {
+                        queue.add(currNode.left);
+                    }
+                    if (currNode.right != null) {
+                        queue.add(currNode.right);
+                    }
+                }
+            }
+        }
+        return sum;
     }
 
     /**
@@ -375,6 +401,7 @@ public class Solution1500 {
      * @return
      */
     public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+        // 如果要求节点值相同的情况下，找节点所在位置也相同则是另外一个解法
         Stack<TreeNode> stack = new Stack<>();
         stack.push(cloned);
         TreeNode curr = cloned;
@@ -434,6 +461,37 @@ public class Solution1500 {
             answer.add(candy + extraCandies >= max);
         }
         return answer;
+    }
+
+    /**
+     * 1437. Check If All 1's Are at Least Length K Places Away
+     * 是否所有 1 都至少相隔 k 个元素
+     * @param nums
+     * @param k
+     * @return
+     */
+    public boolean kLengthApart(int[] nums, int k) {
+        int start = 0,
+            end,
+            distance,
+            count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                count++;
+                if (count == 1) {
+                    start = i;
+                } else {
+                    end = i;
+                    distance = end - start - 1;
+                    start = end;
+                    count = 1;
+                    if (distance < k) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     /**

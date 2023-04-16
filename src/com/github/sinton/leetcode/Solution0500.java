@@ -7,57 +7,6 @@ import java.util.*;
  * @author Yan
  */
 public class Solution0500 {
-    public String reverseLeftWords(String s, int n) {
-        return s.substring(n) + s.substring(0, n);
-    }
-
-    public int deepestLeavesSum(TreeNode root) {
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.add(root);
-        int sum = 0;
-        while (!queue.isEmpty()) {
-            sum = 0;
-            TreeNode currNode;
-            for (int i = 0, length = queue.size(); i < length; i++) {
-                currNode = queue.poll();
-                if (currNode != null) {
-                    sum += currNode.val;
-                    if (currNode.left != null) {
-                        queue.add(currNode.left);
-                    }
-                    if (currNode.right != null) {
-                        queue.add(currNode.right);
-                    }
-                }
-            }
-        }
-        return sum;
-    }
-
-    public boolean kLengthApart(int[] nums, int k) {
-        int start = 0,
-                end,
-                distance,
-                count = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 1) {
-                count++;
-                if (count == 1) {
-                    start = i;
-                } else {
-                    end = i;
-                    distance = end - start - 1;
-                    start = end;
-                    count = 1;
-                    if (distance < k) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
     /**
      * 1. Two Sum
      * 两数之和
@@ -345,6 +294,26 @@ public class Solution0500 {
             }
             return step[n - 1];
         }
+    }
+
+    /**
+     * TODO
+     * 71. Simplify Path
+     * 简化路径
+     * @param path
+     * @return
+     */
+    public String simplifyPath(String path) {
+        String answer = "/";
+        Stack<String> stack = new Stack<>();
+        stack.push("/");
+        for (int i = 0, len = path.length(); i < len; i++) {
+            if (path.charAt(i) == '/' && stack.peek() == "/") {
+                stack.pop();
+                stack.push("/");
+            }
+        }
+        return answer;
     }
 
     /**

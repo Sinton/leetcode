@@ -75,7 +75,7 @@ public class Helper {
     }
 
     /**
-     * 前序递归构建树节点
+     * 前序BFS构建树节点
      *
      * @param testCase
      * @return
