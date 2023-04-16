@@ -1172,6 +1172,29 @@ public class SolutionTest {
     }
 
     /**
+     * 872. Leaf-Similar Trees
+     * 叶子相似的树
+     */
+    @Test
+    public void leafSimilar() {
+        Integer[][][] testCase = {
+            {
+                {3, 5, 1, 6, 2, 9, 8, null, null, 7, 4},
+                {3, 5, 1, 6, 7, 4, 2, null, null, null, null, null, null, 9, 8}
+            },
+            {
+                {1,2,3},
+                {1,3,2}
+            },
+        };
+        for (Integer[][] caseItem : testCase) {
+            TreeNode root1 = Helper.buildTreeNode(caseItem[0]);
+            TreeNode root2 = Helper.buildTreeNode(caseItem[1]);
+            System.out.println(solution1000.leafSimilar(root1, root2));
+        }
+    }
+
+    /**
      * 931. Minimum Falling Path Sum
      * 下降路径最小和
      */

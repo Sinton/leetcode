@@ -584,7 +584,6 @@ public class Solution1000 {
     }
 
     /**
-     * TODO
      * 872. Leaf-Similar Trees
      * 叶子相似的树
      * @param root1
@@ -592,15 +591,9 @@ public class Solution1000 {
      * @return
      */
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        // TODO
         List<Integer> srcLeafValues = getTreeNodeLeafValues(root1);
         List<Integer> desLeafValues = getTreeNodeLeafValues(root2);
-        for (int i = 0; i < srcLeafValues.size(); i++) {
-            if (srcLeafValues.get(i) - desLeafValues.get(i) != 0) {
-                return false;
-            }
-        }
-        return true;
+        return Arrays.toString(srcLeafValues.toArray()).equals(Arrays.toString(desLeafValues.toArray()));
     }
 
     /**
@@ -611,11 +604,21 @@ public class Solution1000 {
      */
     public List<Integer> getTreeNodeLeafValues(TreeNode root) {
         List<Integer> leaf = new LinkedList<>();
-        if (root.left != null) {
-            leaf.addAll(getTreeNodeLeafValues(root.left));
-        }
-        if (root.right != null) {
-            leaf.addAll(getTreeNodeLeafValues(root.right));
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        TreeNode curr;
+        while (!stack.isEmpty()) {
+            curr = stack.pop();
+            if (curr.left == null && curr.right == null) {
+                leaf.add(curr.val);
+            } else {
+                if (curr.left != null) {
+                    stack.push(curr.left);
+                }
+                if (curr.right != null) {
+                    stack.push(curr.right);
+                }
+            }
         }
         return leaf;
     }
