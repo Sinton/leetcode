@@ -196,6 +196,27 @@ public class Solution2000 {
     }
 
     /**
+     * 1688. Count of Matches in Tournament
+     * 比赛中的配对次数
+     * @param n
+     * @return
+     */
+    public int numberOfMatches(int n) {
+        int sum = 0;
+        while (n >= 2) {
+            if (n % 2 == 1) {
+                n = (n - 1) / 2 + 1;
+                sum += n - 1;
+            }
+            else {
+                n = n / 2;
+                sum += n;
+            }
+        }
+        return sum;
+    }
+
+    /**
      * 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
      * 十-二进制数的最少数目
      * @param n

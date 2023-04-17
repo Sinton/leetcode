@@ -1102,22 +1102,22 @@ public class SolutionTest {
     @Test
     public void search() {
         int[][][] testCase = {
-//            {
-//                {2, 5},
-//                {2}
-//            },
-//            {
-//                {5},
-//                {5}
-//            },
-//            {
-//                {-1, 0, 3, 5, 9, 12},
-//                {9}
-//            },
-//            {
-//                {-1, 0, 3, 5, 9, 12},
-//                {2}
-//            },
+            {
+                {2, 5},
+                {2}
+            },
+            {
+                {5},
+                {5}
+            },
+            {
+                {-1, 0, 3, 5, 9, 12},
+                {9}
+            },
+            {
+                {-1, 0, 3, 5, 9, 12},
+                {2}
+            },
             {
                 {5, 1},
                 {1}
@@ -1827,6 +1827,18 @@ public class SolutionTest {
         String[] testCase = {"G()(al)", "G()()()()(al)", "(al)G(al)()()G"};
         for (String caseItem : testCase) {
             System.out.println(solution2000.interpret(caseItem));
+        }
+    }
+
+    /**
+     * 1688. Count of Matches in Tournament
+     * 比赛中的配对次数
+     */
+    @Test
+    public void numberOfMatches() {
+        int[] testCase = {2, 7, 14};
+        for (int caseItem : testCase) {
+            System.out.println(solution2000.numberOfMatches(caseItem));
         }
     }
 
