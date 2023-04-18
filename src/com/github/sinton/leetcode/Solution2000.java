@@ -196,6 +196,30 @@ public class Solution2000 {
     }
 
     /**
+     * 1684. Count the Number of Consistent Strings
+     * 统计一致字符串的数目
+     * @param allowed
+     * @param words
+     * @return
+     */
+    public int countConsistentStrings(String allowed, String[] words) {
+        int count = 0;
+        for (String word : words) {
+            int len = word.length();
+            while(len > 0) {
+                if (!allowed.contains(String.valueOf(word.charAt(len - 1)))) {
+                    break;
+                }
+                len--;
+            }
+            if (len == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
      * 1688. Count of Matches in Tournament
      * 比赛中的配对次数
      * @param n
