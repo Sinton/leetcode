@@ -1830,6 +1830,27 @@ public class SolutionTest {
         }
     }
 
+    @Test
+    public void countConsistentStrings() {
+        String[][][] testCase = {
+            {
+                {"ab"},
+                {"ad", "bd", "aaab", "baa", "badab"}
+            },
+            {
+                {"abc"},
+                {"a", "b", "c", "ab", "ac", "bc", "abc"}
+            },
+            {
+                {"cad"},
+                {"cc", "acd", "b", "ba", "bac", "bad", "ac", "d"}
+            }
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution2000.countConsistentStrings(caseItem[0][0], caseItem[1]));
+        }
+    }
+
     /**
      * 1688. Count of Matches in Tournament
      * 比赛中的配对次数
@@ -2127,6 +2148,21 @@ public class SolutionTest {
         };
         for (String caseItem : testCase) {
             System.out.println(solution2500.cellsInRange(caseItem));
+        }
+    }
+
+    /**
+     * 2220. Minimum Bit Flips to Convert Number
+     * 转换数字的最少位翻转次数
+     */
+    @Test
+    public void minBitFlips() {
+        Integer[][] testCase = {
+            {10, 7},
+            {3, 4},
+        };
+        for (Integer[] caseItem : testCase) {
+            System.out.println(solution2500.minBitFlips(caseItem[0], caseItem[1]));
         }
     }
 

@@ -135,6 +135,39 @@ public class Solution2500 {
     }
 
     /**
+     * 2220. Minimum Bit Flips to Convert Number
+     * 转换数字的最少位翻转次数
+     * @param start
+     * @param goal
+     * @return
+     */
+    public int minBitFlips(int start, int goal) {
+        // TODO 用异或运算效率更高
+        StringBuilder begin = new StringBuilder(Integer.toBinaryString(start));
+        StringBuilder end = new StringBuilder(Integer.toBinaryString(goal));
+        int maxLength = Math.max(begin.length(), end.length());
+        int distance = begin.length() - end.length();
+        if (distance > 0) {
+            for(int i = 0; i < distance; i++) {
+                end.insert(0, "0");
+            }
+        }
+        if (distance < 0) {
+            for(int i = 0; i < -distance; i++) {
+                begin.insert(0, "0");
+            }
+        }
+        int count = 0;
+        while(maxLength > 0) {
+            if (begin.charAt(maxLength - 1) != end.charAt(maxLength - 1)) {
+                count++;
+            }
+            maxLength--;
+        }
+        return count;
+    }
+
+    /**
      * 2236. Root Equals Sum of Children
      * 判断根结点是否等于子结点之和
      * @param root
