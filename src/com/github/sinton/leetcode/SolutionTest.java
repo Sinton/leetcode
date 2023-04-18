@@ -2073,6 +2073,31 @@ public class SolutionTest {
     }
 
     /**
+     * 2006. Count Number of Pairs With Absolute Difference K
+     * 差的绝对值为 K 的数对数目
+     */
+    @Test
+    public void countKDifference() {
+        int[][][] testCase = {
+            {
+                {1, 2, 2, 1},
+                {1}
+            },
+            {
+                {1, 3},
+                {3}
+            },
+            {
+                {3, 2, 1, 5, 4},
+                {2}
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.countKDifference(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
      * 2011. Final Value of Variable After Performing Operations
      * 执行操作后的变量值
      */

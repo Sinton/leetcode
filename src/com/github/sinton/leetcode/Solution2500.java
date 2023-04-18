@@ -6,6 +6,25 @@ import java.util.*;
  * @author Yan
  */
 public class Solution2500 {
+    /**
+     * 2006. Count Number of Pairs With Absolute Difference K
+     * 差的绝对值为 K 的数对数目
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int countKDifference(int[] nums, int k) {
+        // TODO 可以用哈希表计数方式统计
+        int answer = 0;
+        for (int i = 0, len = nums.length; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (Math.abs(nums[i] - nums[j]) == k) {
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
 
     /**
      * 2011. Final Value of Variable After Performing Operations
