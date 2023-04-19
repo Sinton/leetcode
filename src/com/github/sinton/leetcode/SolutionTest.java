@@ -2068,8 +2068,6 @@ public class SolutionTest {
     /**
      * 1859. Sorting the Sentence
      * 将句子排序
-     * @param s
-     * @return
      */
     @Test
     public void sortSentence() {
@@ -2135,6 +2133,31 @@ public class SolutionTest {
         };
         for (String[] caseItem : testCase) {
             System.out.println(solution2500.finalValueAfterOperations(caseItem));
+        }
+    }
+
+    /**
+     * 2037. Minimum Number of Moves to Seat Everyone
+     * 使每位学生都有座位的最少移动次数
+     */
+    @Test
+    public void minMovesToSeat() {
+        int[][][] testCase = {
+            {
+                {3, 1, 5},
+                {2, 7, 4}
+            },
+            {
+                {4, 1, 5, 9},
+                {1, 3, 2, 6}
+            },
+            {
+                {2, 2, 6, 6},
+                {1, 3, 2, 6}
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.minMovesToSeat(caseItem[0], caseItem[1]));
         }
     }
 
@@ -2228,6 +2251,22 @@ public class SolutionTest {
         };
         for (Integer[] caseItem : testCase) {
             System.out.println(solution2500.checkTree(Helper.buildTreeNode(caseItem)));
+        }
+    }
+
+    /**
+     * 2315. Count Asterisks
+     * 统计星号
+     */
+    @Test
+    public void countAsterisks() {
+        String[] testCase = {
+            "yo|uar|e**|b|e***au|tifu|l",
+            "l|*e*et|c**o|*de|",
+            "iamprogrammer",
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2500.countAsterisks(caseItem));
         }
     }
 

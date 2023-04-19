@@ -52,6 +52,25 @@ public class Solution2500 {
     }
 
     /**
+     * 2037. Minimum Number of Moves to Seat Everyone
+     * 使每位学生都有座位的最少移动次数
+     * @param seats
+     * @param students
+     * @return
+     */
+    public int minMovesToSeat(int[] seats, int[] students) {
+        Arrays.sort(seats);
+        Arrays.sort(students);
+        int answer = 0;
+        int seatsIndex = seats.length - 1;
+        int studentsIndex = students.length - 1;
+        while (seatsIndex >= 0 || studentsIndex >= 0) {
+            answer += Math.abs(seats[seatsIndex--] - students[studentsIndex--]);
+        }
+        return answer;
+    }
+
+    /**
      * 2114. Maximum Number of Words Found in Sentences
      * 句子中的最多单词数
      * @param sentences
@@ -202,6 +221,25 @@ public class Solution2500 {
         } else {
             return true;
         }
+    }
+
+    /**
+     * 2315. Count Asterisks
+     * 统计星号
+     * @param s
+     * @return
+     */
+    public int countAsterisks(String s) {
+        String[] words = s.split("\\|");
+        int count = 0;
+        for (int i = 0, len = words.length; i < len; i = i + 2) {
+            for(int j = 0, wordLen = words[i].length(); j < wordLen; j++) {
+                if (words[i].charAt(j) == '*') {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     /**
