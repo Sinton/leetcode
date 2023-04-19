@@ -1792,6 +1792,21 @@ public class SolutionTest {
     }
 
     /**
+     * 1614. Maximum Nesting Depth of the Parentheses
+     * 括号的最大嵌套深度
+     */
+    @Test
+    public void maxDepth1614() {
+        String[] testCase = {
+            "(1+(2*3)+((8)/4))+1",
+            "(1)+((2))+(((3)))"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2000.maxDepth(caseItem));
+        }
+    }
+
+    /**
      * 1662. Check If Two String Arrays are Equivalent
      * 检查两个字符串数组是否相等
      */
@@ -1855,6 +1870,10 @@ public class SolutionTest {
         }
     }
 
+    /**
+     * 1684. Count the Number of Consistent Strings
+     * 统计一致字符串的数目
+     */
     @Test
     public void countConsistentStrings() {
         String[][][] testCase = {

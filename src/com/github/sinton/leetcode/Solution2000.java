@@ -120,6 +120,27 @@ public class Solution2000 {
     }
 
     /**
+     * 1614. Maximum Nesting Depth of the Parentheses
+     * 括号的最大嵌套深度
+     * @param s
+     * @return
+     */
+    public int maxDepth(String s) {
+        int answer = 0;
+        int combo = 0;
+        for (int i = 0, len = s.length(); i < len; i++) {
+            if (s.charAt(i) == '(') {
+                combo++;
+                answer = Math.max(answer, combo);
+            }
+            if (s.charAt(i) == ')') {
+                combo--;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1662. Check If Two String Arrays are Equivalent
      * 检查两个字符串数组是否相等
      * @param word1
