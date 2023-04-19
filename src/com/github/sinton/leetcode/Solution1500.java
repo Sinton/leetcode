@@ -250,6 +250,28 @@ public class Solution1500 {
     }
 
     /**
+     * 1323. Maximum 69 Number
+     * 6 和 9 组成的最大数字
+     * @param num
+     * @return
+     */
+    public int maximum69Number (int num) {
+        int max = num;
+        int base = 1;
+        int prev = 0;
+        int modDigit;
+        for (int i = 0, len = (int) Math.round(Math.log10(num)); i < len; i++) {
+            modDigit = num % (base * 10);
+            if ((modDigit - prev) / base == 6) {
+                max = Math.max(max, num - modDigit + 9 * base + prev);
+            }
+            prev = modDigit;
+            base *= 10;
+        }
+        return max;
+    }
+
+    /**
      * TODO
      * 1339. Maximum Product of Splitted Binary Tree
      * 分裂二叉树的最大乘积

@@ -384,7 +384,7 @@ public class SolutionTest {
      * 二叉树的最大深度
      */
     @Test
-    public void maxDepth() {
+    public void maxDepth104() {
         Integer[][] testCase = {
 //            {1, 2, 3, 4, 5, 6},
             {1, null, 2, 3, 4, null, null, 5, 6}
@@ -1437,6 +1437,31 @@ public class SolutionTest {
         };
         for (int[] caseItem : testCase) {
             System.out.println(Arrays.toString(solution1500.decompressRLElist(caseItem)));
+        }
+    }
+
+    /**
+     * 1323. Maximum 69 Number
+     * 6 和 9 组成的最大数字
+     */
+    @Test
+    public void maximum69Number() {
+        int[] testCase = {
+            6,
+            9,
+            66,
+            69,
+            96,
+            99,
+            666,
+            996,
+            999,
+            9669,
+            9996,
+            9999
+        };
+        for (int caseItem : testCase) {
+            System.out.println(solution1500.maximum69Number(caseItem));
         }
     }
 
