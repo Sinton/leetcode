@@ -507,6 +507,17 @@ public class Solution2000 {
     }
 
     /**
+     * 1913. Maximum Product Difference Between Two Pairs
+     * 两个数对之间的最大乘积差
+     * @param nums
+     * @return
+     */
+    public int maxProductDifference(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length - 1] * nums[nums.length - 2] - nums[0] * nums[1];
+    }
+
+    /**
      * 1920. Build Array from Permutation
      * 基于排列构建数组
      * @param nums

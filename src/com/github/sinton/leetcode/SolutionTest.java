@@ -2100,6 +2100,21 @@ public class SolutionTest {
     }
 
     /**
+     * 1913. Maximum Product Difference Between Two Pairs
+     * 两个数对之间的最大乘积差
+     */
+    @Test
+    public void maxProductDifference() {
+        int[][] testCase = {
+            {5, 6, 2, 7, 4},
+            {4, 2, 5, 9, 7, 4, 8},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2000.maxProductDifference(caseItem));
+        }
+    }
+
+    /**
      * 1920. Build Array from Permutation
      * 基于排列构建数组
      */
