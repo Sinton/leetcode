@@ -71,6 +71,36 @@ public class Solution2500 {
     }
 
     /**
+     * 2103. Rings and Rods
+     * 环和杆
+     * @param rings
+     * @return
+     */
+    public int countPoints(String rings) {
+        int answer = 0;
+        Character color;
+        StringBuilder[] polesColor = new StringBuilder[10];
+        int pole;
+        for (int i = 0, len = rings.length(); i < len; i = i + 2) {
+            color = rings.charAt(i);
+            pole = rings.charAt(i + 1) - '0';
+            if (polesColor[pole] == null) {
+                polesColor[pole] = new StringBuilder();
+            }
+            if (polesColor[pole].indexOf("#") < 0) {
+                polesColor[pole].append(color);
+                if (polesColor[pole].indexOf("R") >= 0 &&
+                    polesColor[pole].indexOf("G") >= 0 &&
+                    polesColor[pole].indexOf("B") >= 0) {
+                    answer++;
+                    polesColor[pole].append('#');
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2114. Maximum Number of Words Found in Sentences
      * 句子中的最多单词数
      * @param sentences

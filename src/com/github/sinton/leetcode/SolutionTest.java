@@ -2196,6 +2196,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2103. Rings and Rods
+     * 环和杆
+     */
+    @Test
+    public void countPoints() {
+        String[] testCase = {
+            "B0B6G0R6R0R6G9",
+            "B0R0G0R9R0B0G0",
+            "G4",
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2500.countPoints(caseItem));
+        }
+    }
+
+    /**
      * 2114. Maximum Number of Words Found in Sentences
      * 句子中的最多单词数
      */
