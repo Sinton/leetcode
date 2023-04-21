@@ -383,6 +383,29 @@ public class Solution2500 {
     }
 
     /**
+     * 2418. Sort the People
+     * 按身高排序
+     * @param names
+     * @param heights
+     * @return
+     */
+    public String[] sortPeople(String[] names, int[] heights) {
+        for (int i = 0, len = heights.length; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (heights[i] < heights[j]) {
+                    heights[i] ^= heights[j];
+                    heights[j] ^= heights[i];
+                    heights[i] ^= heights[j];
+                    String tmp = names[i];
+                    names[i]= names[j];
+                    names[j] = tmp;
+                }
+            }
+        }
+        return names;
+    }
+
+    /**
      * TODO
      * 2439. Minimize Maximum of Array
      * 最小化数组中的最大值

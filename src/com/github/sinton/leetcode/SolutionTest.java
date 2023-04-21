@@ -2409,6 +2409,28 @@ public class SolutionTest {
         }
     }
 
+    @Test
+    public void sortPeople() {
+        String[][][] testCase = {
+            {
+                {"Mary", "John", "Emma"},
+                {"180", "165", "170"}
+            },
+            {
+                {"Alice", "Bob", "Bob"},
+                {"155", "185", "150"}
+            },
+        };
+        for (String[][] caseItem : testCase) {
+            int[] heights = new int[caseItem[1].length];
+
+            for (int i = 0 , len = heights.length; i< len; i++) {
+                heights[i] = Integer.parseInt(caseItem[1][i]);
+            }
+            System.out.println(Arrays.toString(solution2500.sortPeople(caseItem[0], heights)));
+        }
+    }
+
     /**
      * 2469. Convert the Temperature
      * 温度转换
