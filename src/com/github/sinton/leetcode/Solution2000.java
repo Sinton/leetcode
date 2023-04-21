@@ -72,6 +72,31 @@ public class Solution2000 {
     }
 
     /**
+     * 1534. Count Good Triplets
+     * 统计好三元组
+     * @param arr
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
+    public int countGoodTriplets(int[] arr, int a, int b, int c) {
+        int answer = 0;
+        for (int i = 0, len = arr.length; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                for (int k = j + 1; k < len; k++) {
+                    if (Math.abs(arr[i] - arr[j]) <= a &&
+                        Math.abs(arr[j] - arr[k]) <= b &&
+                        Math.abs(arr[i] - arr[k]) <= c) {
+                        answer++;
+                    }
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1572. Matrix Diagonal Sum
      * 矩阵对角线元素的和
      * @param mat

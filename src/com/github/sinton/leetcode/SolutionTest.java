@@ -1736,6 +1736,31 @@ public class SolutionTest {
     }
 
     /**
+     * 1534. Count Good Triplets
+     * 统计好三元组
+     */
+    @Test
+    public void countGoodTriplets() {
+        int[][][] testCase = {
+            {
+                {4, 9, 9, 8, 9, 5, 3, 7},
+                {7}, {2}, {3}
+            },
+            {
+                {3, 0, 1, 1, 9, 7},
+                {7}, {2}, {3}
+            },
+            {
+                {1, 1, 2, 2, 3},
+                {0}, {0}, {1}
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2000.countGoodTriplets(caseItem[0], caseItem[1][0], caseItem[2][0], caseItem[3][0]));
+        }
+    }
+
+    /**
      * 1572. Matrix Diagonal Sum
      * 矩阵对角线元素的和
      */
