@@ -515,6 +515,25 @@ public class Solution2000 {
     }
 
     /**
+     * 1844. Replace All Digits with Characters
+     * 将所有数字用字符替换
+     * @param s
+     * @return
+     */
+    public String replaceDigits(String s) {
+        StringBuilder answer = new StringBuilder();
+        int offset;
+        for (int i = 0, len = s.length(); i < len; i = i + 2) {
+            answer.append(s.charAt(i));
+            if (i + 1 < len) {
+                offset = Integer.parseInt(String.valueOf(s.charAt(i + 1)));
+                answer.append((char) (s.charAt(i) + offset));
+            }
+        }
+        return answer.toString();
+    }
+
+    /**
      * 1859. Sorting the Sentence
      * 将句子排序
      * @param s

@@ -2126,6 +2126,21 @@ public class SolutionTest {
     }
 
     /**
+     * 1844. Replace All Digits with Characters
+     * 将所有数字用字符替换
+     */
+    @Test
+    public void replaceDigits() {
+        String[] testCase = {
+            "a1c1e1",
+            "a1b2c3d4e"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2000.replaceDigits(caseItem));
+        }
+    }
+
+    /**
      * 1859. Sorting the Sentence
      * 将句子排序
      */
