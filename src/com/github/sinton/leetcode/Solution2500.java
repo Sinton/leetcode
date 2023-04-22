@@ -437,4 +437,27 @@ public class Solution2500 {
         result[1] = celsius * 1.80 + 32.00;
         return result;
     }
+
+    /**
+     * 2500. Delete Greatest Value in Each Row
+     * 删除每行中的最大值
+     * @param grid
+     * @return
+     */
+    public int deleteGreatestValue(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int answer = 0;
+        int max = Integer.MIN_VALUE;
+        for (int j = 0; j < n; j++) {
+            for (int i = 0; i < m; i++) {
+                Arrays.sort(grid[i]);
+                max = Math.max(max, grid[i][n - 1]);
+                grid[i][n - 1] = 0;
+            }
+            answer += max;
+            max = Integer.MIN_VALUE;
+        }
+        return answer;
+    }
 }

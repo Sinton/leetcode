@@ -2464,6 +2464,26 @@ public class SolutionTest {
     }
 
     /**
+     * 2500. Delete Greatest Value in Each Row
+     * 删除每行中的最大值
+     */
+    @Test
+    public void deleteGreatestValue() {
+        int[][][] testCase = {
+            {
+                {1, 2, 4},
+                {3, 3, 1}
+            },
+            {
+                {10}
+            }
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.deleteGreatestValue(caseItem));
+        }
+    }
+
+    /**
      * 2520. Count the Digits That Divide a Number
      * 统计能整除数字的位数
      */
