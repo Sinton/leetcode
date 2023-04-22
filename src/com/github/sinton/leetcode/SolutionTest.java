@@ -1325,6 +1325,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1021. Remove Outermost Parentheses
+     * 删除最外层的括号
+     */
+    @Test
+    public void removeOuterParentheses() {
+        String[] testCase = {
+            "(()())(())",
+            "(()())(())(()(()))",
+            "()()"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution1500.removeOuterParentheses(caseItem));
+        }
+    }
+
+    /**
      * 1046. Last Stone Weight
      * 最后一块石头的重量
      */
@@ -2409,6 +2425,10 @@ public class SolutionTest {
         }
     }
 
+    /**
+     * 2418. Sort the People
+     * 按身高排序
+     */
     @Test
     public void sortPeople() {
         String[][][] testCase = {

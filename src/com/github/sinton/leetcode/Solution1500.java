@@ -7,6 +7,32 @@ import java.util.*;
  */
 public class Solution1500 {
     /**
+     * 1021. Remove Outermost Parentheses
+     * 删除最外层的括号
+     * @param s
+     * @return
+     */
+    public String removeOuterParentheses(String s) {
+        int level = 0;
+        StringBuilder answer = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0, len = s.length(); i < len; i++) {
+            builder.append(s.charAt(i));
+            if (s.charAt(i) == '(') {
+                level++;
+            }
+            if (s.charAt(i) == ')') {
+                level--;
+                if (level == 0) {
+                    answer.append(builder.substring(1, builder.length() - 1));
+                    builder = new StringBuilder();
+                }
+            }
+        }
+        return answer.toString();
+    }
+
+    /**
      * 1046. Last Stone Weight
      * 最后一块石头的重量
      * @param stones
