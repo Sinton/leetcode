@@ -2508,6 +2508,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2427. Number of Common Factors
+     * 公因子的数目
+     */
+    @Test
+    public void commonFactors() {
+        int[][] testCase = {
+            {12, 6},
+            {25, 30}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2500.commonFactors(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 2469. Convert the Temperature
      * 温度转换
      */

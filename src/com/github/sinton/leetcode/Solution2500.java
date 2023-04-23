@@ -452,6 +452,23 @@ public class Solution2500 {
     }
 
     /**
+     * 2427. Number of Common Factors
+     * 公因子的数目
+     * @param a
+     * @param b
+     * @return
+     */
+    public int commonFactors(int a, int b) {
+        int answer = 0;
+        for (int i = 1, len = Math.min(a, b); i <= len; i++) {
+            if (a % i == 0 && b % i == 0) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * TODO
      * 2439. Minimize Maximum of Array
      * 最小化数组中的最大值
