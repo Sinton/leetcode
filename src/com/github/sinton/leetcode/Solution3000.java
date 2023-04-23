@@ -62,6 +62,17 @@ public class Solution3000 {
     }
 
     /**
+     * 2651. Calculate Delayed Arrival Time
+     * 计算列车到站时间
+     * @param arrivalTime
+     * @param delayedTime
+     * @return
+     */
+    public int findDelayedArrivalTime(int arrivalTime, int delayedTime) {
+        return (arrivalTime + delayedTime) % 24;
+    }
+
+    /**
      * 2652. Sum Multiples
      * 倍数求和
      * @param n

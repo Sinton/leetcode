@@ -2554,4 +2554,19 @@ public class SolutionTest {
             System.out.println(solution3000.sumOfMultiples(caseItem));
         }
     }
+
+    /**
+     * 2651. Calculate Delayed Arrival Time
+     * 计算列车到站时间
+     */
+    @Test
+    public void findDelayedArrivalTime() {
+        int[][] testCase = {
+            {15, 5},
+            {13, 11}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution3000.findDelayedArrivalTime(caseItem[0], caseItem[1]));
+        }
+    }
 }
