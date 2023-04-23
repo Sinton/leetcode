@@ -439,6 +439,29 @@ public class Solution2500 {
     }
 
     /**
+     * 2485. Find the Pivot Integer
+     * 找出中枢整数
+     * @param n
+     * @return
+     */
+    public int pivotInteger(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return -1;
+        }
+        int total = (n + 1) * n / 2;
+        for (int i = n; i > 0; i--) {
+            if (total == (n + i) * (n - i + 1) / 2) {
+                return i;
+            }
+            total = total - i;
+        }
+        return -1;
+    }
+
+    /**
      * 2500. Delete Greatest Value in Each Row
      * 删除每行中的最大值
      * @param grid

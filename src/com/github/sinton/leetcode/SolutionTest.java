@@ -2479,6 +2479,18 @@ public class SolutionTest {
     }
 
     /**
+     * 2485. Find the Pivot Integer
+     * 找出中枢整数
+     */
+    @Test
+    public void pivotInteger() {
+        int[] testCase = {8, 1, 4};
+        for (int caseItem : testCase) {
+            System.out.println(solution2500.pivotInteger(caseItem));
+        }
+    }
+
+    /**
      * 2500. Delete Greatest Value in Each Row
      * 删除每行中的最大值
      */
