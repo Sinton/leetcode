@@ -43,6 +43,34 @@ public class Solution3000 {
     }
 
     /**
+     * 2553. Separate the Digits in an Array
+     * 分割数组中数字的数位
+     * @param nums
+     * @return
+     */
+    public int[] separateDigits(int[] nums) {
+        int[] numLen = new int[nums.length];
+        int totalLen = 0;
+        for (int i = 0, len = nums.length; i< len; i++) {
+            numLen[i] = (int) (Math.log10(nums[i]) + 1);
+            totalLen += numLen[i];
+        }
+        int[] answer = new int[totalLen];
+        int index = 0;
+        int currLen;
+        for (int i = 0, len = nums.length; i< len; i++) {
+            currLen = numLen[i];
+            while (currLen > 0) {
+                answer[index + currLen - 1] = nums[i] % 10;
+                nums[i] /= 10;
+                currLen--;
+            }
+            index += numLen[i];
+        }
+        return answer;
+    }
+
+    /**
      * 2574. Left and Right Sum Differences
      * 左右元素和的差值
      */

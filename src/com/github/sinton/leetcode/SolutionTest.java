@@ -2582,6 +2582,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2553. Separate the Digits in an Array
+     * 分割数组中数字的数位
+     */
+    @Test
+    public void separateDigits() {
+        int[][] testCase = {
+            {32, 43, 68, 8, 100, 84, 80, 14, 88, 42, 53, 98, 69, 64, 40, 60, 23, 99},
+            {13, 25, 83, 77},
+            {7, 1, 3, 9},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution3000.separateDigits(caseItem)));
+        }
+    }
+
+    /**
      * 2574. Left and Right Sum Differences
      * 左右元素和的差值
      */
