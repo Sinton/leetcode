@@ -2542,4 +2542,16 @@ public class SolutionTest {
             System.out.println(Arrays.toString(solution3000.leftRigthDifference(caseItem)));
         }
     }
+
+    /**
+     * 2652. Sum Multiples
+     * 倍数求和
+     */
+    @Test
+    public void sumOfMultiples() {
+        int[] testCase = {7, 10, 9};
+        for (int caseItem : testCase) {
+            System.out.println(solution3000.sumOfMultiples(caseItem));
+        }
+    }
 }
