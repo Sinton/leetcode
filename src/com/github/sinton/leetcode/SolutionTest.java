@@ -1611,6 +1611,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1464. Maximum Product of Two Elements in an Array
+     * 数组中两元素的最大乘积
+     */
+    @Test
+    public void maxProduct1464() {
+        int[][] testCase = {
+            {3, 4, 5, 2},
+            {1, 5, 4, 5},
+            {3, 7},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1500.maxProduct(caseItem));
+        }
+    }
+
+    /**
      * 1470. Shuffle the Array
      * 重新排列数组
      */

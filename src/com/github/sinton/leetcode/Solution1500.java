@@ -543,6 +543,27 @@ public class Solution1500 {
     }
 
     /**
+     * 1464. Maximum Product of Two Elements in an Array
+     * 数组中两元素的最大乘积
+     * @param nums
+     * @return
+     */
+    public int maxProduct(int[] nums) {
+        int firstMax = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num > firstMax) {
+                secondMax = firstMax;
+                firstMax = num;
+            }
+            else if (num > secondMax) {
+                secondMax = num;
+            }
+        }
+        return (firstMax - 1) * (secondMax - 1);
+    }
+
+    /**
      * 1470. Shuffle the Array
      * 重新排列数组
      * @param nums
