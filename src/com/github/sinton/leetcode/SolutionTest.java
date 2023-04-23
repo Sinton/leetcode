@@ -2316,6 +2316,31 @@ public class SolutionTest {
     }
 
     /**
+     * 2176. Count Equal and Divisible Pairs in an Array
+     * 统计数组中相等且可以被整除的数对
+     */
+    @Test
+    public void countPairs() {
+        int[][][] testCase = {
+            {
+                {5, 5, 9, 2, 5, 5, 9, 2, 2, 5, 5, 6, 2, 2, 5, 2, 5, 4, 3},
+                {7}
+            },
+            {
+                {3, 1, 2, 2, 2, 1, 3},
+                {2}
+            },
+            {
+                {1, 2, 3, 4},
+                {1}
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.countPairs(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
      * 2181. Merge Nodes in Between Zeros
      * 合并零之间的节点
      */

@@ -151,6 +151,52 @@ public class Solution2500 {
     }
 
     /**
+     * 2176. Count Equal and Divisible Pairs in an Array
+     * 统计数组中相等且可以被整除的数对
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int countPairs(int[] nums, int k) {
+        // 打表剪枝
+        int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            max = Math.max(max, num);
+        }
+        int answer = 0;
+        int[][] counter = new int[max + 1][nums.length + 1];
+        int[] record;
+        for (int i = 0, len = nums.length; i < len; i++) {
+            record = counter[nums[i]];
+            record[++record[0]] = i;
+        }
+        for (int i = 1, len = counter.length; i <= len - 1; i++) {
+            if (counter[i][0] > 1) {
+                for (int start = 1; start < counter[i][0]; start++) {
+                    for (int end = start + 1; end <= counter[i][0]; end++) {
+                        if (counter[i][start] * counter[i][end] % k == 0) {
+                            answer++;
+                        }
+                    }
+                }
+            }
+        }
+        return answer;
+        // 纯冒泡-效率稍差
+        /*
+        int answer = 0;
+        for (int i = 0, len = nums.length; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (nums[i] == nums[j] && i * j % k == 0) {
+                    answer++;
+                }
+            }
+        }
+        return answer;
+        */
+    }
+
+    /**
      * 2181. Merge Nodes in Between Zeros
      * 合并零之间的节点
      * @param head
