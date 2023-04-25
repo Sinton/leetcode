@@ -606,4 +606,27 @@ public class Solution2000 {
         }
         return result;
     }
+
+    /**
+     * 2000. Reverse Prefix of Word
+     * 反转单词前缀
+     * @param word
+     * @param ch
+     * @return
+     */
+    public String reversePrefix(String word, char ch) {
+        StringBuilder answer = new StringBuilder();
+        int index = word.indexOf(ch);
+        if (index <= 0) {
+            return word;
+        } else {
+            for (int i = index; i >= 0; i--) {
+                answer.append(word.charAt(i));
+            }
+            for (int i = index + 1, len = word.length(); i < len; i++) {
+                answer.append(word.charAt(i));
+            }
+            return answer.toString();
+        }
+    }
 }

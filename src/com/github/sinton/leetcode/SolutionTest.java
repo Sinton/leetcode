@@ -2217,6 +2217,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2000. Reverse Prefix of Word
+     * 反转单词前缀
+     */
+    @Test
+    public void reversePrefix() {
+        String[][] testCase = {
+            {"abcdefd", "d"},
+            {"xyxzxe", "z"},
+            {"abcd", "z"}
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2000.reversePrefix(caseItem[0], caseItem[1].charAt(0)));
+        }
+    }
+
+    /**
      * 2006. Count Number of Pairs With Absolute Difference K
      * 差的绝对值为 K 的数对数目
      */
