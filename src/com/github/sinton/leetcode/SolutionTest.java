@@ -1986,6 +1986,21 @@ public class SolutionTest {
     }
 
     /**
+     * 1725. Number Of Rectangles That Can Form The Largest Square
+     * 可以形成最大正方形的矩形数目
+     */
+    @Test
+    public void countGoodRectangles() {
+        int[][][] testCase = {
+            {{5, 8}, {3, 9}, {5, 12}, {16, 5}},
+            {{2, 3}, {3, 7}, {4, 3}, {3, 7}}
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2000.countGoodRectangles(caseItem));
+        }
+    }
+
+    /**
      * 1732. Find the Highest Altitude
      * 找到最高海拔
      */

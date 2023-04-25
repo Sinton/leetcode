@@ -317,6 +317,28 @@ public class Solution2000 {
     }
 
     /**
+     * 1725. Number Of Rectangles That Can Form The Largest Square
+     * 可以形成最大正方形的矩形数目
+     * @param rectangles
+     * @return
+     */
+    public int countGoodRectangles(int[][] rectangles) {
+        int[] edge = new int[rectangles.length];
+        int max = Integer.MIN_VALUE;
+        int answer = 0;
+        for (int i = 0, len = rectangles.length; i < len; i++) {
+            edge[i] = Math.min(rectangles[i][0], rectangles[i][1]);
+            if (edge[i] == max) {
+                answer++;
+            } else if (edge[i] > max) {
+                max = edge[i];
+                answer = 1;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1732. Find the Highest Altitude
      * 找到最高海拔
      * @param gain
