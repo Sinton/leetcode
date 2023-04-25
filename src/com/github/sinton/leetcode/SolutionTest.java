@@ -2330,6 +2330,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2108. Find First Palindromic String in the Array
+     * 找出数组中的第一个回文字符串
+     */
+    @Test
+    public void firstPalindrome() {
+        String[][] testCase = {
+            {"abc", "car", "ada", "racecar", "cool"},
+            {"notapalindrome", "racecar"},
+            {"def", "ghi"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2500.firstPalindrome(caseItem));
+        }
+    }
+
+    /**
      * 2114. Maximum Number of Words Found in Sentences
      * 句子中的最多单词数
      */

@@ -101,6 +101,27 @@ public class Solution2500 {
     }
 
     /**
+     * 2108. Find First Palindromic String in the Array
+     * 找出数组中的第一个回文字符串
+     * @param words
+     * @return
+     */
+    public String firstPalindrome(String[] words) {
+        StringBuilder palindrome = new StringBuilder();
+        for (String word : words) {
+            for (int i = word.length() - 1; i >= 0; i--) {
+                palindrome.append(word.charAt(i));
+            }
+            if (word.contentEquals(palindrome)) {
+                return word;
+            } else {
+                palindrome = new StringBuilder();
+            }
+        }
+        return "";
+    }
+
+    /**
      * 2114. Maximum Number of Words Found in Sentences
      * 句子中的最多单词数
      * @param sentences
