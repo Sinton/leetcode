@@ -1986,6 +1986,21 @@ public class SolutionTest {
     }
 
     /**
+     * 1732. Find the Highest Altitude
+     * 找到最高海拔
+     */
+    @Test
+    public void largestAltitude() {
+        int[][] testCase = {
+            {-5, 1, 5, 0, -7},
+            {-4, -3, -2, -1, 4, 3, 2}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2000.largestAltitude(caseItem));
+        }
+    }
+
+    /**
      * 1768. Merge Strings Alternately
      * 交替合并字符串
      */

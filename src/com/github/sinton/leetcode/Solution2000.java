@@ -317,6 +317,23 @@ public class Solution2000 {
     }
 
     /**
+     * 1732. Find the Highest Altitude
+     * 找到最高海拔
+     * @param gain
+     * @return
+     */
+    public int largestAltitude(int[] gain) {
+        int[] myGain = new int[gain.length];
+        myGain[0] = gain[0];
+        int answer = Math.max(0, myGain[0]);
+        for (int i = 1, len = gain.length; i < len; i++) {
+            myGain[i] = myGain[i - 1] + gain[i];
+            answer = Math.max(myGain[i], answer);
+        }
+        return answer;
+    }
+
+    /**
      * 1768. Merge Strings Alternately
      * 交替合并字符串
      * @param word1
