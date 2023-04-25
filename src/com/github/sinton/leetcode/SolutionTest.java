@@ -1410,6 +1410,27 @@ public class SolutionTest {
     }
 
     /**
+     * 1252. Cells with Odd Values in a Matrix
+     * 奇数值单元格的数目
+     */
+    @Test
+    public void oddCells() {
+        int[][][][] testCase = {
+            {
+                {{2, 3}},
+                {{0, 1}, {1, 1}}
+            },
+            {
+                {{2, 2}},
+                {{1, 1}, {0, 0}}
+            },
+        };
+        for (int[][][] caseItem : testCase) {
+            System.out.println(solution1500.oddCells(caseItem[0][0][0], caseItem[0][0][1], caseItem[1]));
+        }
+    }
+
+    /**
      * 1290. Convert Binary Number in a Linked List to Integer
      * 二进制链表转整数
      */
