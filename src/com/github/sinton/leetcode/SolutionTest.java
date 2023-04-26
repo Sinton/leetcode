@@ -2178,6 +2178,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1827. Minimum Operations to Make the Array Increasing
+     * 最少操作使数组递增
+     */
+    @Test
+    public void minOperations() {
+        int[][] testCase = {
+            {1, 1, 1},
+            {1, 5, 2, 4, 1},
+            {8}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2000.minOperations(caseItem));
+        }
+    }
+
+    /**
      * 1832. Check if the Sentence Is Pangram
      * 判断句子是否为全字母句
      */

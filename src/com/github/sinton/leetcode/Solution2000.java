@@ -538,6 +538,26 @@ public class Solution2000 {
     }
 
     /**
+     * 1827. Minimum Operations to Make the Array Increasing
+     * 最少操作使数组递增
+     * @param nums
+     * @return
+     */
+    public int minOperations(int[] nums) {
+        int answer = 0;
+        if (nums.length == 1) {
+            return 0;
+        }
+        for (int i = 1, len = nums.length; i < len; i++) {
+            if (nums[i] <= nums[i - 1] + 1) {
+                answer += nums[i - 1] + 1 - nums[i];
+                nums[i] = nums[i - 1] + 1;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1832. Check if the Sentence Is Pangram
      * 判断句子是否为全字母句
      * @param sentence
