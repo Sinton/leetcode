@@ -301,6 +301,26 @@ public class Solution2000 {
     }
 
     /**
+     * 1704. Determine if String Halves Are Alike
+     * 判断字符串的两半是否相似
+     * @param s
+     * @return
+     */
+    public boolean halvesAreAlike(String s) {
+        int leftCount = 0;
+        int rightCount = 0;
+        for (int i = 0, len = s.length() / 2; i < len; i++) {
+            if ("aeiouAEIOU".contains(String.valueOf(s.charAt(i)))) {
+                leftCount++;
+            }
+            if ("aeiouAEIOU".contains(String.valueOf(s.charAt(s.length() / 2 + i)))) {
+                rightCount++;
+            }
+        }
+        return leftCount == rightCount;
+    }
+
+    /**
      * 1720. Decode XORed Array
      * 解码异或后的数组
      * @param encoded

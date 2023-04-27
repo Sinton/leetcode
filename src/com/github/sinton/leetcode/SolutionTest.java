@@ -1986,6 +1986,18 @@ public class SolutionTest {
     }
 
     /**
+     * 1704. Determine if String Halves Are Alike
+     * 判断字符串的两半是否相似
+     */
+    @Test
+    public void halvesAreAlike() {
+        String[] testCase = {"book", "textbook"};
+        for (String caseItem : testCase) {
+            System.out.println(solution2000.halvesAreAlike(caseItem));
+        }
+    }
+
+    /**
      * 1720. Decode XORed Array
      * 解码异或后的数组
      */
