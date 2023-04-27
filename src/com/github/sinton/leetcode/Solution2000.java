@@ -495,6 +495,22 @@ public class Solution2000 {
     }
 
     /**
+     * 1812. Determine Color of a Chessboard Square
+     * 判断国际象棋棋盘中一个格子的颜色
+     * @param coordinates
+     * @return
+     */
+    public boolean squareIsWhite(String coordinates) {
+        int col = coordinates.charAt(0) - 'a';
+        int row = coordinates.charAt(1) - '0';
+        if (col % 2 == 1) {
+            return row % 2 == 1;
+        } else {
+            return row % 2 == 0;
+        }
+    }
+
+    /**
      * 1816. Truncate Sentence
      * 截断句子
      * @param s

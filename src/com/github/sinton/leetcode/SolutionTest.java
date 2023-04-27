@@ -2162,6 +2162,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1812. Determine Color of a Chessboard Square
+     * 判断国际象棋棋盘中一个格子的颜色
+     */
+    @Test
+    public void squareIsWhite() {
+        String[][] testCase = {
+            {"a1"},
+            {"h3"},
+            {"c7"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2000.squareIsWhite(caseItem[0]));
+        }
+    }
+
+    /**
      * 1822. Sign of the Product of an Array
      * 数组元素积的符号
      */
