@@ -481,6 +481,23 @@ public class Solution1500 {
     }
 
     /**
+     * 1374. Generate a String With Characters That Have Odd Counts
+     * 生成每种字符都是奇数个的字符串
+     * @param n
+     * @return
+     */
+    public String generateTheString(int n) {
+        StringBuilder answer = new StringBuilder();
+        for (int i = 0; i < (n % 2 == 1 ? n : n - 1); i++) {
+            answer.append("a");
+        }
+        if (n % 2 == 0) {
+            answer.append("b");
+        }
+        return answer.toString();
+    }
+
+    /**
      * 1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree
      * 找出克隆二叉树中的相同节点
      * @param original

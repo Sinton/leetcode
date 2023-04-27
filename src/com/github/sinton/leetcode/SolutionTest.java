@@ -1566,6 +1566,18 @@ public class SolutionTest {
     }
 
     /**
+     * 1374. Generate a String With Characters That Have Odd Counts
+     * 生成每种字符都是奇数个的字符串
+     */
+    @Test
+    public void generateTheString() {
+        int[] testCase = {4, 2, 7};
+        for (int caseItem : testCase) {
+            System.out.println(solution1500.generateTheString(caseItem));
+        }
+    }
+
+    /**
      * 1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree
      * 找出克隆二叉树中的相同节点
      */
