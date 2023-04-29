@@ -232,6 +232,7 @@ public class Solution1000 {
     }
 
     /**
+     * TODO
      * 704. Binary Search
      * 二分查找
      * @param nums
@@ -241,9 +242,9 @@ public class Solution1000 {
     public int search(int[] nums, int target) {
         // TODO
         int start = 0;
-        int end   = nums.length - 1;
+        int end   = nums.length;
         int mid;
-        while (start <= end) {
+        while (start < end) {
             mid = (start + end) / 2;
             if (nums[mid] == target) {
                 return mid;
@@ -275,30 +276,6 @@ public class Solution1000 {
             }
         }
         return result.toString();
-    }
-
-    /**
-     *
-     * @param n
-     * @return
-     */
-    public int numTilings(int n) {
-        switch (n) {
-            case 0:
-            case 1:
-                return 1;
-            case 2:
-                return 2;
-            default:
-                int[] fx = new int[n + 1];
-                fx[0] = 1;
-                fx[1] = 1;
-                fx[2] = 2;
-                for(int i = 3; i <= n; i++) {
-                    fx[i] = (2 * fx[i - 1] % (int) (1e9 + 7) + fx[i - 3] % (int) (1e9 + 7)) % (int) (1e9 + 7);
-                }
-                return fx[n];
-        }
     }
 
     /**
@@ -406,6 +383,31 @@ public class Solution1000 {
             }
         }
         return count;
+    }
+
+    /**
+     * 790. Domino and Tromino Tiling
+     * 多米诺和托米诺平铺
+     * @param n
+     * @return
+     */
+    public int numTilings(int n) {
+        switch (n) {
+            case 0:
+            case 1:
+                return 1;
+            case 2:
+                return 2;
+            default:
+                int[] fx = new int[n + 1];
+                fx[0] = 1;
+                fx[1] = 1;
+                fx[2] = 2;
+                for(int i = 3; i <= n; i++) {
+                    fx[i] = (2 * fx[i - 1] % (int) (1e9 + 7) + fx[i - 3] % (int) (1e9 + 7)) % (int) (1e9 + 7);
+                }
+                return fx[n];
+        }
     }
 
     /**
