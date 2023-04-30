@@ -475,13 +475,13 @@ public class Solution0500 {
     }
 
     /**
+     * TODO
      * 101. Symmetric Tree
      * 对称二叉树
      * @param root
      * @return
      */
     public boolean isSymmetric(TreeNode root) {
-        // TODO
         Queue<TreeNode> queue = new LinkedList<>();
         TreeNode curr;
         queue.offer(root);
@@ -861,7 +861,7 @@ public class Solution0500 {
 
     /**
      * 202. Happy Number
-     *
+     * 快乐数
      * @param n
      * @return
      */
