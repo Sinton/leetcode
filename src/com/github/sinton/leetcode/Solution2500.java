@@ -287,6 +287,40 @@ public class Solution2500 {
     }
 
     /**
+     * 2215. Find the Difference of Two Arrays
+     * 找出两数组的不同
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+        List<List<Integer>> answer = new ArrayList<>();
+        List<Integer> left = new ArrayList<>();
+        List<Integer> right = new ArrayList<>();
+        List<Integer> leftNums = new ArrayList<>();
+        List<Integer> rightNums = new ArrayList<>();
+        for (int num : nums1) {
+            leftNums.add(num);
+        }
+        for (int num : nums2) {
+            rightNums.add(num);
+        }
+        for (int num : nums1) {
+            if (!rightNums.contains(num) && !left.contains(num)) {
+                left.add(num);
+            }
+        }
+        for (int num : nums2) {
+            if (!leftNums.contains(num) && !right.contains(num)) {
+                right.add(num);
+            }
+        }
+        answer.add(left);
+        answer.add(right);
+        return answer;
+    }
+
+    /**
      * 2220. Minimum Bit Flips to Convert Number
      * 转换数字的最少位翻转次数
      * @param start

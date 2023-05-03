@@ -2530,6 +2530,27 @@ public class SolutionTest {
     }
 
     /**
+     * 2215. Find the Difference of Two Arrays
+     * 找出两数组的不同
+     */
+    @Test
+    public void findDifference() {
+        int[][][] testCase = {
+            {
+                {1, 2, 3},
+                {2, 4, 6},
+            },
+            {
+                {1, 2, 3, 3},
+                {1, 1, 2, 2},
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.findDifference(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 2220. Minimum Bit Flips to Convert Number
      * 转换数字的最少位翻转次数
      */
