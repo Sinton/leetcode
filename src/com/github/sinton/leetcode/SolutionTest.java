@@ -2496,6 +2496,25 @@ public class SolutionTest {
     }
 
     /**
+     * 2185. Counting Words With a Given Prefix
+     * 统计包含给定前缀的字符串
+     */
+    @Test
+    public void prefixCount() {
+        String[][][] testCase = {
+            {
+                {"pay", "attention", "practice", "attend"}, {"at"}
+            },
+            {
+                {"leetcode","win","loops","success"}, {"code"}
+            }
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution2500.prefixCount(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
      * 2194. Cells in a Range on an Excel Sheet
      * Excel 表中某个范围内的单元格
      */

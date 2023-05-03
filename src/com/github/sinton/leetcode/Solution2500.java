@@ -248,6 +248,23 @@ public class Solution2500 {
     }
 
     /**
+     * 2185. Counting Words With a Given Prefix
+     * 统计包含给定前缀的字符串
+     * @param words
+     * @param pref
+     * @return
+     */
+    public int prefixCount(String[] words, String pref) {
+        int answer = 0;
+        for (String word : words) {
+            if (word.startsWith(pref)) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2194. Cells in a Range on an Excel Sheet
      * Excel 表中某个范围内的单元格
      * @param s
