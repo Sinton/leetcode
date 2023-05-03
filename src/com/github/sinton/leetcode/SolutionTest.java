@@ -2440,6 +2440,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2119. A Number After a Double Reversal
+     * 反转两次的数字
+     */
+    @Test
+    public void isSameAfterReversals() {
+        int[] testCase = {
+            526,
+            1800,
+            0
+        };
+        for (int caseItem : testCase) {
+            System.out.println(solution2500.isSameAfterReversals(caseItem));
+        }
+    }
+
+    /**
      * 2160. Minimum Sum of Four Digit Number After Splitting Digits
      * 拆分数位后四位数字的最小和
      */

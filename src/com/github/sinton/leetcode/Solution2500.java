@@ -151,6 +151,28 @@ public class Solution2500 {
     }
 
     /**
+     * 2119. A Number After a Double Reversal
+     * 反转两次的数字
+     * @param num
+     * @return
+     */
+    public boolean isSameAfterReversals(int num) {
+        int reversed1 = 0;
+        int tmp = num;
+        while(tmp > 0) {
+            reversed1 = reversed1 * 10 + tmp % 10 ;
+            tmp /= 10;
+        }
+        int reversed2 = 0;
+        tmp = reversed1;
+        while(tmp > 0) {
+            reversed2 = reversed2 * 10 + tmp % 10;
+            tmp /= 10;
+        }
+        return reversed2 == num;
+    }
+
+    /**
      * 2160. Minimum Sum of Four Digit Number After Splitting Digits
      * 拆分数位后四位数字的最小和
      * @param num
