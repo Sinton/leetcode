@@ -286,6 +286,27 @@ public class Solution1500 {
     }
 
     /**
+     * 1304. Find N Unique Integers Sum up to Zero
+     * 和为零的 N 个不同整数
+     * @param n
+     * @return
+     */
+    public int[] sumZero(int n) {
+        int[] answer = new int[n];
+        if (n % 2 == 1) {
+            for (int i = 0; i < n; i++) {
+                answer[i] = -1 * (n - 1) / 2  + i;
+            }
+        } else {
+            for (int i = 0; i < n / 2; i++) {
+                answer[i] = -1 * n / 2  + i;
+                answer[n - i - 1] = n / 2  - i;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1309. Decrypt String from Alphabet to Integer Mapping
      * 解码字母到整数映射
      * @param s

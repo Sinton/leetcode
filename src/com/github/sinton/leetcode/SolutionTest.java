@@ -1460,6 +1460,18 @@ public class SolutionTest {
     }
 
     /**
+     * 1304. Find N Unique Integers Sum up to Zero
+     * 和为零的 N 个不同整数
+     */
+    @Test
+    public void sumZero() {
+        int[] testCase = {5, 4, 3, 2, 1};
+        for (int caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1500.sumZero(caseItem)));
+        }
+    }
+
+    /**
      * 1309. Decrypt String from Alphabet to Integer Mapping
      * 解码字母到整数映射
      */
