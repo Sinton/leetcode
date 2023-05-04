@@ -610,6 +610,22 @@ public class Solution2000 {
     }
 
     /**
+     * 1837. Sum of Digits in Base K
+     * K 进制表示下的各位数字总和
+     * @param n
+     * @param k
+     * @return
+     */
+    public int sumBase(int n, int k) {
+        String bitNum = Integer.toString(n, k);
+        int answer = 0;
+        for (int i = 0, len = bitNum.length(); i < len; i++) {
+            answer += bitNum.charAt(i) - '0';
+        }
+        return answer;
+    }
+
+    /**
      * 1844. Replace All Digits with Characters
      * 将所有数字用字符替换
      * @param s

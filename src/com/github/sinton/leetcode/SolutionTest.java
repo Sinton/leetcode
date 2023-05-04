@@ -2276,6 +2276,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1837. Sum of Digits in Base K
+     * K 进制表示下的各位数字总和
+     */
+    @Test
+    public void sumBase() {
+        int[][] testCase = {
+            {68, 2},
+            {34, 6},
+            {10, 10}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2000.sumBase(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 1844. Replace All Digits with Characters
      * 将所有数字用字符替换
      */
