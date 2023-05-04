@@ -237,6 +237,26 @@ public class Solution1500 {
     }
 
     /**
+     * 1295. Find Numbers with Even Number of Digits
+     * 统计位数为偶数的数字
+     * @param nums
+     * @return
+     */
+    public int findNumbers(int[] nums) {
+        int answer = 0;
+        int len;
+        for (int num : nums) {
+            if (num >= 10) {
+                len = (int) (Math.log10(num) + 1);
+                if (len % 2 == 0) {
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1302. Deepest Leaves Sum
      * 层数最深叶子节点的和
      * @param root

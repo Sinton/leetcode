@@ -1445,6 +1445,21 @@ public class SolutionTest {
     }
 
     /**
+     * 1295. Find Numbers with Even Number of Digits
+     * 统计位数为偶数的数字
+     */
+    @Test
+    public void findNumbers() {
+        int[][] testCase = {
+            {12, 345, 2, 6, 7896},
+            {555, 901, 482, 1771}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1500.findNumbers(caseItem));
+        }
+    }
+
+    /**
      * 1309. Decrypt String from Alphabet to Integer Mapping
      * 解码字母到整数映射
      */
