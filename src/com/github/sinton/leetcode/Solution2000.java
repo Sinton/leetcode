@@ -686,6 +686,28 @@ public class Solution2000 {
     }
 
     /**
+     * 1979. Find Greatest Common Divisor of Array
+     * 找出数组的最大公约数
+     * @param nums
+     * @return
+     */
+    public int findGCD(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for (int num : nums) {
+            max = Math.max(max, num);
+            min = Math.min(min, num);
+        }
+        int answer = 1;
+        for (int i = 2; i <= min && i <= max; i++) {
+            if (min % i == 0 && max % i == 0) {
+                answer = i;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2000. Reverse Prefix of Word
      * 反转单词前缀
      * @param word

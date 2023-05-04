@@ -2324,6 +2324,23 @@ public class SolutionTest {
     }
 
     /**
+     * 1979. Find Greatest Common Divisor of Array
+     * 找出数组的最大公约数
+     */
+    @Test
+    public void findGCD() {
+        int[][] testCase = {
+            {8, 5, 8, 7, 4},
+            {2, 5, 6, 9, 10},
+            {7, 5, 6, 8, 3},
+            {3, 3},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2000.findGCD(caseItem));
+        }
+    }
+
+    /**
      * 2000. Reverse Prefix of Word
      * 反转单词前缀
      */
