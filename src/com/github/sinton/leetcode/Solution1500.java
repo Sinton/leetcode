@@ -379,6 +379,23 @@ public class Solution1500 {
     }
 
     /**
+     * 1332. Remove Palindromic Subsequences
+     * 删除回文子序列
+     * @param s
+     * @return
+     */
+    public int removePalindromeSub(String s) {
+        boolean isPalindrome = true;
+        for (int i = 0, len = s.length(); i < len / 2; i++) {
+            if (s.charAt(i) != s.charAt(len - i - 1)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+        return isPalindrome ? 1 : 2;
+    }
+
+    /**
      * TODO
      * 1339. Maximum Product of Splitted Binary Tree
      * 分裂二叉树的最大乘积
@@ -519,6 +536,27 @@ public class Solution1500 {
             }
         }
         return answer;
+    }
+
+    /**
+     * TODO
+     * 1370. Increasing Decreasing String
+     * 上升下降字符串
+     * @param s
+     * @return
+     */
+    public String sortString(String s) {
+        StringBuilder original = new StringBuilder(s);
+        StringBuilder answer = new StringBuilder();
+        char minChar = 'A';
+        char maxChar = 'A';
+        for (int i = 0, len = s.length(); i < len; i++) {
+            if (s.charAt(i) - 'a' < minChar - 'a' && s.charAt(i) - 'a' > minChar - 'a') {
+                minChar = s.charAt(i);
+            }
+            answer.deleteCharAt(i);
+        }
+        return answer.toString();
     }
 
     /**

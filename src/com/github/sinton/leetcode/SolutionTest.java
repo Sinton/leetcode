@@ -1530,6 +1530,18 @@ public class SolutionTest {
     }
 
     /**
+     * 1332. Remove Palindromic Subsequences
+     * 删除回文子序列
+     */
+    @Test
+    public void removePalindromeSub() {
+        String[] testCase = {"ababa", "abb", "baabb"};
+        for (String caseItem : testCase) {
+            System.out.println(solution1500.removePalindromeSub(caseItem));
+        }
+    }
+
+    /**
      * TODO
      * 1339. Maximum Product of Splitted Binary Tree
      * 分裂二叉树的最大乘积
