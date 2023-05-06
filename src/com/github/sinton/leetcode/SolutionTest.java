@@ -2895,6 +2895,29 @@ public class SolutionTest {
     }
 
     /**
+     * 2586. Count the Number of Vowel Strings in Range
+     * 统计范围内的元音字符串数
+     */
+    @Test
+    public void vowelStrings() {
+        String[][][] testCase = {
+            {
+                {"are", "amy", "u"},
+                {"0"},
+                {"2"},
+            },
+            {
+                {"hey", "aeo", "mu", "ooo", "artro"},
+                {"1"},
+                {"4"},
+            },
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution3000.vowelStrings(caseItem[0], Integer.parseInt(caseItem[1][0]), Integer.parseInt(caseItem[2][0])));
+        }
+    }
+
+    /**
      * 2652. Sum Multiples
      * 倍数求和
      */
