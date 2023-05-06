@@ -2392,6 +2392,31 @@ public class SolutionTest {
     }
 
     /**
+     * 1967. Number of Strings That Appear as Substrings in Word
+     * 作为子字符串出现在单词中的字符串数目
+     */
+    @Test
+    public void numOfStrings() {
+        String[][][] testCase = {
+            {
+                {"a", "abc", "bc", "d"},
+                {"abc"}
+            },
+            {
+                {"a","b","c"},
+                {"aaaaabbbbb"}
+            },
+            {
+                {"a","a","a"},
+                {"ab"}
+            }
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution2000.numOfStrings(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
      * 1979. Find Greatest Common Divisor of Array
      * 找出数组的最大公约数
      */

@@ -744,6 +744,23 @@ public class Solution2000 {
     }
 
     /**
+     * 1967. Number of Strings That Appear as Substrings in Word
+     * 作为子字符串出现在单词中的字符串数目
+     * @param patterns
+     * @param word
+     * @return
+     */
+    public int numOfStrings(String[] patterns, String word) {
+        int answer = 0;
+        for (String pattern : patterns) {
+            if (word.contains(pattern)) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1979. Find Greatest Common Divisor of Array
      * 找出数组的最大公约数
      * @param nums
