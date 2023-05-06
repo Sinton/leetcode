@@ -2352,6 +2352,18 @@ public class SolutionTest {
     }
 
     /**
+     * 1941. Check if All Characters Have Equal Number of Occurrences
+     * 检查是否所有字符出现次数相同
+     */
+    @Test
+    public void areOccurrencesEqual() {
+        String[] testCase = {"abacbc", "aaabb"};
+        for (String caseItem : testCase) {
+            System.out.println(solution2000.areOccurrencesEqual(caseItem));
+        }
+    }
+
+    /**
      * 1979. Find Greatest Common Divisor of Array
      * 找出数组的最大公约数
      */

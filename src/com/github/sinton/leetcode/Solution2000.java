@@ -702,6 +702,28 @@ public class Solution2000 {
     }
 
     /**
+     * 1941. Check if All Characters Have Equal Number of Occurrences
+     * 检查是否所有字符出现次数相同
+     * @param s
+     * @return
+     */
+    public boolean areOccurrencesEqual(String s) {
+        int[] letter = new int[26];
+        for (int i = 0, len = s.length(); i < len; i++) {
+            letter[s.charAt(i) - 'a']++;
+        }
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for (int count : letter) {
+            max = Math.max(max, count);
+            if (count != 0) {
+                min = Math.min(min, count);
+            }
+        }
+        return max == min;
+    }
+
+    /**
      * 1979. Find Greatest Common Divisor of Array
      * 找出数组的最大公约数
      * @param nums
