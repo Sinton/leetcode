@@ -376,6 +376,26 @@ public class Solution2000 {
     }
 
     /**
+     * 1748. Sum of Unique Elements
+     * 唯一元素的和
+     * @param nums
+     * @return
+     */
+    public int sumOfUnique(int[] nums) {
+        int[] counts = new int[101];
+        for (int num : nums) {
+            counts[num]++;
+        }
+        int answer = 0;
+        for (int i = 0, len = counts.length; i < len; i++) {
+            if (counts[i] == 1) {
+                answer += i;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1768. Merge Strings Alternately
      * 交替合并字符串
      * @param word1
@@ -385,11 +405,11 @@ public class Solution2000 {
     public String mergeAlternately(String word1, String word2) {
         StringBuilder answer = new StringBuilder();
         int length = Math.max(word1.length(), word2.length());
-        for(int i = 0; i < length; i++) {
-            if(i < word1.length()) {
+        for (int i = 0; i < length; i++) {
+            if (i < word1.length()) {
                 answer.append(word1.charAt(i));
             }
-            if(i < word2.length()) {
+            if (i < word2.length()) {
                 answer.append(word2.charAt(i));
             }
         }

@@ -2088,6 +2088,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1748. Sum of Unique Elements
+     * 唯一元素的和
+     */
+    @Test
+    public void sumOfUnique() {
+        int[][] testCase = {
+            {1, 2, 3, 2},
+            {1, 1, 1, 1, 1},
+            {1, 2, 3, 4, 5}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2000.sumOfUnique(caseItem));
+        }
+    }
+
+    /**
      * 1768. Merge Strings Alternately
      * 交替合并字符串
      */
