@@ -2971,4 +2971,25 @@ public class SolutionTest {
             System.out.println(solution3000.findDelayedArrivalTime(caseItem[0], caseItem[1]));
         }
     }
+
+    /**
+     * 2656. Maximum Sum With Exactly K Elements
+     * K 个元素的最大和
+     */
+    @Test
+    public void maximizeSum() {
+        int[][][] testCase = {
+            {
+                {1, 2, 3, 4, 5},
+                {3}
+            },
+            {
+                {5, 5, 5},
+                {2}
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution3000.maximizeSum(caseItem[0], caseItem[1][0]));
+        }
+    }
 }

@@ -143,4 +143,19 @@ public class Solution3000 {
         }
         return sum;
     }
+
+    /**
+     * 2656. Maximum Sum With Exactly K Elements
+     * K 个元素的最大和
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int maximizeSum(int[] nums, int k) {
+        int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            max = Math.max(num, max);
+        }
+        return max * k + (k - 1) * k / 2;
+    }
 }
