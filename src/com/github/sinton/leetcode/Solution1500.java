@@ -716,6 +716,31 @@ public class Solution1500 {
     }
 
     /**
+     * 1475. Final Prices With a Special Discount in a Shop
+     * 商品折扣后的最终价格
+     * @param prices
+     * @return
+     */
+    public int[] finalPrices(int[] prices) {
+        int[] answer = new int[prices.length];
+        for (int i = 0, len = prices.length; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (prices[j] <= prices[i]) {
+                    answer[i] = prices[i] - prices[j];
+                    break;
+                }
+                if (j == len - 1) {
+                    answer[i] = prices[i];
+                }
+            }
+            if (i == len - 1) {
+                answer[i] = prices[i];
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1480. Running Sum of 1d Array
      * 一维数组的动态和
      * @param nums

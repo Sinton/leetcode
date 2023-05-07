@@ -1715,6 +1715,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1475. Final Prices With a Special Discount in a Shop
+     * 商品折扣后的最终价格
+     */
+    @Test
+    public void finalPrices() {
+        int[][] testCase = {
+            {8, 4, 6, 2, 3},
+            {1, 2, 3, 4, 5},
+            {10, 1, 1, 6}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1500.finalPrices(caseItem)));
+        }
+    }
+
+    /**
      * 1480. Running Sum of 1d Array
      * 一维数组的动态和
      */
@@ -2971,7 +2987,8 @@ public class SolutionTest {
     }
 
     /**
-     *
+     * 2643. Row With Maximum Ones
+     * 一最多的行
      */
     @Test
     public void rowAndMaximumOnes() {
