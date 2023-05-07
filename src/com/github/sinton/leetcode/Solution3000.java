@@ -118,6 +118,29 @@ public class Solution3000 {
     }
 
     /**
+     * 2643. Row With Maximum Ones
+     * 一最多的行
+     * @param mat
+     * @return
+     */
+    public int[] rowAndMaximumOnes(int[][] mat) {
+        int[] answer = new int[2];
+        for (int i = 0, rowLen = mat.length; i < rowLen; i++) {
+            int count = 0;
+            for (int j = 0, colLen = mat[i].length; j < colLen; j++) {
+                if (mat[i][j] == 1) {
+                    count++;
+                }
+            }
+            if (count > answer[1]) {
+                answer[0] = i;
+                answer[1] = count;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2651. Calculate Delayed Arrival Time
      * 计算列车到站时间
      * @param arrivalTime

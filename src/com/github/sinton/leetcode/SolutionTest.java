@@ -2971,6 +2971,21 @@ public class SolutionTest {
     }
 
     /**
+     *
+     */
+    @Test
+    public void rowAndMaximumOnes() {
+        int[][][] testCase = {
+            {{0, 1}, {1, 0}},
+            {{0, 0, 0}, {0, 1, 1}},
+            {{0, 0}, {1, 1}, {0, 0}},
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution3000.rowAndMaximumOnes(caseItem)));
+        }
+    }
+
+    /**
      * 2652. Sum Multiples
      * 倍数求和
      */
