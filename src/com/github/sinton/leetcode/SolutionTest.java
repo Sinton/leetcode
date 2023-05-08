@@ -799,6 +799,18 @@ public class SolutionTest {
     }
 
     /**
+     * 338. Counting Bits
+     * 比特位计数
+     */
+    @Test
+    public void countBits() {
+        int[] testCase = {2, 5};
+        for (int caseItem : testCase) {
+            System.out.println(Arrays.toString(solution0500.countBits(caseItem)));
+        }
+    }
+
+    /**
      * 350. Intersection of Two Arrays II
      * 两个数组的交集 II
      */

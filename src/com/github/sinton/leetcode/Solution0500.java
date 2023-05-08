@@ -1164,6 +1164,20 @@ public class Solution0500 {
     }
 
     /**
+     * 338. Counting Bits
+     * 比特位计数
+     * @param n
+     * @return
+     */
+    public int[] countBits(int n) {
+        int[] answer = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            answer[i] = Integer.bitCount(i);
+        }
+        return answer;
+    }
+
+    /**
      * 349. Intersection of Two Arrays
      * 两个数组的交集
      * @param nums1
