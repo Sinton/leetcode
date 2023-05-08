@@ -1297,11 +1297,31 @@ public class SolutionTest {
         }
     }
 
+    /**
+     * 790. Domino and Tromino Tiling
+     * 多米诺和托米诺平铺
+     */
     @Test
     public void numTilings() {
         int[] testCase = {1, 2, 3, 4, 5, 7, 9, 30};
         for (int caseItem : testCase) {
             System.out.println(solution1000.numTilings(caseItem));
+        }
+    }
+
+    /**
+     * 961. N-Repeated Element in Size 2N Array
+     * 在长度 2N 的数组中找出重复 N 次的元素
+     */
+    @Test
+    public void repeatedNTimes() {
+        int[][] testCase = {
+            {1, 2, 3, 3},
+            {2, 1, 2, 5, 3, 2},
+            {5, 1, 5, 2, 5, 3, 5, 4},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1000.repeatedNTimes(caseItem));
         }
     }
 

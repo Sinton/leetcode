@@ -763,6 +763,31 @@ public class Solution1000 {
     }
 
     /**
+     * 961. N-Repeated Element in Size 2N Array
+     * 在长度 2N 的数组中找出重复 N 次的元素
+     * @param nums
+     * @return
+     */
+    public int repeatedNTimes(int[] nums) {
+        int n = nums.length / 2;
+        Map<Integer, Integer> map = new HashMap<>(16);
+        for (int num : nums) {
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+            } else {
+                map.put(num, 1);
+            }
+        }
+        int answer = 0;
+        for (int num : nums) {
+            if (map.get(num) == n) {
+                answer = num;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 976. Largest Perimeter Triangle
      * 三角形的最大周长
      * @param nums
