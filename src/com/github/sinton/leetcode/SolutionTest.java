@@ -2826,6 +2826,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2341. Maximum Number of Pairs in Array
+     * 数组能形成多少数对
+     */
+    @Test
+    public void numberOfPairs() {
+        int[][] testCase = {
+            {1, 3, 2, 1, 3, 2, 2},
+            {1, 1},
+            {0},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution2500.numberOfPairs(caseItem)));
+        }
+    }
+
+    /**
      * 2367. Number of Arithmetic Triplets
      * 算术三元组的数目
      */

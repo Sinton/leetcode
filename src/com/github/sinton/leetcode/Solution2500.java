@@ -458,6 +458,30 @@ public class Solution2500 {
     }
 
     /**
+     * 2341. Maximum Number of Pairs in Array
+     * 数组能形成多少数对
+     * @param nums
+     * @return
+     */
+    public int[] numberOfPairs(int[] nums) {
+        int[] answer = new int[2];
+        int[] counter = new int[101];
+        for (int num : nums) {
+            counter[num]++;
+            if (counter[num] >= 2) {
+                counter[num] -= 2;
+                answer[0]++;
+            }
+        }
+        for (int count : counter) {
+            if (count > 0) {
+                answer[1]++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2367. Number of Arithmetic Triplets
      * 算术三元组的数目
      * @param nums
