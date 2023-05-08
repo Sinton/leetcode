@@ -2551,6 +2551,31 @@ public class SolutionTest {
         }
     }
 
+    @Test
+    public void targetIndices() {
+        int[][][] testCase = {
+            {
+                {1, 2, 5, 2, 3},
+                {2}
+            },
+            {
+                {1, 2, 5, 2, 3},
+                {3}
+            },
+            {
+                {1, 2, 5, 2, 3},
+                {5}
+            },
+            {
+                {1, 2, 5, 2, 3},
+                {4}
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.targetIndices(caseItem[0], caseItem[1][0]));
+        }
+    }
+
     /**
      * 2103. Rings and Rods
      * 环和杆

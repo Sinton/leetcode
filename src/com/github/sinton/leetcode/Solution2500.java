@@ -71,6 +71,24 @@ public class Solution2500 {
     }
 
     /**
+     * 2089. Find Target Indices After Sorting Array
+     * 找出数组排序后的目标下标
+     * @param nums
+     * @param target
+     * @return
+     */
+    public List<Integer> targetIndices(int[] nums, int target) {
+        List<Integer> answer = new ArrayList<>();
+        Arrays.sort(nums);
+        for (int i = 0, len = nums.length; i < len; i++) {
+            if (nums[i] == target) {
+                answer.add(i);
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2103. Rings and Rods
      * 环和杆
      * @param rings
