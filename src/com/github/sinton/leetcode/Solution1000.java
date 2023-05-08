@@ -770,21 +770,14 @@ public class Solution1000 {
      */
     public int repeatedNTimes(int[] nums) {
         int n = nums.length / 2;
-        Map<Integer, Integer> map = new HashMap<>(16);
+        int[] counter = new int[10000 + 1];
         for (int num : nums) {
-            if (map.containsKey(num)) {
-                map.put(num, map.get(num) + 1);
-            } else {
-                map.put(num, 1);
+            counter[num]++;
+            if (counter[num] >= Math.sqrt(n)) {
+                return num;
             }
         }
-        int answer = 0;
-        for (int num : nums) {
-            if (map.get(num) == n) {
-                answer = num;
-            }
-        }
-        return answer;
+        return 0;
     }
 
     /**
