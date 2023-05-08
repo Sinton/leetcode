@@ -679,6 +679,24 @@ public class Solution1500 {
     }
 
     /**
+     * 1450. Number of Students Doing Homework at a Given Time
+     * 在既定时间做作业的学生人数
+     * @param startTime
+     * @param endTime
+     * @param queryTime
+     * @return
+     */
+    public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
+        int answer = 0;
+        for (int i = 0, len = startTime.length; i < len; i++) {
+            if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1464. Maximum Product of Two Elements in an Array
      * 数组中两元素的最大乘积
      * @param nums

@@ -1715,6 +1715,34 @@ public class SolutionTest {
     }
 
     /**
+     * 1450. Number of Students Doing Homework at a Given Time
+     * 在既定时间做作业的学生人数
+     */
+    @Test
+    public void busyStudent() {
+        int[][][] testCase = {
+            {
+                {1, 2, 3}, {3, 2, 7}, {4}
+            },
+            {
+                {4}, {4}, {4}
+            },
+            {
+                {4}, {4}, {5}
+            },
+            {
+                {1, 1, 1, 1}, {1, 3, 2, 4}, {7}
+            },
+            {
+                {9, 8, 7, 6, 5, 4, 3, 2, 1}, {10, 10, 10, 10, 10, 10, 10, 10, 10}, {5}
+            }
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution1500.busyStudent(caseItem[0], caseItem[1], caseItem[2][0]));
+        }
+    }
+
+    /**
      * 1464. Maximum Product of Two Elements in an Array
      * 数组中两元素的最大乘积
      */
