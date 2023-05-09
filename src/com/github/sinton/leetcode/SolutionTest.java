@@ -1389,6 +1389,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1051. Height Checker
+     * 高度检查器
+     */
+    @Test
+    public void heightChecker() {
+        int[][] testCase = {
+            {1, 1, 4, 2, 1, 3},
+            {5, 1, 2, 3, 4},
+            {1, 2, 3, 4, 5}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1500.heightChecker(caseItem));
+        }
+    }
+
+    /**
      * 1108. Defanging an IP Address
      * IP 地址无效化
      */

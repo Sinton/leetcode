@@ -65,6 +65,24 @@ public class Solution1500 {
     }
 
     /**
+     * 1051. Height Checker
+     * 高度检查器
+     * @param heights
+     * @return
+     */
+    public int heightChecker(int[] heights) {
+        int answer = 0;
+        int[] result = heights.clone();
+        Arrays.sort(result);
+        for (int i = 0, len = heights.length; i < len; i++) {
+            if (heights[i] != result[i]) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1108. Defanging an IP Address
      * IP 地址无效化
      * @param address
