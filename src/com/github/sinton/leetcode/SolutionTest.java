@@ -3166,4 +3166,19 @@ public class SolutionTest {
             System.out.println(solution3000.maximizeSum(caseItem[0], caseItem[1][0]));
         }
     }
+
+    /**
+     * 2670. Find the Distinct Difference Array
+     * 找出不同元素数目差数组
+     */
+    @Test
+    public void distinctDifferenceArray() {
+        int[][] testCase = {
+            {1, 2, 3, 4, 5},
+            {3, 2, 3, 4, 2},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution3000.distinctDifferenceArray(caseItem)));
+        }
+    }
 }

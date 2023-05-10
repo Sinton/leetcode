@@ -1,5 +1,8 @@
 package com.github.sinton.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author Yan
  */
@@ -180,5 +183,32 @@ public class Solution3000 {
             max = Math.max(num, max);
         }
         return max * k + (k - 1) * k / 2;
+    }
+
+    /**
+     * 2670. Find the Distinct Difference Array
+     * 找出不同元素数目差数组
+     * @param nums
+     * @return
+     */
+    public int[] distinctDifferenceArray(int[] nums) {
+        Set<Integer> leftSet;
+        Set<Integer> rightSet;
+        int length = nums.length;
+        int[] answer = new int[length];
+        int index = 0;
+        while (index < length) {
+            leftSet = new HashSet<>();
+            rightSet = new HashSet<>();
+            for (int i = 0; i <= index; i++) {
+                leftSet.add(nums[i]);
+            }
+            for (int i = index + 1; i < length; i++) {
+                rightSet.add(nums[i]);
+            }
+            answer[index] = leftSet.size() - rightSet.size();
+            index++;
+        }
+        return answer;
     }
 }
