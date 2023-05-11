@@ -2491,6 +2491,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1880. Check if Word Equals Summation of Two Words
+     * 检查某单词是否等于两单词之和
+     */
+    @Test
+    public void isSumEqual() {
+        String[][] testCase = {
+            {"acb", "cba", "cdb"},
+            {"aaa", "a", "aab"},
+            {"aaa", "a", "aaaa"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2000.isSumEqual(caseItem[0], caseItem[1], caseItem[2]));
+        }
+    }
+
+    /**
      * 1913. Maximum Product Difference Between Two Pairs
      * 两个数对之间的最大乘积差
      */
@@ -2656,6 +2672,10 @@ public class SolutionTest {
         }
     }
 
+    /**
+     * 2089. Find Target Indices After Sorting Array
+     * 找出数组排序后的目标下标
+     */
     @Test
     public void targetIndices() {
         int[][][] testCase = {

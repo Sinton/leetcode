@@ -682,6 +682,30 @@ public class Solution2000 {
     }
 
     /**
+     * 1880. Check if Word Equals Summation of Two Words
+     * 检查某单词是否等于两单词之和
+     * @param firstWord
+     * @param secondWord
+     * @param targetWord
+     * @return
+     */
+    public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
+        StringBuilder firstBuilder = new StringBuilder();
+        StringBuilder secondBuilder = new StringBuilder();
+        StringBuilder targetBuilder = new StringBuilder();
+        for (int i = 0, len = firstWord.length(); i < len; i++) {
+            firstBuilder.append(firstWord.charAt(i) - 'a');
+        }
+        for (int i = 0, len = secondWord.length(); i < len; i++) {
+            secondBuilder.append(secondWord.charAt(i) - 'a');
+        }
+        for (int i = 0, len = targetWord.length(); i < len; i++) {
+            targetBuilder.append(targetWord.charAt(i) - 'a');
+        }
+        return Integer.parseInt(firstBuilder.toString()) + Integer.parseInt(secondBuilder.toString()) == Integer.parseInt(targetBuilder.toString());
+    }
+
+    /**
      * 1913. Maximum Product Difference Between Two Pairs
      * 两个数对之间的最大乘积差
      * @param nums
