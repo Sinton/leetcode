@@ -503,6 +503,40 @@ public class Solution2500 {
     }
 
     /**
+     * 2363. Merge Similar Items
+     * 合并相似的物品
+     * @param items1
+     * @param items2
+     * @return
+     */
+    public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
+        List<List<Integer>> answer = new ArrayList<>();
+        int[] counter = new int[1001];
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int[] item : items1) {
+            min = Math.min(min, item[0]);
+            max = Math.max(max, item[0]);
+            counter[item[0]] += item[1];
+        }
+        for (int[] item : items2) {
+            min = Math.min(min, item[0]);
+            max = Math.max(max, item[0]);
+            counter[item[0]] += item[1];
+        }
+        List<Integer> answerItem;
+        for (int i = min; i <= max; i++) {
+            if (counter[i] != 0) {
+                answerItem = new ArrayList<>();
+                answerItem.add(i);
+                answerItem.add(counter[i]);
+                answer.add(answerItem);
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2367. Number of Arithmetic Triplets
      * 算术三元组的数目
      * @param nums

@@ -2901,6 +2901,31 @@ public class SolutionTest {
     }
 
     /**
+     * 2363. Merge Similar Items
+     * 合并相似的物品
+     */
+    @Test
+    public void mergeSimilarItems() {
+        int[][][][] testCase = {
+            {
+                {{1, 1}, {4, 5}, {3, 8}},
+                {{3, 1}, {1, 5}}
+            },
+            {
+                {{1, 1}, {3, 2}, {2, 3}},
+                {{2, 1}, {3, 2}, {1, 3}}
+            },
+            {
+                {{1, 3}, {2, 2}},
+                {{7, 1}, {2, 2}, {1, 4}}
+            },
+        };
+        for (int[][][] caseItem : testCase) {
+            System.out.println(solution2500.mergeSimilarItems(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 2367. Number of Arithmetic Triplets
      * 算术三元组的数目
      */
