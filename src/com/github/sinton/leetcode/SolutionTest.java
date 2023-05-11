@@ -2950,6 +2950,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2351. First Letter to Appear Twice
+     * 第一个出现两次的字母
+     */
+    @Test
+    public void repeatedCharacter() {
+        String[] testCase = {
+            "abccbaacz",
+            "abcdd",
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2500.repeatedCharacter(caseItem));
+        }
+    }
+
+    /**
      * 2363. Merge Similar Items
      * 合并相似的物品
      */

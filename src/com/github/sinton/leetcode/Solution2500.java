@@ -503,6 +503,33 @@ public class Solution2500 {
     }
 
     /**
+     * 2351. First Letter to Appear Twice
+     * 第一个出现两次的字母
+     * @param s
+     * @return
+     */
+    public char repeatedCharacter(String s) {
+        int[][] letter = new int[26][102];
+        int index;
+        for (int i = 0, len = s.length(); i < len; i++) {
+            index = letter[s.charAt(i) - 'a'][0];
+            letter[s.charAt(i) - 'a'][index + 1] = i;
+            letter[s.charAt(i) - 'a'][0] = index + 1;
+        }
+        char answer = 'a';
+        int minIndex = Integer.MAX_VALUE;
+        for (int i = 0, len = letter.length; i < len; i++) {
+            if (letter[i][0] >= 2) {
+                if (letter[i][2] < minIndex) {
+                    minIndex = letter[i][2];
+                    answer = (char) (i + 'a');
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2363. Merge Similar Items
      * 合并相似的物品
      * @param items1
