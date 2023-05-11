@@ -3151,6 +3151,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2529. Maximum Count of Positive Integer and Negative Integer
+     * 正整数和负整数的最大计数
+     */
+    @Test
+    public void maximumCount() {
+        int[][] testCase = {
+            {-2, -1, -1, 1, 2, 3},
+            {-3, -2, -1, 0, 0, 1, 2},
+            {5, 20, 66, 1314}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution3000.maximumCount(caseItem));
+        }
+    }
+
+    /**
      * 2535. Difference Between Element Sum and Digit Sum of an Array
      * 数组元素和与数字和的绝对差
      */

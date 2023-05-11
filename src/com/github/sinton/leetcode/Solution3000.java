@@ -26,6 +26,26 @@ public class Solution3000 {
     }
 
     /**
+     * 2529. Maximum Count of Positive Integer and Negative Integer
+     * 正整数和负整数的最大计数
+     * @param nums
+     * @return
+     */
+    public int maximumCount(int[] nums) {
+        int posCount = 0;
+        int negCount = 0;
+        for (int num : nums) {
+            if (num > 0) {
+                posCount++;
+            }
+            if (num < 0) {
+                negCount++;
+            }
+        }
+        return Math.max(posCount, negCount);
+    }
+
+    /**
      * 2535. Difference Between Element Sum and Digit Sum of an Array
      * 数组元素和与数字和的绝对差
      * @param nums
