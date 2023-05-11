@@ -1277,6 +1277,23 @@ public class SolutionTest {
     }
 
     /**
+     * 944. Delete Columns to Make Sorted
+     * 删列造序
+     */
+    @Test
+    public void minDeletionSize() {
+        String[][] testCase = {
+            {"rrjk", "furt", "guzm"},
+            {"cba", "daf", "ghi"},
+            {"a", "b"},
+            {"zyx", "wvu", "tsr"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution1000.minDeletionSize(caseItem));
+        }
+    }
+
+    /**
      * 953. Verifying an Alien Dictionary
      * 验证外星语词典
      */

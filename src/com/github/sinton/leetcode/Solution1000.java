@@ -721,6 +721,29 @@ public class Solution1000 {
     }
 
     /**
+     * 944. Delete Columns to Make Sorted
+     * 删列造序
+     * @param strs
+     * @return
+     */
+    public int minDeletionSize(String[] strs) {
+        int answer = 0;
+        int start;
+        for (int i = 0, strsLength = strs[0].length(); i < strsLength; i++) {
+            start = Integer.MIN_VALUE;
+            for (String str : strs) {
+                if (str.charAt(i) - 'a' >= start) {
+                    start = str.charAt(i) - 'a';
+                } else {
+                    answer++;
+                    break;
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 953. Verifying an Alien Dictionary
      * 验证外星语词典
      * @param words
