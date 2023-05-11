@@ -212,6 +212,27 @@ public class Solution2500 {
     }
 
     /**
+     * 2169. Count Operations to Obtain Zero
+     * 得到 0 的操作数
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public int countOperations(int num1, int num2) {
+        int count = 0;
+        while (num1 != 0 && num2 != 0) {
+            if (num1 >= num2) {
+                num1 = num1 - num2;
+            }
+            else {
+                num2 = num2 - num1;
+            }
+            count++;
+        }
+        return count;
+    }
+
+    /**
      * 2176. Count Equal and Divisible Pairs in an Array
      * 统计数组中相等且可以被整除的数对
      * @param nums

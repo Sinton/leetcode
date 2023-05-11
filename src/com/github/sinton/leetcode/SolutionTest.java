@@ -2713,6 +2713,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2169. Count Operations to Obtain Zero
+     * 得到 0 的操作数
+     */
+    @Test
+    public void countOperations() {
+        int[][] testCase = {
+            {2, 3},
+            {10, 10}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2500.countOperations(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 2176. Count Equal and Divisible Pairs in an Array
      * 统计数组中相等且可以被整除的数对
      */
