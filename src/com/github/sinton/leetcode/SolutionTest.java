@@ -2903,6 +2903,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2278. Percentage of Letter in String
+     * 字母在字符串中的百分比
+     */
+    @Test
+    public void percentageLetter() {
+        String[][] testCase = {
+            {"foobar", "o"},
+            {"jjjj", "k"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2500.percentageLetter(caseItem[0], caseItem[1].charAt(0)));
+        }
+    }
+
+    /**
      * 2315. Count Asterisks
      * 统计星号
      */

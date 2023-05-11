@@ -433,6 +433,23 @@ public class Solution2500 {
     }
 
     /**
+     * 2278. Percentage of Letter in String
+     * 字母在字符串中的百分比
+     * @param s
+     * @param letter
+     * @return
+     */
+    public int percentageLetter(String s, char letter) {
+        int count = 0;
+        for (int i = 0, len = s.length(); i < len; i++) {
+            if (s.charAt(i) == letter) {
+                count++;
+            }
+        }
+        return (int) (count * 1.0 / s.length() * 100);
+    }
+
+    /**
      * 2315. Count Asterisks
      * 统计星号
      * @param s
