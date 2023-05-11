@@ -1044,6 +1044,23 @@ public class SolutionTest {
     }
 
     /**
+     * 682. Baseball Game
+     * 棒球比赛
+     */
+    @Test
+    public void calPoints() {
+        String[][] testCase = {
+            {"1", "C", "-62", "-45", "-68"},
+            {"5", "2", "C", "D", "+"},
+            {"5", "-2", "4", "C", "D", "9", "+", "+"},
+            {"1"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution1000.calPoints(caseItem));
+        }
+    }
+
+    /**
      * 692. Top K Frequent Words
      * 前K个高频单词
      */

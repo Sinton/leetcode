@@ -145,6 +145,40 @@ public class Solution1000 {
     }
 
     /**
+     * 682. Baseball Game
+     * 棒球比赛
+     * @param operations
+     * @return
+     */
+    public int calPoints(String[] operations) {
+        List<Integer> record = new ArrayList<>();
+        for (String operation : operations) {
+            if (operation.charAt(0) == '-' || ('0' <= operation.charAt(0) && operation.charAt(0) <= '9')) {
+                record.add(Integer.parseInt(operation));
+            } else {
+                switch (operation.charAt(0)) {
+                    case '+':
+                        record.add(record.get(record.size() - 1) + record.get(record.size() - 2));
+                        break;
+                    case 'D':
+                        record.add(record.get(record.size() - 1) * 2);
+                        break;
+                    case 'C':
+                        record.remove(record.size() - 1);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        int answer = 0;
+        for (Integer item : record) {
+            answer += item;
+        }
+        return answer;
+    }
+
+    /**
      * 692. Top K Frequent Words
      * 前K个高频单词
      * @param words
