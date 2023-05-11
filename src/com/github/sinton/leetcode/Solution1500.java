@@ -486,6 +486,28 @@ public class Solution1500 {
     }
 
     /**
+     * 1351. Count Negative Numbers in a Sorted Matrix
+     * 统计有序矩阵中的负数
+     * @param grid
+     * @return
+     */
+    public int countNegatives(int[][] grid) {
+        int answer = 0;
+        for (int[] gridItem : grid) {
+            if (gridItem[0] < 0) {
+                answer += gridItem.length;
+            } else {
+                for (int item : gridItem) {
+                    if (item < 0) {
+                        answer++;
+                    }
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1356. Sort Integers by The Number of 1 Bits
      * 根据数字二进制下 1 的数目排序
      * @param arr

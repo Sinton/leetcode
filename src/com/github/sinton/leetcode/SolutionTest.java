@@ -1618,6 +1618,21 @@ public class SolutionTest {
     }
 
     /**
+     * 1351. Count Negative Numbers in a Sorted Matrix
+     * 统计有序矩阵中的负数
+     */
+    @Test
+    public void countNegatives() {
+        int[][][] testCase = {
+            {{4, 3, 2, -1}, {3, 2, 1, -1}, {1, 1, -1, -2}, {-1, -1, -2, -3}},
+            {{3, 2}, {1, 0}},
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution1500.countNegatives(caseItem));
+        }
+    }
+
+    /**
      * 1356. Sort Integers by The Number of 1 Bits
      * 根据数字二进制下 1 的数目排序
      */
