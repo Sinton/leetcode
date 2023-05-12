@@ -2900,6 +2900,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2206. Divide Array Into Equal Pairs
+     * 将数组划分成相等数对
+     */
+    @Test
+    public void divideArray() {
+        int[][] testCase = {
+            {3, 2, 3, 2, 2, 2},
+            {1, 2, 3, 4},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2500.divideArray(caseItem));
+        }
+    }
+
+    /**
      * 2215. Find the Difference of Two Arrays
      * 找出两数组的不同
      */

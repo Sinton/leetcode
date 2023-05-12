@@ -373,6 +373,31 @@ public class Solution2500 {
     }
 
     /**
+     * 2206. Divide Array Into Equal Pairs
+     * 将数组划分成相等数对
+     * @param nums
+     * @return
+     */
+    public boolean divideArray(int[] nums) {
+        int[] records = new int[501];
+        int n = nums.length / 2;
+        for (int num : nums) {
+            records[num]++;
+        }
+        int count = 0;
+        for (int record : records) {
+            if (record != 0) {
+                if (record % 2 == 0) {
+                    count += record / 2;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return count == n;
+    }
+
+    /**
      * 2215. Find the Difference of Two Arrays
      * 找出两数组的不同
      * @param nums1
