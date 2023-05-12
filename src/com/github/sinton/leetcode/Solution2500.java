@@ -52,6 +52,40 @@ public class Solution2500 {
     }
 
     /**
+     * 2032. Two Out of Three
+     * 至少在两个数组中出现的值
+     * @param nums1
+     * @param nums2
+     * @param nums3
+     * @return
+     */
+    public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+        int[][] records = new int[101][4];
+        int[][] numSet = {nums1, nums2, nums3};
+        for (int i = 0, length = numSet.length; i < length; i++) {
+            for (int num : numSet[i]) {
+                for (int j = 1, len = records[num].length; j < len; j++) {
+                    if (records[num][j] == i + 1) {
+                        break;
+                    }
+                    if (records[num][j] == 0) {
+                        records[num][j] = i + 1;
+                        records[num][0]++;
+                        break;
+                    }
+                }
+            }
+        }
+        List<Integer> answer = new ArrayList<>();
+        for (int i = 0, length = records.length; i < length; i++) {
+            if (records[i][0] >= 2) {
+                answer.add(i);
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2037. Minimum Number of Moves to Seat Everyone
      * 使每位学生都有座位的最少移动次数
      * @param seats

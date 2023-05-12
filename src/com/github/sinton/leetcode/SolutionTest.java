@@ -2648,6 +2648,34 @@ public class SolutionTest {
     }
 
     /**
+     * 2032. Two Out of Three
+     * 至少在两个数组中出现的值
+     */
+    @Test
+    public void twoOutOfThree() {
+        int[][][] testCase = {
+            {
+                {1, 1, 3, 2},
+                {2, 3},
+                {3}
+            },
+            {
+                {3, 1},
+                {2, 3},
+                {1, 2},
+            },
+            {
+                {1, 2, 2},
+                {4, 3, 3},
+                {5},
+            },
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.twoOutOfThree(caseItem[0], caseItem[1], caseItem[2]));
+        }
+    }
+
+    /**
      * 2037. Minimum Number of Moves to Seat Everyone
      * 使每位学生都有座位的最少移动次数
      */
