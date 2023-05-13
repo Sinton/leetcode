@@ -579,22 +579,38 @@ public class Solution1500 {
     }
 
     /**
-     * TODO
      * 1370. Increasing Decreasing String
      * 上升下降字符串
      * @param s
      * @return
      */
     public String sortString(String s) {
-        StringBuilder original = new StringBuilder(s);
         StringBuilder answer = new StringBuilder();
-        char minChar = 'A';
-        char maxChar = 'A';
+        int[] records = new int[26];
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
         for (int i = 0, len = s.length(); i < len; i++) {
-            if (s.charAt(i) - 'a' < minChar - 'a' && s.charAt(i) - 'a' > minChar - 'a') {
-                minChar = s.charAt(i);
+            records[s.charAt(i) - 'a']++;
+            min = Math.min(min, s.charAt(i) - 'a');
+            max = Math.max(max, s.charAt(i) - 'a');
+        }
+        if (min == max) {
+            return s;
+        }
+
+        while (answer.length() < s.length()) {
+            for (int i = min; i <= max; i++) {
+                if (records[i] > 0) {
+                    answer.append((char) (i + 'a'));
+                    records[i]--;
+                }
             }
-            answer.deleteCharAt(i);
+            for (int i = max; i >= min; i--) {
+                if (records[i] > 0) {
+                    answer.append((char) (i + 'a'));
+                    records[i]--;
+                }
+            }
         }
         return answer.toString();
     }

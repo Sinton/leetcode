@@ -1702,6 +1702,24 @@ public class SolutionTest {
     }
 
     /**
+     * 1370. Increasing Decreasing String
+     * 上升下降字符串
+     */
+    @Test
+    public void sortString() {
+        String[] testCase = {
+            "aaaabbbbcccc",
+            "rat",
+            "leetcode",
+            "ggggggg",
+            "spo"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution1500.sortString(caseItem));
+        }
+    }
+
+    /**
      * 1374. Generate a String With Characters That Have Odd Counts
      * 生成每种字符都是奇数个的字符串
      */
