@@ -546,6 +546,27 @@ public class Solution2500 {
     }
 
     /**
+     * 2331. Evaluate Boolean Binary Tree
+     * 计算布尔二叉树的值
+     * @param root
+     * @return
+     */
+    public boolean evaluateTree(TreeNode root) {
+        if (root.left != null && root.right != null) {
+            if (root.val == 3) {
+                return evaluateTree(root.left) && evaluateTree(root.right);
+            }
+            if (root.val == 2) {
+                return evaluateTree(root.left) || evaluateTree(root.right);
+            }
+        }
+        if (root.left == null && root.right == null) {
+            return root.val == 1;
+        }
+        return false;
+    }
+
+    /**
      * 2341. Maximum Number of Pairs in Array
      * 数组能形成多少数对
      * @param nums

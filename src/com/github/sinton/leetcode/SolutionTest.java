@@ -3030,6 +3030,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2331. Evaluate Boolean Binary Tree
+     * 计算布尔二叉树的值
+     */
+    @Test
+    public void evaluateTree() {
+        Integer[][] testCase = {
+            {2, 1, 3, null, null, 0, 1},
+            {0}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution2500.evaluateTree(root));
+        }
+    }
+
+    /**
      * 2341. Maximum Number of Pairs in Array
      * 数组能形成多少数对
      */
