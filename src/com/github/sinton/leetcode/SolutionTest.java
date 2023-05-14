@@ -3297,6 +3297,23 @@ public class SolutionTest {
         }
     }
 
+    @Test
+    public void mergeArrays() {
+        int[][][][] testCase = {
+            {
+                {{1, 2}, {2, 3}, {4, 5}},
+                {{1, 4}, {3, 2}, {4, 1}}
+            },
+            {
+                {{2, 4}, {3, 6}, {5, 5}},
+                {{1, 3}, {4, 3}}
+            },
+        };
+        for (int[][][] caseItem : testCase) {
+            System.out.println(Arrays.deepToString(solution3000.mergeArrays(caseItem[0], caseItem[1])));
+        }
+    }
+
     /**
      * 2574. Left and Right Sum Differences
      * 左右元素和的差值

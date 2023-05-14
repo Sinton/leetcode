@@ -1,6 +1,8 @@
 package com.github.sinton.leetcode;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -91,6 +93,45 @@ public class Solution3000 {
             index += numLen[i];
         }
         return answer;
+    }
+
+    /**
+     * 2570. Merge Two 2D Arrays by Summing Values
+     * 合并两个二维数组 - 求和法
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
+        List<List<Integer>> answer = new ArrayList<>();
+        int[] counter = new int[1001];
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int[] item : nums1) {
+            min = Math.min(min, item[0]);
+            max = Math.max(max, item[0]);
+            counter[item[0]] += item[1];
+        }
+        for (int[] item : nums2) {
+            min = Math.min(min, item[0]);
+            max = Math.max(max, item[0]);
+            counter[item[0]] += item[1];
+        }
+        List<Integer> answerItem;
+        for (int i = min; i <= max; i++) {
+            if (counter[i] != 0) {
+                answerItem = new ArrayList<>();
+                answerItem.add(i);
+                answerItem.add(counter[i]);
+                answer.add(answerItem);
+            }
+        }
+        int[][] answer1 = new int[answer.size()][2];
+        for (int i = 0, len = answer.size(); i < len; i++) {
+            answer1[i][0] = answer.get(i).get(0);
+            answer1[i][1] = answer.get(i).get(1);
+        }
+        return answer1;
     }
 
     /**
