@@ -299,6 +299,30 @@ public class Solution1500 {
     }
 
     /**
+     * 1299. Replace Elements with Greatest Element on Right Side
+     * 将每个元素替换为右侧最大元素
+     * @param arr
+     * @return
+     */
+    public int[] replaceElements(int[] arr) {
+        int[] answer = new int[arr.length];
+        int max;
+        for (int i = 0, len = arr.length; i < len; i++) {
+            max = Integer.MIN_VALUE;
+            if (i == len - 1) {
+                max = -1;
+            }
+            for (int j = i + 1; j < len; j++) {
+                if (arr[j] > max) {
+                    max = arr[j];
+                }
+            }
+            answer[i] = max;
+        }
+        return answer;
+    }
+
+    /**
      * 1302. Deepest Leaves Sum
      * 层数最深叶子节点的和
      * @param root

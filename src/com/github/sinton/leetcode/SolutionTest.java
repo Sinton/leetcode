@@ -1571,6 +1571,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1299. Replace Elements with Greatest Element on Right Side
+     * 将每个元素替换为右侧最大元素
+     */
+    @Test
+    public void replaceElements() {
+        int[][] testCase = {
+            {17, 18, 5, 4, 6, 1},
+            {400},
+            {555, 901, 482, 1771}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1500.replaceElements(caseItem)));
+        }
+    }
+
+    /**
      * 1304. Find N Unique Integers Sum up to Zero
      * 和为零的 N 个不同整数
      */
