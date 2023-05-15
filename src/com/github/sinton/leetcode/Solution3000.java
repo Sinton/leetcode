@@ -103,7 +103,6 @@ public class Solution3000 {
      * @return
      */
     public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
-        List<List<Integer>> answer = new ArrayList<>();
         int[] counter = new int[1001];
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
@@ -117,21 +116,21 @@ public class Solution3000 {
             max = Math.max(max, item[0]);
             counter[item[0]] += item[1];
         }
-        List<Integer> answerItem;
+        int capacity = 0;
         for (int i = min; i <= max; i++) {
             if (counter[i] != 0) {
-                answerItem = new ArrayList<>();
-                answerItem.add(i);
-                answerItem.add(counter[i]);
-                answer.add(answerItem);
+                capacity++;
             }
         }
-        int[][] answer1 = new int[answer.size()][2];
-        for (int i = 0, len = answer.size(); i < len; i++) {
-            answer1[i][0] = answer.get(i).get(0);
-            answer1[i][1] = answer.get(i).get(1);
+        int[][] answer = new int[capacity][2];
+        for (int i = min; i <= max; i++) {
+            if (counter[i] != 0) {
+                answer[answer.length - capacity][0] = i;
+                answer[answer.length - capacity][1] = counter[i];
+                capacity--;
+            }
         }
-        return answer1;
+        return answer;
     }
 
     /**
