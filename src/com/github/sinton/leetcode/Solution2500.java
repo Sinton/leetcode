@@ -500,6 +500,27 @@ public class Solution2500 {
     }
 
     /**
+     * 2283. Check if Number Has Equal Digit Count and Digit Value
+     * 判断一个数的数字计数是否等于数位的值
+     * @param num
+     * @return
+     */
+    public boolean digitCount(String num) {
+        int[] record = new int[11];
+        int value;
+        for (int i = 0, len = num.length(); i < len; i++) {
+            value = num.charAt(i) - '0';
+            record[value]++;
+        }
+        for (int i = 0, len = num.length(); i < len; i++) {
+            if (num.charAt(i) - '0' != record[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * 2315. Count Asterisks
      * 统计星号
      * @param s

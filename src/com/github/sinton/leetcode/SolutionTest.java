@@ -3060,6 +3060,18 @@ public class SolutionTest {
     }
 
     /**
+     * 2283. Check if Number Has Equal Digit Count and Digit Value
+     * 判断一个数的数字计数是否等于数位的值
+     */
+    @Test
+    public void digitCount() {
+        String[] testCase = {"1210", "030"};
+        for (String caseItem : testCase) {
+            System.out.println(solution2500.digitCount(caseItem));
+        }
+    }
+
+    /**
      * 2315. Count Asterisks
      * 统计星号
      */
