@@ -376,6 +376,35 @@ public class Solution2000 {
     }
 
     /**
+     * 1742. Maximum Number of Balls in a Box
+     * 盒子中小球的最大数量
+     * @param lowLimit
+     * @param highLimit
+     * @return
+     */
+    public int countBalls(int lowLimit, int highLimit) {
+        Map<Integer, Integer> record = new HashMap<>(16);
+        int num;
+        int sum;
+        int max = Integer.MIN_VALUE;
+        for (int i = lowLimit; i <= highLimit; i++) {
+            sum = 0;
+            num = i;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            if (record.containsKey(sum)) {
+                record.put(sum, record.get(sum) + 1);
+            } else {
+                record.put(sum, 1);
+            }
+            max = Math.max(max, record.get(sum));
+        }
+        return max;
+    }
+
+    /**
      * 1748. Sum of Unique Elements
      * 唯一元素的和
      * @param nums

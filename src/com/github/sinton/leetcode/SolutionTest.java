@@ -2259,6 +2259,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1742. Maximum Number of Balls in a Box
+     * 盒子中小球的最大数量
+     */
+    @Test
+    public void countBalls() {
+        int[][] testCase = {
+            {1, 10},
+            {5, 15},
+            {19, 28},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2000.countBalls(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 1748. Sum of Unique Elements
      * 唯一元素的和
      */
