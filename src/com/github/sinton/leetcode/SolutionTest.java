@@ -1451,6 +1451,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1207. Unique Number of Occurrences
+     * 独一无二的出现次数
+     */
+    @Test
+    public void uniqueOccurrences() {
+        int[][] testCase = {
+            {1, 2, 2, 1, 1, 3},
+            {1, 2},
+            {-3, 0, 1, -3, 1, 1, 1, -3, 10, 0}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1500.uniqueOccurrences(caseItem));
+        }
+    }
+
+    /**
      * 1221. Split a String in Balanced Strings
      * 分割平衡字符串
      */

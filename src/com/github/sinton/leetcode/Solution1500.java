@@ -103,6 +103,30 @@ public class Solution1500 {
     }
 
     /**
+     * 1207. Unique Number of Occurrences
+     * 独一无二的出现次数
+     * @param arr
+     * @return
+     */
+    public boolean uniqueOccurrences(int[] arr) {
+        int[] record = new int[2002];
+        for (int num : arr) {
+            record[1000 + num]++;
+        }
+        Map<Integer, Integer> map = new HashMap<>(16);
+        for (int i = 0, len = record.length; i < len; i++) {
+            if (record[i] != 0) {
+                if (map.containsKey(record[i])) {
+                    return false;
+                } else {
+                    map.put(record[i], i);
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
      * 1221. Split a String in Balanced Strings
      * 分割平衡字符串
      * @param s
