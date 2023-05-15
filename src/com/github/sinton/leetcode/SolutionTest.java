@@ -1356,6 +1356,19 @@ public class SolutionTest {
     }
 
     /**
+     * 933. Number of Recent Calls
+     * 最近的请求次数
+     */
+    @Test
+    public void testRecentCounter() {
+        int[] testCase = {1, 100, 3001, 3002};
+        RecentCounter recentCounter = new RecentCounter();
+        for (int caseItem : testCase) {
+            System.out.println(recentCounter.ping(caseItem));
+        }
+    }
+
+    /**
      * 961. N-Repeated Element in Size 2N Array
      * 在长度 2N 的数组中找出重复 N 次的元素
      */
