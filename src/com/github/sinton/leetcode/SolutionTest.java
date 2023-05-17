@@ -3045,6 +3045,25 @@ public class SolutionTest {
     }
 
     /**
+     * 2255. Count Prefixes of a Given String
+     * 统计是给定字符串前缀的字符串数目
+     */
+    @Test
+    public void countPrefixes() {
+        String[][][] testCase = {
+            {
+                {"a", "b", "c", "ab", "bc", "abc"}, {"abc"}
+            },
+            {
+                {"a", "a"}, {"aa"}
+            },
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution2500.countPrefixes(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
      * 2278. Percentage of Letter in String
      * 字母在字符串中的百分比
      */

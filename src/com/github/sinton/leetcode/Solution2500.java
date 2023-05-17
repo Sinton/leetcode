@@ -483,6 +483,23 @@ public class Solution2500 {
     }
 
     /**
+     * 2255. Count Prefixes of a Given String
+     * 统计是给定字符串前缀的字符串数目
+     * @param words
+     * @param s
+     * @return
+     */
+    public int countPrefixes(String[] words, String s) {
+        int answer = 0;
+        for (String word : words) {
+            if (s.startsWith(word)) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2278. Percentage of Letter in String
      * 字母在字符串中的百分比
      * @param s
