@@ -656,6 +656,26 @@ public class Solution2500 {
     }
 
     /**
+     * 2357. Make Array Zero by Subtracting Equal Amounts
+     * 使数组中所有元素都等于零
+     * @param nums
+     * @return
+     */
+    public int minimumOperations(int[] nums) {
+        int answer = 0;
+        int[] record = new int[101];
+        for (int num : nums) {
+            if (num != 0) {
+                if (record[num] == 0) {
+                    answer++;
+                }
+                record[num]++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2363. Merge Similar Items
      * 合并相似的物品
      * @param items1

@@ -3169,6 +3169,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2357. Make Array Zero by Subtracting Equal Amounts
+     * 使数组中所有元素都等于零
+     */
+    @Test
+    public void minimumOperations() {
+        int[][] testCase = {
+            {1, 5, 0, 3, 5},
+            {0},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution2500.minimumOperations(caseItem));
+        }
+    }
+
+    /**
      * 2363. Merge Similar Items
      * 合并相似的物品
      */
