@@ -216,6 +216,24 @@ public class Solution2500 {
     }
 
     /**
+     * 2154. Keep Multiplying Found Values by Two
+     * 将找到的值乘以 2
+     * @param nums
+     * @param original
+     * @return
+     */
+    public int findFinalValue(int[] nums, int original) {
+        Set<Integer> set = new HashSet<>(16);
+        for (int num : nums) {
+            set.add(num);
+        }
+        while (set.contains(original)) {
+            original = original * 2;
+        }
+        return original;
+    }
+
+    /**
      * 2160. Minimum Sum of Four Digit Number After Splitting Digits
      * 拆分数位后四位数字的最小和
      * @param num

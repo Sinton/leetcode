@@ -2874,6 +2874,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2154. Keep Multiplying Found Values by Two
+     * 将找到的值乘以 2
+     */
+    @Test
+    public void findFinalValue() {
+        int[][][] testCase = {
+            {{5, 3, 6, 1, 12}, {3}},
+            {{2, 7, 9}, {4}},
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution2500.findFinalValue(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
      * 2160. Minimum Sum of Four Digit Number After Splitting Digits
      * 拆分数位后四位数字的最小和
      */
