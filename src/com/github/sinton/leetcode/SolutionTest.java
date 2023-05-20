@@ -1871,6 +1871,28 @@ public class SolutionTest {
     }
 
     /**
+     * 1460. Make Two Arrays Equal by Reversing Subarrays
+     * 通过翻转子数组使两个数组相等
+     */
+    @Test
+    public void canBeEqual() {
+        int[][][] testCase = {
+            {
+                {1, 2, 3, 4}, {2, 4, 1, 3}
+            },
+            {
+                {7}, {7}
+            },
+            {
+                {3, 7, 9}, {3, 7, 11}
+            }
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution1500.canBeEqual(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 1464. Maximum Product of Two Elements in an Array
      * 数组中两元素的最大乘积
      */
@@ -2880,6 +2902,7 @@ public class SolutionTest {
     @Test
     public void findFinalValue() {
         int[][][] testCase = {
+            {{161, 28, 640, 264, 81, 561, 320, 2, 61, 244, 183, 108, 773, 61, 976, 122, 988, 2, 370, 392, 488, 375, 349, 432, 713, 563}, {61}},
             {{5, 3, 6, 1, 12}, {3}},
             {{2, 7, 9}, {4}},
         };

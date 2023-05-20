@@ -801,6 +801,30 @@ public class Solution1500 {
     }
 
     /**
+     * 1460. Make Two Arrays Equal by Reversing Subarrays
+     * 通过翻转子数组使两个数组相等
+     * @param target
+     * @param arr
+     * @return
+     */
+    public boolean canBeEqual(int[] target, int[] arr) {
+        int[] records = new int[1001];
+        for (int item : target) {
+            records[item]++;
+        }
+        for (int item : arr) {
+            if (records[item] > 0) {
+                records[item]--;
+            }
+        }
+        int sum = 0;
+        for (int record : records) {
+            sum += record;
+        }
+        return sum == 0;
+    }
+
+    /**
      * 1464. Maximum Product of Two Elements in an Array
      * 数组中两元素的最大乘积
      * @param nums
