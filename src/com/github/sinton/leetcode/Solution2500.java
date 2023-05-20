@@ -223,11 +223,11 @@ public class Solution2500 {
      * @return
      */
     public int findFinalValue(int[] nums, int original) {
-        Set<Integer> set = new HashSet<>(16);
+        int[] records = new int[1001];
         for (int num : nums) {
-            set.add(num);
+            records[num]++;
         }
-        while (set.contains(original)) {
+        while (original <= 1000 && records[original] > 0) {
             original = original * 2;
         }
         return original;
