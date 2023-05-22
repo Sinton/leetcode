@@ -96,6 +96,32 @@ public class Solution2500 {
     }
 
     /**
+     * 2053. Kth Distinct String in an Array
+     * 数组中第 K 个独一无二的字符串
+     * @param arr
+     * @param k
+     * @return
+     */
+    public String kthDistinct(String[] arr, int k) {
+        Set<String> set = new LinkedHashSet<>();
+        Map<String, Integer> records = new HashMap<>(16);
+        for (String item : arr) {
+            if (records.containsKey(item)) {
+                records.put(item, records.get(item) + 1);
+                set.remove(item);
+            } else {
+                records.put(item, 1);
+                set.add(item);
+            }
+        }
+        if (set.size() < k) {
+            return "";
+        } else {
+            return set.toArray(new String[]{})[k - 1];
+        }
+    }
+
+    /**
      * 2089. Find Target Indices After Sorting Array
      * 找出数组排序后的目标下标
      * @param nums

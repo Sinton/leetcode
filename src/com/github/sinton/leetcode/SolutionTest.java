@@ -2802,6 +2802,31 @@ public class SolutionTest {
     }
 
     /**
+     * 2053. Kth Distinct String in an Array
+     * 数组中第 K 个独一无二的字符串
+     */
+    @Test
+    public void kthDistinct() {
+        String[][][] testCase = {
+            {
+                {"d", "b", "c", "b", "c", "a"},
+                {"2"}
+            },
+            {
+                {"aaa", "aa", "a"},
+                {"1"}
+            },
+            {
+                {"a", "b", "a"},
+                {"3"}
+            },
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution2500.kthDistinct(caseItem[0], Integer.parseInt(caseItem[1][0])));
+        }
+    }
+
+    /**
      * 2089. Find Target Indices After Sorting Array
      * 找出数组排序后的目标下标
      */
