@@ -933,6 +933,25 @@ public class Solution2500 {
     }
 
     /**
+     * 2496. Maximum Value of a String in an Array
+     * 数组中字符串的最大值
+     * @param strs
+     * @return
+     */
+    public int maximumValue(String[] strs) {
+        int answer = 0;
+        for (String str : strs) {
+            try {
+                int num = Integer.parseInt(str);
+                answer = Math.max(answer, num);
+            } catch (NumberFormatException e) {
+                answer = Math.max(answer, str.length());
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2500. Delete Greatest Value in Each Row
      * 删除每行中的最大值
      * @param grid

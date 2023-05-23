@@ -3386,6 +3386,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2496. Maximum Value of a String in an Array
+     * 数组中字符串的最大值
+     */
+    @Test
+    public void maximumValue() {
+        String[][] testCase = {
+            {"alic3", "bob", "3", "4", "00000"},
+            {"1", "01", "001", "0001"}
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2500.maximumValue(caseItem));
+        }
+    }
+
+    /**
      * 2500. Delete Greatest Value in Each Row
      * 删除每行中的最大值
      */
