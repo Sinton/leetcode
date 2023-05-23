@@ -814,6 +814,41 @@ public class Solution2000 {
     }
 
     /**
+     * 1974. Minimum Time to Type Word Using Special Typewriter
+     * 使用特殊打字机键入单词的最少时间
+     * @param word
+     * @return
+     */
+    public int minTimeToType(String word) {
+        int len = word.length();
+        int answer = 0;
+        if (len == 1) {
+            return answer;
+        }
+        int prev = 0;
+        int distance;
+        for (int i = 0; i < len; i++) {
+            distance = (word.charAt(i) - 'a') - prev;
+            if (distance > 0) {
+                if (distance >= 13) {
+                    answer += 26 - (word.charAt(i) - 'a') + prev;
+                } else {
+                    answer += distance;
+                }
+            } else {
+                if (distance <= -13) {
+                    answer += 26 - prev + (word.charAt(i) - 'a');
+                } else {
+                    answer += prev - (word.charAt(i) - 'a');
+                }
+            }
+            answer++;
+            prev = word.charAt(i) - 'a';
+        }
+        return answer;
+    }
+
+    /**
      * 1979. Find Greatest Common Divisor of Array
      * 找出数组的最大公约数
      * @param nums

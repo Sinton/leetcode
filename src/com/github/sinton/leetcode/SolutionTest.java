@@ -2689,6 +2689,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1974. Minimum Time to Type Word Using Special Typewriter
+     * 使用特殊打字机键入单词的最少时间
+     */
+    @Test
+    public void minTimeToType() {
+        String[] testCase = {
+            "abc",
+            "bza",
+            "zjpc"
+        };
+        for (String caseItem : testCase) {
+            System.out.println(solution2000.minTimeToType(caseItem));
+        }
+    }
+
+    /**
      * 1979. Find Greatest Common Divisor of Array
      * 找出数组的最大公约数
      */
