@@ -462,6 +462,40 @@ public class Solution1500 {
     }
 
     /**
+     * 1337. The K Weakest Rows in a Matrix
+     * 矩阵中战斗力最弱的 K 行
+     * @param mat
+     * @param k
+     * @return
+     */
+    public int[] kWeakestRows(int[][] mat, int k) {
+        int[] battleValues = new int[mat.length];
+        int sum;
+        for (int i = 0, len = mat.length; i < len; i++) {
+            sum = 0;
+            for (int value : mat[i]) {
+                sum += value;
+            }
+            battleValues[i] = sum;
+        }
+        int[] answer = new int[k];
+        int min = Integer.MAX_VALUE;
+        int minIndex = 0;
+        for (int i = 0; i < k; i++) {
+            for (int j = 0, len = battleValues.length; j < len; j++) {
+                if (battleValues[j] < min) {
+                    minIndex = j;
+                    min = battleValues[j];
+                }
+            }
+            answer[i] = minIndex;
+            battleValues[minIndex] = Integer.MAX_VALUE;
+            min = Integer.MAX_VALUE;
+        }
+        return answer;
+    }
+
+    /**
      * TODO
      * 1339. Maximum Product of Splitted Binary Tree
      * 分裂二叉树的最大乘积

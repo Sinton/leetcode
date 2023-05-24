@@ -1683,6 +1683,38 @@ public class SolutionTest {
     }
 
     /**
+     * 1337. The K Weakest Rows in a Matrix
+     * 矩阵中战斗力最弱的 K 行
+     */
+    @Test
+    public void kWeakestRows() {
+        int[][][][] testCase = {
+            {
+                {
+                    {1, 1, 0, 0, 0},
+                    {1, 1, 1, 1, 0},
+                    {1, 0, 0, 0, 0},
+                    {1, 1, 0, 0, 0},
+                    {1, 1, 1, 1, 1}
+                },
+                {{3}}
+            },
+            {
+                {
+                    {1, 0, 0, 0},
+                    {1, 1, 1, 1},
+                    {1, 0, 0, 0},
+                    {1, 0, 0, 0}
+                },
+                {{2}}
+            }
+        };
+        for (int[][][] caseItem : testCase) {
+            System.out.println(Arrays.toString(solution1500.kWeakestRows(caseItem[0], caseItem[1][0][0])));
+        }
+    }
+
+    /**
      * TODO
      * 1339. Maximum Product of Splitted Binary Tree
      * 分裂二叉树的最大乘积
