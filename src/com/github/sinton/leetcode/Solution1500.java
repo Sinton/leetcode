@@ -127,6 +127,25 @@ public class Solution1500 {
     }
 
     /**
+     * 1217. Minimum Cost to Move Chips to The Same Position
+     * 玩筹码
+     * @param position
+     * @return
+     */
+    public int minCostToMoveChips(int[] position) {
+        int odd = 0;
+        int even = 0;
+        for (int index : position) {
+            if ((index + 1) % 2 == 0) {
+                odd++;
+            } else {
+                even++;
+            }
+        }
+        return Math.min(odd, even);
+    }
+
+    /**
      * 1221. Split a String in Balanced Strings
      * 分割平衡字符串
      * @param s

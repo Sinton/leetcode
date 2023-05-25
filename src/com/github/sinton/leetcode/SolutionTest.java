@@ -1494,6 +1494,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1217. Minimum Cost to Move Chips to The Same Position
+     * 玩筹码
+     */
+    @Test
+    public void minCostToMoveChips() {
+        int[][] testCase = {
+            {1, 2, 3},
+            {2, 2, 2, 3, 3},
+            {1, 1000000000}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1500.minCostToMoveChips(caseItem));
+        }
+    }
+
+    /**
      * 1221. Split a String in Balanced Strings
      * 分割平衡字符串
      */
