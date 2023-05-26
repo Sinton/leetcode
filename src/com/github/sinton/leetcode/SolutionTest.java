@@ -1050,13 +1050,20 @@ public class SolutionTest {
      */
     @Test
     public void findTarget() {
-        TreeNode root = new TreeNode(5);
-        root.left = new TreeNode(3);
-        root.left.left = new TreeNode(2);
-        root.left.right = new TreeNode(4);
-        root.right = new TreeNode(6);
-        root.right.right = new TreeNode(7);
-        System.out.println(solution1000.findTarget(root, 28));
+        Integer[][][] testCase = {
+            {
+                {5, 3, 6, 2, 4, null, 7},
+                {9}
+            },
+            {
+                {5, 3, 6, 2, 4, null, 7},
+                {28}
+            }
+        };
+        for (Integer[][] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem[0]);
+            System.out.println(solution1000.findTarget(root, caseItem[1][0]));
+        }
     }
 
     /**
