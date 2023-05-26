@@ -1029,6 +1029,22 @@ public class SolutionTest {
     }
 
     /**
+     * 637. Average of Levels in Binary Tree
+     * 二叉树的层平均值
+     */
+    @Test
+    public void averageOfLevels() {
+        Integer[][] testCase = {
+            {3, 9, 20, null, null, 15, 7},
+            {3, 9, 20, 15, 7}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution1000.averageOfLevels(root));
+        }
+    }
+
+    /**
      * 653. Two Sum IV - Input is a BST
      * 两数之和 IV - 输入二叉搜索树
      */

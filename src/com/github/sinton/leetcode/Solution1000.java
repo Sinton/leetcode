@@ -107,6 +107,40 @@ public class Solution1000 {
     }
 
     /**
+     * 637. Average of Levels in Binary Tree
+     * 二叉树的层平均值
+     * @param root
+     * @return
+     */
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> answer = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> nextLevelQueue = new LinkedList<>();
+        double sum;
+        int count;
+        TreeNode currNode;
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            sum = 0.0d;
+            count = queue.size();
+            while (!queue.isEmpty()) {
+                currNode = queue.poll();
+                sum += currNode.val;
+                if (currNode.left != null) {
+                    nextLevelQueue.offer(currNode.left);
+                }
+                if (currNode.right != null) {
+                    nextLevelQueue.offer(currNode.right);
+                }
+            }
+            answer.add(sum / count);
+            queue.addAll(nextLevelQueue);
+            nextLevelQueue.clear();
+        }
+        return answer;
+    }
+
+    /**
      * 653. Two Sum IV - Input is a BST
      * 两数之和 IV - 输入二叉搜索树
      * @param root
