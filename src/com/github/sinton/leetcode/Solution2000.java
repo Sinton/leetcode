@@ -775,6 +775,27 @@ public class Solution2000 {
     }
 
     /**
+     * 1935. Maximum Number of Words You Can Type
+     * 可以输入的最大单词数
+     * @param text
+     * @param brokenLetters
+     * @return
+     */
+    public int canBeTypedWords(String text, String brokenLetters) {
+        String[] words = text.split(" ");
+        int answer = words.length;
+        for (String word : words) {
+            for (int i = 0, len = brokenLetters.length(); i < len; i++) {
+                if (word.indexOf(brokenLetters.charAt(i)) >= 0) {
+                    answer--;
+                    break;
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 1941. Check if All Characters Have Equal Number of Occurrences
      * 检查是否所有字符出现次数相同
      * @param s

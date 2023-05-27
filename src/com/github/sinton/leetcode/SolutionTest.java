@@ -2723,6 +2723,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1935. Maximum Number of Words You Can Type
+     * 可以输入的最大单词数
+     */
+    @Test
+    public void canBeTypedWords() {
+        String[][] testCase = {
+            {"hello world", "ad"},
+            {"leet code", "lt"},
+            {"leet code", "e"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution2000.canBeTypedWords(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 1941. Check if All Characters Have Equal Number of Occurrences
      * 检查是否所有字符出现次数相同
      */
