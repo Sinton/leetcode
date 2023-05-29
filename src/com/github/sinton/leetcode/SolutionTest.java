@@ -1129,22 +1129,24 @@ public class SolutionTest {
      */
     @Test
     public void insertIntoBST() {
-//        TreeNode root = new TreeNode(4);
-//        root.left = new TreeNode(2);
-//        root.left.left = new TreeNode(1);
-//        root.left.right = new TreeNode(3);
-//        root.right = new TreeNode(7);
-//        root = solution1000.insertIntoBST(root, 5);
-//        System.out.println(root);
-        TreeNode root1 = new TreeNode(40);
-        root1.left = new TreeNode(20);
-        root1.left.left = new TreeNode(10);
-        root1.left.right = new TreeNode(30);
-        root1.right = new TreeNode(60);
-        root1.right.left = new TreeNode(50);
-        root1.right.right = new TreeNode(70);
-        root1 = solution1000.insertIntoBST(root1, 25);
-        System.out.println(root1);
+        Integer[][][] testCase = {
+            {
+                {4, 2, 7, 1, 3},
+                {5}
+            },
+            {
+                {40, 20, 60, 10, 30, 50, 70},
+                {25}
+            },
+            {
+                {4, 2, 7, 1, 3, null, null, null, null, null, null},
+                {5}
+            },
+        };
+        for (Integer[][] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem[0]);
+            System.out.println(solution1000.insertIntoBST(root, caseItem[1][0]));
+        }
     }
 
     /**
