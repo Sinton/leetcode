@@ -1114,13 +1114,20 @@ public class SolutionTest {
      */
     @Test
     public void searchBST() {
-        TreeNode root = new TreeNode(18);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(22);
-        root.right.right = new TreeNode(63);
-        root.right.right.right = new TreeNode(84);
-        root = solution1000.searchBST(root, 63);
-        System.out.println(root);
+        Integer[][][] testCase = {
+            {
+                {4, 2, 7, 1, 3},
+                {2}
+            },
+            {
+                {4, 2, 7, 1, 3},
+                {5}
+            }
+        };
+        for (Integer[][] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem[0]);
+            System.out.println(solution1000.insertIntoBST(root, caseItem[1][0]));
+        }
     }
 
     /**
