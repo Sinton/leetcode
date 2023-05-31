@@ -922,18 +922,14 @@ public class SolutionTest {
      */
     @Test
     public void sumOfLeftLeaves() {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(7);
-        TreeNode root1 = new TreeNode(1);
-        root1.left = new TreeNode(2);
-        root1.right = new TreeNode(3);
-        root1.left.left = new TreeNode(4);
-        root1.left.right = new TreeNode(5);
-        System.out.println(solution0500.sumOfLeftLeaves(root1));
-        System.out.println(solution0500.sumOfLeftLeaves(new TreeNode(1)));
+        Integer[][] testCase = {
+            {3, 9, 20, null, null, 15, 7},
+            {1}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution0500.sumOfLeftLeaves(root));
+        }
     }
 
     /**
