@@ -724,17 +724,27 @@ public class SolutionTest {
      */
     @Test
     public void lowestCommonAncestor() {
-        TreeNode root = new TreeNode(6);
-        root.left = new TreeNode(2);
-        root.left.left = new TreeNode(0);
-        root.left.right = new TreeNode(4);
-        root.left.right.left = new TreeNode(3);
-        root.left.right.right = new TreeNode(5);
-        root.right = new TreeNode(8);
-        root.right.left = new TreeNode(7);
-        root.right.right = new TreeNode(9);
-        TreeNode answer = solution0500.lowestCommonAncestor(root, new TreeNode(2), new TreeNode(4));
-        System.out.println(answer);
+        Integer[][][] testCase = {
+            {
+                    {6, 2, 8, 0, 4, 7, 9, null, null, 3, 5},
+                    {2},
+                    {8}
+            },
+            {
+                    {6, 2, 8, 0, 4, 7, 9, null, null, 3, 5},
+                    {2}, {4}
+            },
+            {
+                    {2, 1},
+                    {2}, {1}
+            }
+        };
+        for (Integer[][] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem[0]);
+            TreeNode p = Helper.buildTreeNode(caseItem[1]);
+            TreeNode q = Helper.buildTreeNode(caseItem[2]);
+            System.out.println(solution0500.lowestCommonAncestor(root, p, q));
+        }
     }
 
     /**
