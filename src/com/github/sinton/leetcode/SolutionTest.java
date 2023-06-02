@@ -693,15 +693,15 @@ public class SolutionTest {
      */
     @Test
     public void invertTree() {
-        TreeNode root = new TreeNode(4);
-        root.left = new TreeNode(2);
-        root.left.left = new TreeNode(1);
-        root.left.right = new TreeNode(3);
-        root.right = new TreeNode(7);
-        root.right.left = new TreeNode(6);
-        root.right.right = new TreeNode(9);
-        root = solution0500.invertTree(root);
-        System.out.println(root);
+        Integer[][] testCase = {
+            {4, 2, 7, 1, 3, 6, 9},
+            {2, 1, 3},
+            {}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution0500.invertTree(root));
+        }
     }
 
     /**
@@ -726,17 +726,17 @@ public class SolutionTest {
     public void lowestCommonAncestor() {
         Integer[][][] testCase = {
             {
-                    {6, 2, 8, 0, 4, 7, 9, null, null, 3, 5},
-                    {2},
-                    {8}
+                {6, 2, 8, 0, 4, 7, 9, null, null, 3, 5},
+                {2},
+                {8}
             },
             {
-                    {6, 2, 8, 0, 4, 7, 9, null, null, 3, 5},
-                    {2}, {4}
+                {6, 2, 8, 0, 4, 7, 9, null, null, 3, 5},
+                {2}, {4}
             },
             {
-                    {2, 1},
-                    {2}, {1}
+                {2, 1},
+                {2}, {1}
             }
         };
         for (Integer[][] caseItem : testCase) {
