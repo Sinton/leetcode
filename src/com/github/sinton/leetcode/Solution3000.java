@@ -304,6 +304,25 @@ public class Solution3000 {
     }
 
     /**
+     * 2678. Number of Senior Citizens
+     * 老人的数目
+     * @param details
+     * @return
+     */
+    public int countSeniors(String[] details) {
+        int answer = 0;
+        int age;
+        for (String detail : details) {
+            age = Integer.parseInt(String.valueOf(detail.charAt(11)));
+            age = age * 10 + Integer.parseInt(String.valueOf(detail.charAt(12)));
+            if (age > 60) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      * @param nums

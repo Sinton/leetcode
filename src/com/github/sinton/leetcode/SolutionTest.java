@@ -3752,6 +3752,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2678. Number of Senior Citizens
+     * 老人的数目
+     */
+    @Test
+    public void countSeniors() {
+        String[][] testCase = {
+            {"7868190130M7522", "5303914400F9211", "9273338290F4010"},
+            {"1313579440F2036", "2921522980M5644"},
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution3000.countSeniors(caseItem));
+        }
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      */
