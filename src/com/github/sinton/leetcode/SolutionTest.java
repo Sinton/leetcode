@@ -501,32 +501,15 @@ public class SolutionTest {
      */
     @Test
     public void preorderTraversal() {
-        TreeNode root3 = new TreeNode(1);
-        root3.right = new TreeNode(2);
-        root3.right.left = new TreeNode(3);
-        System.out.println(solution0500.preorderTraversal(root3));
-
-        TreeNode root = new TreeNode(1);
-        root.right = new TreeNode(3);
-        root.right.left = new TreeNode(2);
-        System.out.println(solution0500.preorderTraversal(root));
-
-        TreeNode root1 = new TreeNode(5);
-        root1.left = new TreeNode(1);
-        root1.right = new TreeNode(4);
-        root1.right.left = new TreeNode(3);
-        root1.right.right = new TreeNode(6);
-        System.out.println(solution0500.preorderTraversal(root1));
-
-        TreeNode root2 = new TreeNode(5);
-        root2.left = new TreeNode(1);
-        root2.right = new TreeNode(4);
-        root2.left.left = new TreeNode(3);
-        root2.left.right = new TreeNode(6);
-        System.out.println(solution0500.preorderTraversal(root2));
-
-        System.out.println(solution0500.preorderTraversal(null));
-        System.out.println(solution0500.preorderTraversal(new TreeNode(1)));
+        Integer[][] testCase = {
+            {1, null, 2, 3},
+            {},
+            {1}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution0500.preorderTraversal(root));
+        }
     }
 
     /**
