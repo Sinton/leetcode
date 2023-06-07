@@ -84,7 +84,7 @@ public class Helper {
         int index = 0;
         int len = testCase.length;
         if (0 == len) {
-            return new TreeNode();
+            return null;
         }
         TreeNode rootTreeNode = new TreeNode(testCase[index]);
         Queue<TreeNode> queue = new LinkedList<>();

@@ -409,23 +409,24 @@ public class SolutionTest {
      */
     @Test
     public void hasPathSum() {
-        TreeNode root = new TreeNode(5);
-        root.left = new TreeNode(4);
-        root.left.left = new TreeNode(11);
-        root.left.left.left = new TreeNode(7);
-        root.left.left.right = new TreeNode(2);
-        root.right = new TreeNode(8);
-        root.right.left = new TreeNode(13);
-        root.right.right = new TreeNode(4);
-        root.right.right.right = new TreeNode(1);
-        System.out.println(solution0500.hasPathSum(root, 22));
-
-        TreeNode root1 = new TreeNode(1);
-        root1.left = new TreeNode(2);
-        root1.right = new TreeNode(3);
-        System.out.println(solution0500.hasPathSum(root1, 5));
-
-        System.out.println(solution0500.hasPathSum(null, 0));
+        Integer[][][] testCase = {
+            {
+                {5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1},
+                {22}
+            },
+            {
+                {1, 2, 3},
+                {5}
+            },
+            {
+                {},
+                {0}
+            }
+        };
+        for (Integer[][] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem[0]);
+            System.out.println(solution0500.hasPathSum(root, caseItem[1][0]));
+        }
     }
 
     /**
