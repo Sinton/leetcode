@@ -386,20 +386,14 @@ public class SolutionTest {
     @Test
     public void maxDepth104() {
         Integer[][] testCase = {
-//            {1, 2, 3, 4, 5, 6},
+            {3, 9, 20, null, null, 15, 7},
+            {1, null, 2},
+            {1, 2, 3, 4, 5, 6},
             {1, null, 2, 3, 4, null, null, 5, 6}
         };
         for (Integer[] caseItem : testCase) {
-            TreeNode root = new TreeNode(15);
-            TreeNode root1 = new TreeNode(7);
-            TreeNode root2 = new TreeNode(20);
-            root2.left = root;
-            root2.right = root1;
-            TreeNode root3 = new TreeNode(9);
-            TreeNode root4 = new TreeNode(3);
-            root4.left = root3;
-            root4.right = root2;
-            System.out.println(solution0500.maxDepth(root4));
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution0500.maxDepth(root));
         }
     }
 
