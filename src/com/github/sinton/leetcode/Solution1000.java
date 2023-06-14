@@ -398,6 +398,23 @@ public class Solution1000 {
     }
 
     /**
+     * 744. Find Smallest Letter Greater Than Target
+     * 寻找比目标字母大的最小字母
+     * @param letters
+     * @param target
+     * @return
+     */
+    public char nextGreatestLetter(char[] letters, char target) {
+        char min = (char) 127;
+        for (char letter : letters) {
+            if (letter - target > 0 && letter < min) {
+                min = letter;
+            }
+        }
+        return min == 127 ? letters[0] : min;
+    }
+
+    /**
      * 746. Min Cost Climbing Stairs
      * 使用最小花费爬楼梯
      * @param cost

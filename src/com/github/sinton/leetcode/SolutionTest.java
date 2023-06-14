@@ -1153,6 +1153,31 @@ public class SolutionTest {
     }
 
     /**
+     * 744. Find Smallest Letter Greater Than Target
+     * 寻找比目标字母大的最小字母
+     */
+    @Test
+    public void nextGreatestLetter() {
+        char[][][] testCase = {
+            {
+                {'c', 'f', 'j'},
+                {'a'}
+            },
+            {
+                {'c', 'f', 'j'},
+                {'c'}
+            },
+            {
+                {'x', 'x', 'y', 'y'},
+                {'z'}
+            }
+        };
+        for (char[][] caseItem : testCase) {
+            System.out.println(solution1000.nextGreatestLetter(caseItem[0], caseItem[1][0]));
+        }
+    }
+
+    /**
      * 746. Min Cost Climbing Stairs
      * 使用最小花费爬楼梯
      */
@@ -1164,6 +1189,18 @@ public class SolutionTest {
         };
         for (int[] caseItem : testCase) {
             System.out.println(solution1000.minCostClimbingStairs(caseItem));
+        }
+    }
+
+    /**
+     * 790. Domino and Tromino Tiling
+     * 多米诺和托米诺平铺
+     */
+    @Test
+    public void numTilings() {
+        int[] testCase = {1, 2, 3, 4, 5, 7, 9, 30};
+        for (int caseItem : testCase) {
+            System.out.println(solution1000.numTilings(caseItem));
         }
     }
 
@@ -1181,22 +1218,6 @@ public class SolutionTest {
         };
         for (String[] caseItem : testCase) {
             System.out.println(solution1000.backspaceCompare(caseItem[0], caseItem[1]));
-        }
-    }
-
-    /**
-     * 876. Middle of the Linked List
-     * 链表的中间结点
-     */
-    @Test
-    public void middleNode() {
-        int[][] testCase = {
-            {1, 2, 3, 4, 5},
-            {1, 2, 3, 4, 5, 6}
-        };
-        for (int[] caseItem : testCase) {
-            ListNode head = Helper.buildListNode(caseItem);
-            Helper.listNodeFormatOutput(solution1000.middleNode(head));
         }
     }
 
@@ -1224,6 +1245,22 @@ public class SolutionTest {
     }
 
     /**
+     * 876. Middle of the Linked List
+     * 链表的中间结点
+     */
+    @Test
+    public void middleNode() {
+        int[][] testCase = {
+            {1, 2, 3, 4, 5},
+            {1, 2, 3, 4, 5, 6}
+        };
+        for (int[] caseItem : testCase) {
+            ListNode head = Helper.buildListNode(caseItem);
+            Helper.listNodeFormatOutput(solution1000.middleNode(head));
+        }
+    }
+
+    /**
      * 931. Minimum Falling Path Sum
      * 下降路径最小和
      */
@@ -1242,6 +1279,19 @@ public class SolutionTest {
         };
         for (int[][] caseItem : testCase) {
             System.out.println(solution1000.minFallingPathSum(caseItem));
+        }
+    }
+
+    /**
+     * 933. Number of Recent Calls
+     * 最近的请求次数
+     */
+    @Test
+    public void testRecentCounter() {
+        int[] testCase = {1, 100, 3001, 3002};
+        RecentCounter recentCounter = new RecentCounter();
+        for (int caseItem : testCase) {
+            System.out.println(recentCounter.ping(caseItem));
         }
     }
 
@@ -1315,31 +1365,6 @@ public class SolutionTest {
         };
         for (String[][] caseItem : testCase) {
             System.out.println(solution1000.isAlienSorted(caseItem[0], caseItem[1][0]));
-        }
-    }
-
-    /**
-     * 790. Domino and Tromino Tiling
-     * 多米诺和托米诺平铺
-     */
-    @Test
-    public void numTilings() {
-        int[] testCase = {1, 2, 3, 4, 5, 7, 9, 30};
-        for (int caseItem : testCase) {
-            System.out.println(solution1000.numTilings(caseItem));
-        }
-    }
-
-    /**
-     * 933. Number of Recent Calls
-     * 最近的请求次数
-     */
-    @Test
-    public void testRecentCounter() {
-        int[] testCase = {1, 100, 3001, 3002};
-        RecentCounter recentCounter = new RecentCounter();
-        for (int caseItem : testCase) {
-            System.out.println(recentCounter.ping(caseItem));
         }
     }
 
