@@ -628,6 +628,22 @@ public class SolutionTest {
     }
 
     /**
+     * 228. Summary Ranges
+     * 汇总区间
+     */
+    @Test
+    public void summaryRanges() {
+        int[][] testCase = {
+            {-1},
+            {0, 1, 2, 4, 5, 7},
+            {0, 2, 3, 4, 6, 8, 9}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution0500.summaryRanges(caseItem));
+        }
+    }
+
+    /**
      * 232. Implement Queue using Stacks
      * 用栈实现队列
      */

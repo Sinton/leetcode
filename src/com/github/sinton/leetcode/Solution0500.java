@@ -1023,6 +1023,44 @@ public class Solution0500 {
     }
 
     /**
+     * 228. Summary Ranges
+     * 汇总区间
+     * @param nums
+     * @return
+     */
+    public List<String> summaryRanges(int[] nums) {
+        List<String> answer = new ArrayList<>();
+        if (nums.length == 0) {
+            return answer;
+        }
+        if (nums.length == 1) {
+            answer.add(String.valueOf(nums[0]));
+            return answer;
+        }
+        int start = nums[0];
+        int end = nums[0];
+        for (int i = 1, len = nums.length; i < len; i++) {
+            if (end + 1 != nums[i]) {
+                if (start == end) {
+                    answer.add(String.valueOf(start));
+                } else {
+                    answer.add(String.format("%s->%s", start, end));
+                }
+                start = nums[i];
+            }
+            end = nums[i];
+            if (i == len - 1) {
+                if (start == end) {
+                    answer.add(String.valueOf(start));
+                } else {
+                    answer.add(String.format("%s->%s", start, end));
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 231. Power of Two
      * 2 的幂
      * @param n
