@@ -156,6 +156,18 @@ public class SolutionTest {
     }
 
     /**
+     * 32. Longest Valid Parentheses
+     * 最长有效括号
+     */
+    @Test
+    public void longestValidParentheses() {
+        String[] testCase = {"(()", ")()())", ""};
+        for (String caseItem : testCase) {
+            System.out.println(solution0500.longestValidParentheses(caseItem));
+        }
+    }
+
+    /**
      * 53. Maximum Subarray
      * 最大子数组和
      */

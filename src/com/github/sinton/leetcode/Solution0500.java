@@ -198,6 +198,31 @@ public class Solution0500 {
     }
 
     /**
+     * 32. Longest Valid Parentheses
+     * 最长有效括号
+     * @param s
+     * @return
+     */
+    public int longestValidParentheses(String s) {
+        int answer = 0;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        for (int i = 0, len = s.length(); i < len; i++) {
+            if (s.charAt(i) == '(') {
+                stack.push(i);
+            } else {
+                stack.pop();
+                if (stack.isEmpty()) {
+                    stack.push(i);
+                } else {
+                    answer = Math.max(answer, i - stack.peek());
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 36. Valid Sudoku
      * 有效的数独
      * @param board
