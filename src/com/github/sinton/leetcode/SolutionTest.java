@@ -3723,4 +3723,19 @@ public class SolutionTest {
             System.out.println(Arrays.toString(solution3000.distinctDifferenceArray(caseItem)));
         }
     }
+
+    /**
+     * 2769. Find the Maximum Achievable Number
+     * 找出最大的可达成数字
+     */
+    @Test
+    public void theMaximumAchievableX() {
+        int[][] testCase = {
+            {4, 1},
+            {3, 2},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution3000.theMaximumAchievableX(caseItem[0], caseItem[1]));
+        }
+    }
 }

@@ -271,4 +271,15 @@ public class Solution3000 {
         }
         return answer;
     }
+
+    /**
+     * 2769. Find the Maximum Achievable Number
+     * 找出最大的可达成数字
+     * @param num
+     * @param t
+     * @return
+     */
+    public int theMaximumAchievableX(int num, int t) {
+        return num + t * 2;
+    }
 }
