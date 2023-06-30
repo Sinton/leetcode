@@ -1,8 +1,6 @@
 package com.github.sinton.leetcode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author Yan
@@ -108,5 +106,23 @@ public class Helper {
             }
         }
         return rootTreeNode;
+    }
+
+    /**
+     * 多维数组转列表集合
+     *
+     * @param caseItem
+     * @return
+     */
+    public static List<List<Integer>> convertList(int[][] caseItem) {
+        List<List<Integer>> result = new ArrayList<>();
+        for (int i = 0; i < caseItem.length; i++) {
+            List<Integer> item = new ArrayList<>();
+            for (int j = 0; j < caseItem[i].length; j++) {
+                item.add(caseItem[i][j]);
+            }
+            result.add(item);
+        }
+        return result;
     }
 }

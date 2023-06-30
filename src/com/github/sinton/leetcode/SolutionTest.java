@@ -3750,4 +3750,19 @@ public class SolutionTest {
             System.out.println(solution3000.theMaximumAchievableX(caseItem[0], caseItem[1]));
         }
     }
+
+    /**
+     * 2848. Points That Intersect With Cars
+     * 与车相交的点
+     */
+    @Test
+    public void numberOfPoints() {
+        int[][][] testCase = {
+            {{3, 6}, {1, 5}, {4, 7}},
+            {{1,3}, {5, 8}},
+        };
+        for (int[][] caseItem : testCase) {
+            System.out.println(solution3000.numberOfPoints(Helper.convertList(caseItem)));
+        }
+    }
 }

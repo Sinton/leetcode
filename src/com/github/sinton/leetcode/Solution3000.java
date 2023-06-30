@@ -302,4 +302,26 @@ public class Solution3000 {
     public int theMaximumAchievableX(int num, int t) {
         return num + t * 2;
     }
+
+    /**
+     * 2848. Points That Intersect With Cars
+     * 与车相交的点
+     * @param nums
+     * @return
+     */
+    public int numberOfPoints(List<List<Integer>> nums) {
+        int answer = 0;
+        int[] parking = new int[101];
+        for (List<Integer> park : nums) {
+            for (int index = park.get(0); index <= park.get(1); index++) {
+                parking[index]++;
+            }
+        }
+        for (int index : parking) {
+            if (index > 0) {
+                answer++;
+            }
+        }
+        return answer;
+    }
 }
