@@ -3725,6 +3725,18 @@ public class SolutionTest {
     }
 
     /**
+     * 2716. Minimize String Length
+     * 最小化字符串长度
+     */
+    @Test
+    public void minimizedStringLength() {
+        String[] testCase = {"ipi", "aaabc", "cbbd", "dddaaa"};
+        for (String caseItem : testCase) {
+            System.out.println((solution3000.minimizedStringLength(caseItem)));
+        }
+    }
+
+    /**
      * 2769. Find the Maximum Achievable Number
      * 找出最大的可达成数字
      */

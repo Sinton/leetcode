@@ -273,6 +273,26 @@ public class Solution3000 {
     }
 
     /**
+     * 2716. Minimize String Length
+     * 最小化字符串长度
+     * @param s
+     * @return
+     */
+    public int minimizedStringLength(String s) {
+        int[] letter = new int[26];
+        for (int i = 0, len = s.length(); i < len; i++) {
+            letter[s.charAt(i) - 'a']++;
+        }
+        int answer = 0;
+        for (int count : letter) {
+            if (count > 0) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2769. Find the Maximum Achievable Number
      * 找出最大的可达成数字
      * @param num
