@@ -84,6 +84,27 @@ public class Solution1000 {
     }
 
     /**
+     * 590. N-ary Tree Postorder Traversal
+     * N 叉树的后序遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> postorder(Node root) {
+        List<Integer> result = new LinkedList<>();
+        if (root != null) {
+            if (root.children != null && !root.children.isEmpty()) {
+                root.children.forEach(subRoot -> {
+                    if (subRoot != null) {
+                        result.addAll(postorder(subRoot));
+                    }
+                });
+            }
+            result.add(root.val);
+        }
+        return result;
+    }
+
+    /**
      * 598. Range Addition II
      * 范围求和 II
      * @param m
