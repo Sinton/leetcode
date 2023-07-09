@@ -961,6 +961,21 @@ public class SolutionTest {
     }
 
     /**
+     * 590. N-ary Tree Postorder Traversal
+     * N 叉树的后序遍历
+     */
+    @Test
+    public void postorder() {
+        Integer[][] testCase = {
+            {1, null, 3, 2, 4, null, 5, 6},
+            {1, null, 2, 3, 4, 5, null, null, 6, 7, null, 8, null, 9, 10, null, null, 11, null, 12, null, 13, null, null, 14},
+        };
+        for (Integer[] caseItem : testCase) {
+            System.out.println(solution1000.postorder(Helper.buildNode(caseItem)));
+        }
+    }
+
+    /**
      * 598. Range Addition II
      * 范围求和 II
      */

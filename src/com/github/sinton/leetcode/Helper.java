@@ -109,6 +109,26 @@ public class Helper {
     }
 
     /**
+     * BFS构建多叉树节点
+     *
+     * @param testCase
+     * @return
+     */
+    public static Node buildNode(Integer[] testCase) {
+        int index = 0;
+        int len = testCase.length;
+        if (0 == len) {
+            return null;
+        }
+        Node root = new Node(testCase[index]);
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+        }
+        return root;
+    }
+
+    /**
      * 多维数组转列表集合
      *
      * @param caseItem
