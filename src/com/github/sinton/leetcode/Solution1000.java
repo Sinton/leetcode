@@ -740,6 +740,53 @@ public class Solution1000 {
     }
 
     /**
+     * 896. Monotonic Array
+     * 单调数列
+     * @param nums
+     * @return
+     */
+    public boolean isMonotonic(int[] nums) {
+        if (nums.length == 1) {
+            return true;
+        }
+        boolean monotone = false;
+        Boolean increasing = null;
+        Boolean decreasing = null;
+        int index = 1;
+        for (int i = 1, len = nums.length; i < len; i++) {
+            index = i;
+            if (nums[i - 1] < nums[i]) {
+                increasing = true;
+                break;
+            } else if (nums[i - 1] > nums[i]) {
+                decreasing = true;
+                break;
+            } else if (i == len - 1) {
+                monotone = true;
+            }
+        }
+        for (int i = index, len = nums.length; i < len; i++) {
+            if (increasing != null) {
+                if (nums[i - 1] > nums[i]) {
+                    return false;
+                }
+                if (i == len - 1) {
+                    monotone = true;
+                }
+            }
+            if (decreasing != null) {
+                if (nums[i - 1] < nums[i]) {
+                    return false;
+                }
+                if (i == len - 1) {
+                    monotone = true;
+                }
+            }
+        }
+        return monotone;
+    }
+
+    /**
      * 905. Sort Array By Parity
      * 按奇偶排序数组
      * @param A

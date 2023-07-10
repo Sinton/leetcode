@@ -1304,6 +1304,26 @@ public class SolutionTest {
     }
 
     /**
+     * 896. Monotonic Array
+     * 单调数列
+     */
+    @Test
+    public void isMonotonic() {
+        int[][] testCase = {
+            {1, 1, 2},
+            {2, 2, 1},
+            {1, 2, 3, 4},
+            {6, 5, 4, 4},
+            {1, 3, 2},
+            {2, 1},
+            {1, 2}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution1000.isMonotonic(caseItem));
+        }
+    }
+
+    /**
      * 931. Minimum Falling Path Sum
      * 下降路径最小和
      */
