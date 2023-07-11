@@ -3807,11 +3807,11 @@ public class SolutionTest {
      */
     @Test
     public void numberOfPoints() {
-        int[][][] testCase = {
+        Integer[][][] testCase = {
             {{3, 6}, {1, 5}, {4, 7}},
             {{1,3}, {5, 8}},
         };
-        for (int[][] caseItem : testCase) {
+        for (Integer[][] caseItem : testCase) {
             System.out.println(solution3000.numberOfPoints(Helper.convertList(caseItem)));
         }
     }

@@ -134,14 +134,10 @@ public class Helper {
      * @param caseItem
      * @return
      */
-    public static List<List<Integer>> convertList(int[][] caseItem) {
-        List<List<Integer>> result = new ArrayList<>();
-        for (int i = 0; i < caseItem.length; i++) {
-            List<Integer> item = new ArrayList<>();
-            for (int j = 0; j < caseItem[i].length; j++) {
-                item.add(caseItem[i][j]);
-            }
-            result.add(item);
+    public static <T> List<List<T>> convertList(T[][] caseItem) {
+        List<List<T>> result = new ArrayList<>();
+        for (T[] item : caseItem) {
+            result.add(new ArrayList<>(Arrays.asList(item)));
         }
         return result;
     }
