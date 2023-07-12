@@ -2004,6 +2004,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1436. Destination City
+     * 旅行终点站
+     */
+    @Test
+    public void destCity() {
+        String[][][] testCase = {
+            {{"London", "New York"}, {"New York", "Lima"}, {"Lima", "Sao Paulo"}},
+            {{"B", "C"}, {"D", "B"}, {"C", "A"}},
+            {{"A", "Z"}}
+        };
+        for (String[][] caseItem : testCase) {
+            System.out.println(solution1500.destCity(Helper.convertList(caseItem)));
+        }
+    }
+
+    /**
      * 1464. Maximum Product of Two Elements in an Array
      * 数组中两元素的最大乘积
      */

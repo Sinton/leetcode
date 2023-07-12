@@ -805,6 +805,24 @@ public class Solution1500 {
     }
 
     /**
+     * 1436. Destination City
+     * 旅行终点站
+     * @param paths
+     * @return
+     */
+    public String destCity(List<List<String>> paths) {
+        Map<String, String> pathMapping = new HashMap<>(paths.size());
+        for (List<String> path : paths) {
+            pathMapping.put(path.get(0), path.get(1));
+        }
+        String end = paths.get(0).get(1);
+        while (pathMapping.containsKey(end)) {
+            end = pathMapping.get(end);
+        }
+        return end;
+    }
+
+    /**
      * 1437. Check If All 1's Are at Least Length K Places Away
      * 是否所有 1 都至少相隔 k 个元素
      * @param nums
