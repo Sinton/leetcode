@@ -663,6 +663,47 @@ public class Solution1000 {
     }
 
     /**
+     * 859. Buddy Strings
+     * 亲密字符串
+     * @param s
+     * @param goal
+     * @return
+     */
+    public boolean buddyStrings(String s, String goal) {
+        if (s.length() != goal.length()) {
+            return false;
+        }
+        if (s.equals(goal)) {
+            for (int i = 0, len = s.length(); i < len; i++) {
+                if (s.indexOf(s.charAt(i)) != s.lastIndexOf(s.charAt(i))) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            Map<Character, Integer> record = new HashMap<>();
+            int diffCount = 0;
+            for (int i = 0, len = s.length(); i < len; i++) {
+                if (s.charAt(i) != goal.charAt(i)) {
+                    diffCount++;
+                }
+                if (record.containsKey(s.charAt(i))) {
+                    record.put(s.charAt(i), record.get(s.charAt(i)) + 1);
+                } else {
+                    record.put(s.charAt(i), 1);
+                }
+                if (record.containsKey(goal.charAt(i))) {
+                    record.put(goal.charAt(i), record.get(goal.charAt(i)) - 1);
+                } else {
+                    record.put(goal.charAt(i), -1);
+                }
+            }
+            record.values().removeAll(Collections.singleton(0));
+            return record.isEmpty() && diffCount == 2;
+        }
+    }
+
+    /**
      * 867. Transpose Matrix
      * 转置矩阵
      * @param A

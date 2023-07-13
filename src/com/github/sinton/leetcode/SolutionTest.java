@@ -1265,6 +1265,25 @@ public class SolutionTest {
     }
 
     /**
+     * 859. Buddy Strings
+     * 亲密字符串
+     */
+    @Test
+    public void buddyStrings() {
+        String[][] testCase = {
+            {"a", "b"},
+            {"a", "a"},
+            {"abcaa", "abcbb"},
+            {"ab", "ba"},
+            {"ab", "ab"},
+            {"aa", "aa"}
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution1000.buddyStrings(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 872. Leaf-Similar Trees
      * 叶子相似的树
      */
