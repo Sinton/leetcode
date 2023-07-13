@@ -84,9 +84,9 @@ public class Helper {
         if (0 == len) {
             return null;
         }
-        TreeNode rootTreeNode = new TreeNode(testCase[index]);
+        TreeNode root = new TreeNode(testCase[index]);
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(rootTreeNode);
+        queue.offer(root);
         while(index < len) {
             TreeNode currTreeNode = queue.poll();
             if (currTreeNode == null) {
@@ -95,17 +95,17 @@ public class Helper {
             index++;
             if (index < len) {
                 TreeNode left = testCase[index] == null ? null : new TreeNode(testCase[index]);
-                queue.add(left);
+                queue.offer(left);
                 currTreeNode.left = left;
             }
             index++;
             if (index < len) {
                 TreeNode right = testCase[index] == null ? null : new TreeNode(testCase[index]);
-                queue.add(right);
+                queue.offer(right);
                 currTreeNode.right = right;
             }
         }
-        return rootTreeNode;
+        return root;
     }
 
     /**
@@ -120,10 +120,21 @@ public class Helper {
         if (0 == len) {
             return null;
         }
-        Node root = new Node(testCase[index]);
+        Node root = new Node(testCase[index++]);
         Queue<Node> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
+        queue.offer(root);
+        while (index < len) {
+            Node currNode = queue.poll();
+            if (testCase[index++] == null) {
+                List<Node> children = new ArrayList<>();
+                while (index < len && testCase[index] != null) {
+                    Node childrenNode = new Node(testCase[index]);
+                    queue.offer(childrenNode);
+                    children.add(childrenNode);
+                    currNode.children = children;
+                    index++;
+                }
+            }
         }
         return root;
     }
