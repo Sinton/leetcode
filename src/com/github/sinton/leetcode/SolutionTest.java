@@ -1335,7 +1335,8 @@ public class SolutionTest {
             {6, 5, 4, 4},
             {1, 3, 2},
             {2, 1},
-            {1, 2}
+            {1, 2},
+            {1, 2, 4, 2, 2}
         };
         for (int[] caseItem : testCase) {
             System.out.println(solution1000.isMonotonic(caseItem));

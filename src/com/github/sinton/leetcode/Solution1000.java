@@ -790,41 +790,19 @@ public class Solution1000 {
         if (nums.length == 1) {
             return true;
         }
-        boolean monotone = false;
-        Boolean increasing = null;
-        Boolean decreasing = null;
-        int index = 1;
+        boolean increasing = nums[0] <= nums[nums.length - 1];
         for (int i = 1, len = nums.length; i < len; i++) {
-            index = i;
-            if (nums[i - 1] < nums[i]) {
-                increasing = true;
-                break;
-            } else if (nums[i - 1] > nums[i]) {
-                decreasing = true;
-                break;
-            } else if (i == len - 1) {
-                monotone = true;
-            }
-        }
-        for (int i = index, len = nums.length; i < len; i++) {
-            if (increasing != null) {
-                if (nums[i - 1] > nums[i]) {
+            if (increasing) {
+                if (nums[i] < nums[i - 1]) {
                     return false;
                 }
-                if (i == len - 1) {
-                    monotone = true;
-                }
-            }
-            if (decreasing != null) {
-                if (nums[i - 1] < nums[i]) {
+            } else {
+                if (nums[i] > nums[i - 1]) {
                     return false;
-                }
-                if (i == len - 1) {
-                    monotone = true;
                 }
             }
         }
-        return monotone;
+        return true;
     }
 
     /**
