@@ -152,4 +152,49 @@ public class Helper {
         }
         return result;
     }
+    public static void ff() {
+    }
+
+    /**
+     * 计算树高
+     * @param root
+     * @return
+     * @param <T>
+     */
+    public static <T> int calTreeNodeHeight(T root) {
+        if (root instanceof TreeNode) {
+            return calTreeNodeHeight((TreeNode) root);
+        }
+        if (root instanceof Node) {
+            return 0;
+        }
+        return 0;
+    }
+
+    /**
+     * 计算TreeNode类型树高
+     * @param root
+     * @return
+     */
+    private static int calTreeNodeHeight(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int height = 0;
+        Queue<TreeNode> currLevelNodes = new LinkedList<>();
+        currLevelNodes.offer(root);
+        while (!currLevelNodes.isEmpty()) {
+            List<TreeNode> nextLevelNodes = new ArrayList<>();
+            while (!currLevelNodes.isEmpty()) {
+                TreeNode curr = currLevelNodes.poll();
+                if (curr != null) {
+                    nextLevelNodes.add(curr.left);
+                    nextLevelNodes.add(curr.right);
+                }
+            }
+            currLevelNodes.addAll(nextLevelNodes);
+            height++;
+        }
+        return height;
+    }
 }
