@@ -129,7 +129,7 @@ public class SolutionTest {
         for (int[][] caseItem : testCase) {
             ListNode left = Helper.buildListNode(caseItem[0]);
             ListNode right = Helper.buildListNode(caseItem[1]);
-            Helper.listNodeFormatOutput(solution0500.mergeTwoLists(left, right));
+            Helper.outputListNode(solution0500.mergeTwoLists(left, right));
         }
     }
 
@@ -284,7 +284,7 @@ public class SolutionTest {
             {1, 1, 2, 3, 3}
         };
         for (int[] caseItem : testCase) {
-            Helper.listNodeFormatOutput(solution0500.deleteDuplicates83(Helper.buildListNode(caseItem)));
+            Helper.outputListNode(solution0500.deleteDuplicates83(Helper.buildListNode(caseItem)));
         }
     }
 
@@ -550,7 +550,7 @@ public class SolutionTest {
             }
         };
         for (int[][] caseItem : testCase) {
-            Helper.listNodeFormatOutput(solution0500.removeElements(Helper.buildListNode(caseItem[0]), caseItem[1][0]));
+            Helper.outputListNode(solution0500.removeElements(Helper.buildListNode(caseItem[0]), caseItem[1][0]));
         }
     }
 
@@ -581,7 +581,7 @@ public class SolutionTest {
         };
         for (int[] caseItem : testCase) {
             ListNode head = Helper.buildListNode(caseItem);
-            Helper.listNodeFormatOutput(solution0500.reverseList(head));
+            Helper.outputListNode(solution0500.reverseList(head));
         }
     }
 
@@ -1318,7 +1318,7 @@ public class SolutionTest {
         };
         for (int[] caseItem : testCase) {
             ListNode head = Helper.buildListNode(caseItem);
-            Helper.listNodeFormatOutput(solution1000.middleNode(head));
+            Helper.outputListNode(solution1000.middleNode(head));
         }
     }
 
@@ -2035,7 +2035,7 @@ public class SolutionTest {
             {{"A", "Z"}}
         };
         for (String[][] caseItem : testCase) {
-            System.out.println(solution1500.destCity(Helper.convertList(caseItem)));
+            System.out.println(solution1500.destCity(Helper.buildNestedList(caseItem)));
         }
     }
 
@@ -3182,7 +3182,7 @@ public class SolutionTest {
         };
         for (int[] caseItem : testCase) {
             ListNode head = Helper.buildListNode(caseItem);
-            Helper.listNodeFormatOutput(solution2500.mergeNodes(head));
+            Helper.outputListNode(solution2500.mergeNodes(head));
         }
     }
 
@@ -3848,7 +3848,7 @@ public class SolutionTest {
             {{1,3}, {5, 8}},
         };
         for (Integer[][] caseItem : testCase) {
-            System.out.println(solution3000.numberOfPoints(Helper.convertList(caseItem)));
+            System.out.println(solution3000.numberOfPoints(Helper.buildNestedList(caseItem)));
         }
     }
 }

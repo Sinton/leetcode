@@ -10,7 +10,7 @@ public class Helper {
      * 链表格式输出
      * @param head
      */
-    public static void listNodeFormatOutput(ListNode head) {
+    public static void outputListNode(ListNode head) {
         while (head != null) {
             System.out.print(head.val);
             if (head.next != null) {
@@ -19,6 +19,33 @@ public class Helper {
             head = head.next;
         }
         System.out.println();
+    }
+
+    /**
+     * BFS方式用数组格式输出
+     * @param root
+     */
+    public static List<Integer> outputTreeNode(TreeNode root) {
+        List<Integer> answer = new ArrayList<>();
+        Queue<TreeNode> currLevelNode = new LinkedList<>();
+        currLevelNode.offer(root);
+        int height = calTreeNodeHeight(root);
+        while (height > 0) {
+            Queue<TreeNode> nextLevelNode = new LinkedList<>();
+            while (!currLevelNode.isEmpty()) {
+                TreeNode currNode = currLevelNode.poll();
+                if (currNode == null) {
+                    answer.add(null);
+                } else {
+                    answer.add(currNode.val);
+                    nextLevelNode.offer(currNode.left);
+                    nextLevelNode.offer(currNode.right);
+                }
+            }
+            currLevelNode.addAll(nextLevelNode);
+            height--;
+        }
+        return answer;
     }
 
     public static ListNode buildRandomListNode() {
@@ -145,18 +172,17 @@ public class Helper {
      * @param caseItem
      * @return
      */
-    public static <T> List<List<T>> convertList(T[][] caseItem) {
+    public static <T> List<List<T>> buildNestedList(T[][] caseItem) {
         List<List<T>> result = new ArrayList<>();
         for (T[] item : caseItem) {
             result.add(new ArrayList<>(Arrays.asList(item)));
         }
         return result;
     }
-    public static void ff() {
-    }
 
     /**
      * 计算树高
+     *
      * @param root
      * @return
      * @param <T>
@@ -173,6 +199,7 @@ public class Helper {
 
     /**
      * 计算TreeNode类型树高
+     *
      * @param root
      * @return
      */
