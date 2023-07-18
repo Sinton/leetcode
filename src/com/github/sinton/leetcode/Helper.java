@@ -8,6 +8,7 @@ import java.util.*;
 public class Helper {
     /**
      * 链表格式输出
+     *
      * @param head
      */
     public static void outputListNode(ListNode head) {
@@ -23,13 +24,14 @@ public class Helper {
 
     /**
      * BFS方式用数组格式输出
+     *
      * @param root
      */
     public static List<Integer> outputTreeNode(TreeNode root) {
         List<Integer> answer = new ArrayList<>();
         Queue<TreeNode> currLevelNode = new LinkedList<>();
         currLevelNode.offer(root);
-        int height = calTreeNodeHeight(root);
+        int height = calTreeHeight(root);
         while (height > 0) {
             Queue<TreeNode> nextLevelNode = new LinkedList<>();
             while (!currLevelNode.isEmpty()) {
@@ -48,16 +50,16 @@ public class Helper {
         return answer;
     }
 
-    public static ListNode buildRandomListNode() {
-        return buildRandomListNode(-1, -1);
+    public static ListNode buildListNodeWithTestCase() {
+        return buildListNodeWithTestCase(-1, -1);
     }
 
-    public static ListNode buildRandomListNode(int range, int length) {
-        return buildRandomListNode(range, length, length <= 0);
+    public static ListNode buildListNodeWithTestCase(int range, int length) {
+        return buildListNodeWithTestCase(range, length, length <= 0);
     }
 
-    public static ListNode buildRandomListNode(int range, int length, boolean randomLength) {
-        return buildRandomListNode(range, range <= 0, length, randomLength);
+    public static ListNode buildListNodeWithTestCase(int range, int length, boolean randomLength) {
+        return buildListNodeWithTestCase(range, range <= 0, length, randomLength);
     }
 
     /**
@@ -69,7 +71,7 @@ public class Helper {
      * @param randomLength
      * @return
      */
-    public static ListNode buildRandomListNode(int range, boolean randomRange, int length, boolean randomLength) {
+    public static ListNode buildListNodeWithTestCase(int range, boolean randomRange, int length, boolean randomLength) {
         int len = randomLength ? new Random().nextInt() : length;
         int[] testCase = new int[len];
         for (int i = 0; i < len; i++) {
@@ -187,12 +189,12 @@ public class Helper {
      * @return
      * @param <T>
      */
-    public static <T> int calTreeNodeHeight(T root) {
+    public static <T> int calTreeHeight(T root) {
         if (root instanceof TreeNode) {
             return calTreeNodeHeight((TreeNode) root);
         }
         if (root instanceof Node) {
-            return 0;
+            return calNodeHeight((Node) root);
         }
         return 0;
     }
@@ -223,5 +225,15 @@ public class Helper {
             height++;
         }
         return height;
+    }
+
+    /**
+     * 计算多叉树Node类型树高
+     *
+     * @param root
+     * @return
+     */
+    private static int calNodeHeight(Node root) {
+        return 0;
     }
 }
