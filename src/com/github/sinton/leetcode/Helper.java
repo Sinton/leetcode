@@ -29,22 +29,22 @@ public class Helper {
      */
     public static List<Integer> outputTreeNode(TreeNode root) {
         List<Integer> answer = new ArrayList<>();
-        Queue<TreeNode> currLevelNode = new LinkedList<>();
-        currLevelNode.offer(root);
+        Queue<TreeNode> currLevelNodes = new LinkedList<>();
+        currLevelNodes.offer(root);
         int height = calTreeHeight(root);
         while (height > 0) {
-            Queue<TreeNode> nextLevelNode = new LinkedList<>();
-            while (!currLevelNode.isEmpty()) {
-                TreeNode currNode = currLevelNode.poll();
+            Queue<TreeNode> nextLevelNodes = new LinkedList<>();
+            while (!currLevelNodes.isEmpty()) {
+                TreeNode currNode = currLevelNodes.poll();
                 if (currNode == null) {
                     answer.add(null);
                 } else {
                     answer.add(currNode.val);
-                    nextLevelNode.offer(currNode.left);
-                    nextLevelNode.offer(currNode.right);
+                    nextLevelNodes.offer(currNode.left);
+                    nextLevelNodes.offer(currNode.right);
                 }
             }
-            currLevelNode.addAll(nextLevelNode);
+            currLevelNodes.addAll(nextLevelNodes);
             height--;
         }
         return answer;
@@ -117,21 +117,21 @@ public class Helper {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while(index < len) {
-            TreeNode currTreeNode = queue.poll();
-            if (currTreeNode == null) {
+            TreeNode curr = queue.poll();
+            if (curr == null) {
                 continue;
             }
             index++;
             if (index < len) {
                 TreeNode left = testCase[index] == null ? null : new TreeNode(testCase[index]);
                 queue.offer(left);
-                currTreeNode.left = left;
+                curr.left = left;
             }
             index++;
             if (index < len) {
                 TreeNode right = testCase[index] == null ? null : new TreeNode(testCase[index]);
                 queue.offer(right);
-                currTreeNode.right = right;
+                curr.right = right;
             }
         }
         return root;
@@ -153,14 +153,14 @@ public class Helper {
         Queue<Node> queue = new LinkedList<>();
         queue.offer(root);
         while (index < len) {
-            Node currNode = queue.poll();
+            Node curr = queue.poll();
             if (testCase[index++] == null) {
                 List<Node> children = new ArrayList<>();
                 while (index < len && testCase[index] != null) {
                     Node childrenNode = new Node(testCase[index]);
                     queue.offer(childrenNode);
                     children.add(childrenNode);
-                    currNode.children = children;
+                    curr.children = children;
                     index++;
                 }
             }
