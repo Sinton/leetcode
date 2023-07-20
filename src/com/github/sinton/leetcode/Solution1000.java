@@ -806,6 +806,38 @@ public class Solution1000 {
     }
 
     /**
+     * 897. Increasing Order Search Tree
+     * 递增顺序搜索树
+     * @param root
+     * @return
+     */
+    public TreeNode increasingBST(TreeNode root) {
+        TreeNode answer = null;
+        if (root.left != null) {
+            answer = increasingBST(root.left);
+        }
+
+        if (answer == null) {
+            answer = new TreeNode(root.val);
+        } else {
+            TreeNode nextNode = answer;
+            while (nextNode.right != null) {
+                nextNode = nextNode.right;
+            }
+            nextNode.right = new TreeNode(root.val);;
+        }
+
+        if (root.right != null) {
+            TreeNode nextNode = answer;
+            while (nextNode.right != null) {
+                nextNode = nextNode.right;
+            }
+            nextNode.right = increasingBST(root.right);
+        }
+        return answer;
+    }
+
+    /**
      * 905. Sort Array By Parity
      * 按奇偶排序数组
      * @param A

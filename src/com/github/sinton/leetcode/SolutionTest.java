@@ -1344,6 +1344,22 @@ public class SolutionTest {
     }
 
     /**
+     * 897. Increasing Order Search Tree
+     * 递增顺序搜索树
+     */
+    @Test
+    public void increasingBST() {
+        Integer[][] testCase = {
+            {5, 3, 6, 2, 4, null, 8, 1, null, null, null, 7, 9},
+            {5, 1, 7}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(Helper.outputTreeNode(solution1000.increasingBST(root)));
+        }
+    }
+
+    /**
      * 931. Minimum Falling Path Sum
      * 下降路径最小和
      */
