@@ -221,7 +221,9 @@ public class Helper {
                     nextLevelNodes.add(curr.right);
                 }
             }
-            currLevelNodes.addAll(nextLevelNodes);
+            if (nextLevelNodes.stream().anyMatch(Objects::nonNull)) {
+                currLevelNodes.addAll(nextLevelNodes);
+            }
             height++;
         }
         return height;
