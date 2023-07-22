@@ -3854,6 +3854,18 @@ public class SolutionTest {
     }
 
     /**
+     * 2710. Remove Trailing Zeros From a String
+     * 移除字符串中的尾随零
+     */
+    @Test
+    public void removeTrailingZeros() {
+        String[] testCase = {"50", "51230100", "123"};
+        for (String caseItem : testCase) {
+            System.out.println(solution3000.removeTrailingZeros(caseItem));
+        }
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      */

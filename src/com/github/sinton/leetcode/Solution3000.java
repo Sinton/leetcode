@@ -273,6 +273,21 @@ public class Solution3000 {
     }
 
     /**
+     * 2710. Remove Trailing Zeros From a String
+     * 移除字符串中的尾随零
+     * @param num
+     * @return
+     */
+    public String removeTrailingZeros(String num) {
+        for (int i = num.length() - 1; i >= 0; i--) {
+            if (num.charAt(i) != '0') {
+                return num.substring(0, i + 1);
+            }
+        }
+        return num;
+    }
+
+    /**
      * 2716. Minimize String Length
      * 最小化字符串长度
      * @param s
