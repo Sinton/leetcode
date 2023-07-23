@@ -377,6 +377,8 @@ public class Solution0500 {
     }
 
     /**
+     * 82. Remove Duplicates from Sorted List II
+     * 删除排序链表中的重复元素
      * TODO
      * <p>
      * 只能AC链表第一个元素和其后继元素不相同的情况
@@ -1300,9 +1302,9 @@ public class Solution0500 {
 
     /**
      * TODO
-     * <p>用大数数据结构模拟，虽然AC但不是本意解法</p>
      * 371. Sum of Two Integers
      * 两整数之和
+     * <p>用大数数据结构模拟，虽然AC但不是本意解法</p>
      */
     public int getSum(int a, int b) {
         BigInteger numberA = BigInteger.valueOf(Long.parseLong(String.valueOf(a)));
