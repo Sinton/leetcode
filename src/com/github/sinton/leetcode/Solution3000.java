@@ -338,6 +338,23 @@ public class Solution3000 {
     }
 
     /**
+     * 2778. Sum of Squares of Special Elements
+     * 特殊元素平方和
+     * @param nums
+     * @return
+     */
+    public int sumOfSquares(int[] nums) {
+        int answer = 0;
+        int n = nums.length;
+        for (int i = 1; i <= n; i++) {
+            if (i != 0 && n % i == 0) {
+                answer += nums[i - 1] * nums[i - 1];
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      * @param nums

@@ -3866,6 +3866,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2778. Sum of Squares of Special Elements
+     * 特殊元素平方和
+     */
+    @Test
+    public void sumOfSquares() {
+        int[][] testCase = {
+            {1, 2, 3, 4},
+            {2, 7, 1, 19, 18, 3}
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution3000.sumOfSquares(caseItem));
+        }
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      */
