@@ -355,6 +355,25 @@ public class Solution3000 {
     }
 
     /**
+     * 2824. Count Pairs Whose Sum is Less than Target
+     * 统计和小于目标的下标对数目
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int countPairs(List<Integer> nums, int target) {
+        int answer = 0;
+        for (int i = 0, len = nums.size(); i < len - 1; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (nums.get(i) + nums.get(j) < target) {
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      * @param nums

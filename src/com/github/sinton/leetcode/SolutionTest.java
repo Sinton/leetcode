@@ -3881,6 +3881,27 @@ public class SolutionTest {
     }
 
     /**
+     * 2824. Count Pairs Whose Sum is Less than Target
+     * 统计和小于目标的下标对数目
+     */
+    @Test
+    public void countPairs2824() {
+        Integer[][][] testCase = {
+            {
+                {-1, 1, 2, 3, 1},
+                {2}
+            },
+            {
+                {-6, 2, 5, -2, -7, -1, 3},
+                {-2}
+            },
+        };
+        for (Integer[][] caseItem : testCase) {
+            System.out.println(solution3000.countPairs(Arrays.asList(caseItem[0]), caseItem[1][0]));
+        }
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      */
