@@ -355,6 +355,23 @@ public class Solution3000 {
     }
 
     /**
+     * 2798. Number of Employees Who Met the Target
+     * 满足目标工作时长的员工数目
+     * @param hours
+     * @param target
+     * @return
+     */
+    public int numberOfEmployeesWhoMetTarget(int[] hours, int target) {
+        int answer = 0;
+        for (int hour : hours) {
+            if (hour >= target) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2824. Count Pairs Whose Sum is Less than Target
      * 统计和小于目标的下标对数目
      * @param nums
