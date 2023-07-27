@@ -411,4 +411,27 @@ public class Solution3000 {
         }
         return answer;
     }
+
+    /**
+     * 2859. Sum of Values at Indices With K Set Bits
+     * 计算 K 置位下标对应元素的和
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int sumIndicesWithKSetBits(List<Integer> nums, int k) {
+        int answer = 0;
+        for (int i = 0, len = nums.size(); i < len; i++) {
+            int index = i;
+            int count = 0;
+            while (index != 0) {
+                index = index & (index - 1);
+                count++;
+            }
+            if (count == k) {
+                answer += nums.get(i);
+            }
+        }
+        return answer;
+    }
 }

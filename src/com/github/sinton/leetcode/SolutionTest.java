@@ -3915,4 +3915,23 @@ public class SolutionTest {
             System.out.println(solution3000.numberOfPoints(Helper.buildNestedList(caseItem)));
         }
     }
+
+    /**
+     * 2859. Sum of Values at Indices With K Set Bits
+     * 计算 K 置位下标对应元素的和
+     */
+    @Test
+    public void sumIndicesWithKSetBits() {
+        Integer[][][] testCase = {
+            {
+                {5, 10, 1, 5, 2}, {1}
+            },
+            {
+                {4, 3, 2, 1}, {2}
+            },
+        };
+        for (Integer[][] caseItem : testCase) {
+            System.out.println(solution3000.sumIndicesWithKSetBits(Arrays.asList(caseItem[0]), caseItem[1][0]));
+        }
+    }
 }
