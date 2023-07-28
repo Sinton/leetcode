@@ -372,6 +372,24 @@ public class Solution3000 {
     }
 
     /**
+     * 2810. Faulty Keyboard
+     * 故障键盘
+     * @param s
+     * @return
+     */
+    public String finalString(String s) {
+        StringBuilder answer = new StringBuilder();
+        for (int i = 0, len = s.length(); i < len; i++) {
+            if (s.charAt(i) == 'i') {
+                answer.reverse();
+            } else {
+                answer.append(s.charAt(i));
+            }
+        }
+        return answer.toString();
+    }
+
+    /**
      * 2824. Count Pairs Whose Sum is Less than Target
      * 统计和小于目标的下标对数目
      * @param nums

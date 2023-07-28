@@ -3881,6 +3881,18 @@ public class SolutionTest {
     }
 
     /**
+     * 2810. Faulty Keyboard
+     * 故障键盘
+     */
+    @Test
+    public void finalString() {
+        String[] testCase = {"string", "poiinter"};
+        for (String caseItem : testCase) {
+            System.out.println(solution3000.finalString(caseItem));
+        }
+    }
+
+    /**
      * 2824. Count Pairs Whose Sum is Less than Target
      * 统计和小于目标的下标对数目
      */
