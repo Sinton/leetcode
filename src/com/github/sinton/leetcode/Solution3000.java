@@ -1,9 +1,6 @@
 package com.github.sinton.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Yan
@@ -419,6 +416,40 @@ public class Solution3000 {
         StringBuilder answer = new StringBuilder();
         words.forEach(word -> answer.append(word.charAt(0)));
         return answer.toString().equals(s);
+    }
+
+    /**
+     * 2843. Count Symmetric Integers
+     * 统计对称整数的数目
+     * @param low
+     * @param high
+     * @return
+     */
+    public int countSymmetricIntegers(int low, int high) {
+        int answer = 0;
+        for (int i = low; i <= high; i++) {
+            if (i > 10) {
+                int len = (int) Math.log10(i) + 1;
+                if (len % 2 == 0) {
+                    int left = i / (int) Math.pow(10, len / 2.0);
+                    int right = i % (int) Math.pow(10, len / 2.0);
+                    int leftSum = 0;
+                    int rightSum = 0;
+                    while (left != 0) {
+                        leftSum += left % 10;
+                        left /= 10;
+                    }
+                    while (right != 0) {
+                        rightSum += right % 10;
+                        right /= 10;
+                    }
+                    if (leftSum == rightSum) {
+                        answer++;
+                    }
+                }
+            }
+        }
+        return answer;
     }
 
     /**

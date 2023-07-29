@@ -3914,6 +3914,21 @@ public class SolutionTest {
     }
 
     /**
+     * 2843. Count Symmetric Integers
+     * 统计对称整数的数目
+     */
+    @Test
+    public void countSymmetricIntegers() {
+        int[][] testCase = {
+            //{1, 100},
+            {1200, 1230},
+        };
+        for (int[] caseItem : testCase) {
+            System.out.println(solution3000.countSymmetricIntegers(caseItem[0], caseItem[1]));
+        }
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      */
