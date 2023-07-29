@@ -409,6 +409,19 @@ public class Solution3000 {
     }
 
     /**
+     * 2828. Check if a String Is an Acronym of Words
+     * 判别首字母缩略词
+     * @param words
+     * @param s
+     * @return
+     */
+    public boolean isAcronym(List<String> words, String s) {
+        StringBuilder answer = new StringBuilder();
+        words.forEach(word -> answer.append(word.charAt(0)));
+        return answer.toString().equals(s);
+    }
+
+    /**
      * 2848. Points That Intersect With Cars
      * 与车相交的点
      * @param nums
