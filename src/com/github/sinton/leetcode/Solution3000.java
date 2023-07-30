@@ -270,6 +270,25 @@ public class Solution3000 {
     }
 
     /**
+     * 2678. Number of Senior Citizens
+     * 老人的数目
+     * @param details
+     * @return
+     */
+    public int countSeniors(String[] details) {
+        int answer = 0;
+        int age;
+        for (String detail : details) {
+            age = Integer.parseInt(String.valueOf(detail.charAt(11)));
+            age = age * 10 + Integer.parseInt(String.valueOf(detail.charAt(12)));
+            if (age > 60) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
      * 2710. Remove Trailing Zeros From a String
      * 移除字符串中的尾随零
      * @param num
@@ -305,6 +324,21 @@ public class Solution3000 {
     }
 
     /**
+     * 2733. Neither Minimum nor Maximum
+     * 既不是最小值也不是最大值
+     * @param nums
+     * @return
+     */
+    public int findNonMinOrMax(int[] nums) {
+        Arrays.sort(nums);
+        if (nums.length > 2) {
+            return nums[1];
+        } else {
+            return -1;
+        }
+    }
+
+    /**
      * 2769. Find the Maximum Achievable Number
      * 找出最大的可达成数字
      * @param num
@@ -313,25 +347,6 @@ public class Solution3000 {
      */
     public int theMaximumAchievableX(int num, int t) {
         return num + t * 2;
-    }
-
-    /**
-     * 2678. Number of Senior Citizens
-     * 老人的数目
-     * @param details
-     * @return
-     */
-    public int countSeniors(String[] details) {
-        int answer = 0;
-        int age;
-        for (String detail : details) {
-            age = Integer.parseInt(String.valueOf(detail.charAt(11)));
-            age = age * 10 + Integer.parseInt(String.valueOf(detail.charAt(12)));
-            if (age > 60) {
-                answer++;
-            }
-        }
-        return answer;
     }
 
     /**
