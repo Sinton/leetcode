@@ -339,6 +339,24 @@ public class Solution3000 {
     }
 
     /**
+     * 2744. Find Maximum Number of String Pairs
+     * 最大字符串配对数目
+     * @param words
+     * @return
+     */
+    public int maximumNumberOfStringPairs(String[] words) {
+        Set<String> records = new HashSet<>(words.length);
+        for (String word : words) {
+            if (records.contains(new StringBuilder(word).reverse().toString())) {
+                records.remove(word);
+            } else {
+                records.add(word);
+            }
+        }
+        return words.length - records.size();
+    }
+
+    /**
      * 2769. Find the Maximum Achievable Number
      * 找出最大的可达成数字
      * @param num

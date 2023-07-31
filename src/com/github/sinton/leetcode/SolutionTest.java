@@ -3866,6 +3866,22 @@ public class SolutionTest {
     }
 
     /**
+     * 2744. Find Maximum Number of String Pairs
+     * 最大字符串配对数目
+     */
+    @Test
+    public void maximumNumberOfStringPairs() {
+        String[][] testCase = {
+            {"cd", "ac", "dc", "ca", "zz"},
+            {"ab", "ba", "cc"},
+            {"aa", "ab"}
+        };
+        for (String[] caseItem : testCase) {
+            System.out.println(solution3000.maximumNumberOfStringPairs(caseItem));
+        }
+    }
+
+    /**
      * 2778. Sum of Squares of Special Elements
      * 特殊元素平方和
      */
