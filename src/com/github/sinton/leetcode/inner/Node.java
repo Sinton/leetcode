@@ -1,8 +1,8 @@
-package com.github.sinton.leetcode;
+package com.github.sinton.leetcode.inner;
 
 import java.util.List;
 
-class Node {
+public class Node {
     public int val;
     public List<Node> children;
 

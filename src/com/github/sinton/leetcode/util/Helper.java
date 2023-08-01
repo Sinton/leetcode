@@ -1,4 +1,6 @@
-package com.github.sinton.leetcode;
+package com.github.sinton.leetcode.util;
+
+import com.github.sinton.leetcode.inner.*;
 
 import java.util.*;
 

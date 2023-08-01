@@ -1,4 +1,4 @@
-package com.github.sinton.leetcode;
+package com.github.sinton.leetcode.solution;
 
 import java.util.Stack;
 
@@ -6,7 +6,7 @@ import java.util.Stack;
  * 232. Implement Queue using Stacks
  * 用栈实现队列
  */
-class MyQueue {
+public class MyQueue {
     private Stack<Integer> stack;
     private Stack<Integer> tmpStack;
 

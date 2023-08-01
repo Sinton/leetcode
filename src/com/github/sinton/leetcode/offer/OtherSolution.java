@@ -1,4 +1,4 @@
-package com.github.sinton.leetcode;
+package com.github.sinton.leetcode.offer;
 
 /**
  * @author Yan

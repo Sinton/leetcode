@@ -1,5 +1,8 @@
 package com.github.sinton.leetcode;
 
+import com.github.sinton.leetcode.inner.*;
+import com.github.sinton.leetcode.solution.*;
+import com.github.sinton.leetcode.util.Helper;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,10 +1,10 @@
-package com.github.sinton.leetcode;
+package com.github.sinton.leetcode.solution;
 
 /**
  * 1603. Design Parking System
  * 设计停车系统
  */
-class ParkingSystem {
+public class ParkingSystem {
     private int[] parkings = new int[3];
 
     public ParkingSystem(int big, int medium, int small) {

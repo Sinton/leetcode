@@ -1,4 +1,4 @@
-package com.github.sinton.leetcode;
+package com.github.sinton.leetcode.solution;
 
 import java.util.ArrayList;
 import java.util.List;
