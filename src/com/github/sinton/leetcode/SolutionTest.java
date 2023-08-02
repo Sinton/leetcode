@@ -375,6 +375,25 @@ public class SolutionTest {
     }
 
     /**
+     * 111. Minimum Depth of Binary Tree
+     * 二叉树的最小深度
+     */
+    @Test
+    public void minDepth() {
+        Integer[][] testCase = {
+            {3, 9, 20, null, null, 15, 7},
+            {2, null, 3, null, 4, null, 5, null, 6},
+            {1, null, 2},
+            {1, 2, 3, 4, 5, 6},
+            {1, null, 2, 3, 4, null, null, 5, 6}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution0500.minDepth(root));
+        }
+    }
+
+    /**
      * 112. Path Sum
      * 路径总和
      */

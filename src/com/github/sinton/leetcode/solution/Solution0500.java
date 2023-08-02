@@ -592,6 +592,43 @@ public class Solution0500 {
     }
 
     /**
+     * 111. Minimum Depth of Binary Tree
+     * 二叉树的最小深度
+     * @param root
+     * @return
+     */
+    public int minDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int answer = 1;
+        Queue<TreeNode> currLevelNodes = new LinkedList<>();
+        currLevelNodes.offer(root);
+        while (!currLevelNodes.isEmpty()) {
+            List<TreeNode> nextLevelNodes = new ArrayList<>();
+            while (!currLevelNodes.isEmpty()) {
+                TreeNode curr = currLevelNodes.poll();
+                if (curr != null) {
+                    if (curr.left == null && curr.right == null) {
+                        return answer;
+                    }
+                    if (curr.left != null) {
+                        nextLevelNodes.add(curr.left);
+                    }
+                    if (curr.right != null) {
+                        nextLevelNodes.add(curr.right);
+                    }
+                }
+            }
+            if (nextLevelNodes.stream().anyMatch(Objects::nonNull)) {
+                currLevelNodes.addAll(nextLevelNodes);
+            }
+            answer++;
+        }
+        return answer;
+    }
+
+    /**
      * 112. Path Sum
      * 路径总和
      * @param root
