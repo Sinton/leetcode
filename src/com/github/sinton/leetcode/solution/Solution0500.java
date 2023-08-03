@@ -564,28 +564,26 @@ public class Solution0500 {
      * @return
      */
     public int maxDepth(TreeNode root) {
-        int depth = 0;
-        if (root != null) {
-            TreeNode curr;
-            Queue<TreeNode> currLevelQueue = new LinkedList<>();
-            Queue<TreeNode> nextLevelQueue = new LinkedList<>();
-            currLevelQueue.offer(root);
-            depth++;
-            while (!currLevelQueue.isEmpty()) {
-                curr = currLevelQueue.poll();
-                if (curr.left != null) {
-                    nextLevelQueue.offer(curr.left);
-                }
-                if (curr.right != null) {
-                    nextLevelQueue.offer(curr.right);
-                }
-                if (currLevelQueue.isEmpty()) {
-                    if (!nextLevelQueue.isEmpty()) {
-                        currLevelQueue.addAll(nextLevelQueue);
-                        nextLevelQueue.clear();
-                        depth++;
-                    }
-                }
+        if (root == null) {
+            return 0;
+        }
+        int depth = 1;
+        TreeNode curr;
+        Queue<TreeNode> currLevelQueue = new LinkedList<>();
+        Queue<TreeNode> nextLevelQueue = new LinkedList<>();
+        currLevelQueue.offer(root);
+        while (!currLevelQueue.isEmpty()) {
+            curr = currLevelQueue.poll();
+            if (curr.left != null) {
+                nextLevelQueue.offer(curr.left);
+            }
+            if (curr.right != null) {
+                nextLevelQueue.offer(curr.right);
+            }
+            if (currLevelQueue.isEmpty() && !nextLevelQueue.isEmpty()) {
+                currLevelQueue.addAll(nextLevelQueue);
+                nextLevelQueue.clear();
+                depth++;
             }
         }
         return depth;
@@ -601,7 +599,7 @@ public class Solution0500 {
         if (root == null) {
             return 0;
         }
-        int answer = 1;
+        int depth = 1;
         Queue<TreeNode> currLevelNodes = new LinkedList<>();
         currLevelNodes.offer(root);
         while (!currLevelNodes.isEmpty()) {
@@ -610,7 +608,7 @@ public class Solution0500 {
                 TreeNode curr = currLevelNodes.poll();
                 if (curr != null) {
                     if (curr.left == null && curr.right == null) {
-                        return answer;
+                        return depth;
                     }
                     if (curr.left != null) {
                         nextLevelNodes.add(curr.left);
@@ -623,9 +621,9 @@ public class Solution0500 {
             if (nextLevelNodes.stream().anyMatch(Objects::nonNull)) {
                 currLevelNodes.addAll(nextLevelNodes);
             }
-            answer++;
+            depth++;
         }
-        return answer;
+        return depth;
     }
 
     /**

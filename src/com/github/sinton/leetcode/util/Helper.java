@@ -211,24 +211,26 @@ public class Helper {
         if (root == null) {
             return 0;
         }
-        int height = 0;
-        Queue<TreeNode> currLevelNodes = new LinkedList<>();
-        currLevelNodes.offer(root);
-        while (!currLevelNodes.isEmpty()) {
-            List<TreeNode> nextLevelNodes = new ArrayList<>();
-            while (!currLevelNodes.isEmpty()) {
-                TreeNode curr = currLevelNodes.poll();
-                if (curr != null) {
-                    nextLevelNodes.add(curr.left);
-                    nextLevelNodes.add(curr.right);
-                }
+        int depth = 1;
+        TreeNode curr;
+        Queue<TreeNode> currLevelQueue = new LinkedList<>();
+        Queue<TreeNode> nextLevelQueue = new LinkedList<>();
+        currLevelQueue.offer(root);
+        while (!currLevelQueue.isEmpty()) {
+            curr = currLevelQueue.poll();
+            if (curr.left != null) {
+                nextLevelQueue.offer(curr.left);
             }
-            if (nextLevelNodes.stream().anyMatch(Objects::nonNull)) {
-                currLevelNodes.addAll(nextLevelNodes);
+            if (curr.right != null) {
+                nextLevelQueue.offer(curr.right);
             }
-            height++;
+            if (currLevelQueue.isEmpty() && !nextLevelQueue.isEmpty()) {
+                currLevelQueue.addAll(nextLevelQueue);
+                nextLevelQueue.clear();
+                depth++;
+            }
         }
-        return height;
+        return depth;
     }
 
     /**
