@@ -44,6 +44,21 @@ public class Solution1000 {
     }
 
     /**
+     * 557. Reverse Words in a String III
+     * 反转字符串中的单词 III
+     * @param s
+     * @return
+     */
+    public String reverseWords(String s) {
+        String[] words = s.split(" ");
+        StringBuilder result = new StringBuilder();
+        for(int i = 0; i < words.length; i++) {
+            result.append(new StringBuffer(words[i]).reverse()).append(i != words.length - 1 ? " " : "");
+        }
+        return result.toString();
+    }
+
+    /**
      * 566. Reshape the Matrix
      * 重塑矩阵
      * @param mat
