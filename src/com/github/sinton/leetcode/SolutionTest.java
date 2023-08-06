@@ -1541,6 +1541,22 @@ public class SolutionTest {
     }
 
     /**
+     * 1022. Sum of Root To Leaf Binary Numbers
+     * 从根到叶的二进制数之和
+     */
+    @Test
+    public void sumRootToLeaf() {
+        Integer[][] testCase = {
+            {1, 0, 1, 0, 1, 0, 1},
+            {0}
+        };
+        for (Integer[] caseItem : testCase) {
+            TreeNode root = Helper.buildTreeNode(caseItem);
+            System.out.println(solution1500.sumRootToLeaf(root));
+        }
+    }
+
+    /**
      * 1046. Last Stone Weight
      * 最后一块石头的重量
      */

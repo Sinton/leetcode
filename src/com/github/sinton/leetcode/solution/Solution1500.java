@@ -35,6 +35,28 @@ public class Solution1500 {
     }
 
     /**
+     * 1022. Sum of Root To Leaf Binary Numbers
+     * 从根到叶的二进制数之和
+     * @param root
+     * @return
+     */
+    public int sumRootToLeaf(TreeNode root) {
+        int answer = 0;
+        if (root.left == null && root.right == null) {
+            return root.val;
+        }
+        if (root.left != null) {
+            root.left.val += root.val << 1;
+            answer += sumRootToLeaf(root.left);
+        }
+        if (root.right != null) {
+            root.right.val += root.val << 1;
+            answer += sumRootToLeaf(root.right);
+        }
+        return answer;
+    }
+
+    /**
      * 1046. Last Stone Weight
      * 最后一块石头的重量
      * @param stones
